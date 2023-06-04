@@ -8,10 +8,6 @@
 ?>
 
 
-
-
-
-
 <?php if ($db) : ?>
 	<?php if(isset($_SESSION['id'])):?> 
 	<div class="row"style="margin-top: 20px" >
