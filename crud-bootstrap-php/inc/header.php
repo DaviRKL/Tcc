@@ -120,11 +120,7 @@ font-family: 'Roboto Condensed', sans-serif;
 				margin-top: 10px;
 				
 			}
-			.footer{
-				-webkit-box-shadow: inset 1px 13px 13px -8px rgba(0,0,0,0.75);
--moz-box-shadow: inset 1px 13px 13px -8px rgba(0,0,0,0.75);
-box-shadow: inset 1px 13px 13px -8px rgba(0,0,0,0.75);
-			}
+			
 			.navbar{
 				-webkit-box-shadow: 2px 17px 13px -4px rgba(0,0,0,0.75);
 -moz-box-shadow: 2px 17px 13px -4px rgba(0,0,0,0.75);

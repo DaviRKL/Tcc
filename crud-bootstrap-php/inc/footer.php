@@ -26,9 +26,9 @@ box-shadow: inset -5px 6px 13px -8px rgba(0,0,0,0.75);
 	 <div class="p-4" style="background-color: rgba(0, 0, 0, 0.05);">
 		<p>&copy;<?php echo $d->format('Y');?> TDEV 
 		
-		<a style="align: right" href="https://instagram.com/davirkl67" target="_blank"><img src="https://img.shields.io/badge/-Instagram-%23E4405F?style=for-the-badge&logo=instagram&logoColor=white" target="_blank"></a>
+		<a style="align: right" href="https://instagram.com/" target="_blank"><img src="https://img.shields.io/badge/-Instagram-%23E4405F?style=for-the-badge&logo=instagram&logoColor=white" target="_blank"></a>
 			<a href = "mailto: davirkl07@gmail.com"><img src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
-			<a href = "https://github.com/DaviRKL"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" target="_blank"></a>	
+			<a href = "https://github.com/DaviRKL/Tcc"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" target="_blank"></a>	
 		</p>
 		
 	 </div>
