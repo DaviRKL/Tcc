@@ -10,8 +10,11 @@
   color: white;
   text-align: center;
   height:  55px;
-  
+  -webkit-box-shadow: inset -5px 6px 13px -8px rgba(0,0,0,0.75);
+-moz-box-shadow: inset -5px 6px 13px -8px rgba(0,0,0,0.75);
+box-shadow: inset -5px 6px 13px -8px rgba(0,0,0,0.75);
 }
+
 
 </style>
 	<footer  id="footer">
