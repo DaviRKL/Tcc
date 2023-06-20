@@ -199,15 +199,7 @@ a:hover{
     color: currentColor;
 }
 
-header{
 
-    width: 100vw;
-    height: 100px;
-    background-color: #fff;
-    box-shadow: 0px 3px 8px rgba(0, 0, 0, 25%);
-    display: flex;
-    align-items: center;
-}
 
 header .container-fluid{
 
@@ -348,6 +340,7 @@ header .mobile-toggler{
 
 .modal-body .modal-line{
 
+	
     width: 100%;
     display: flex;
     align-items: center;
@@ -444,7 +437,7 @@ header .mobile-toggler{
 @media(max-width:767px){
 
     .section-1 p{
-
+		
         font-size: 50px;
         text-align: start;
         width: 70%;
@@ -476,8 +469,8 @@ header .mobile-toggler{
 							<ul class="navbar-nav">
 								<li class="nav-item">
 									<form class="d-flex" role="search">
-									<i class="fa-solid fa-paw fa-2x" style="color: #fff; margin-right: 10px; margin-top: 3px"></i><input class="form-control me-2" style="width: 400px" type="search" placeholder="Pesquisar" aria-label="Search">
-										<button class="btn btn-outline-success" type="submit" style="color: #fff; background-color: #8396A8; border-color: #00a4b4;">Pesquisar</button>
+										<i class="fa-solid fa-paw fa-2x" style="color: #fff; margin-right: 10px; margin-top: 3px; border: 0px; "></i><input class="form-control me-2" style="width: 400px;box-shadow: 4px 6px 7px -2px rgba(0,0,0,0.68);-webkit-box-shadow: 4px 6px 7px -2px rgba(0,0,0,0.68);-moz-box-shadow: 4px 6px 7px -2px rgba(0,0,0,0.68);" type="search" placeholder="Pesquisar" aria-label="Search">
+										<button class="btn btn-outline-success" type="submit" style="color: #fff; border: 0px; background-color: #8396A8; box-shadow: 2px 3px 5px 1px rgba(0,0,0,0.68);-webkit-box-shadow: 2px 3px 5px 1px rgba(0,0,0,0.68);-moz-box-shadow: 2px 3px 5px 1px rgba(0,0,0,0.68);">Pesquisar</button>
 									</form>
 								</li>
 							</ul>

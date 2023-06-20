@@ -19,28 +19,20 @@ border:4px solid #7914C7 ; width: 200px;
 label{
 	align: left
 }
+
  
 </style>
-
 <div style="background-color: #00a4b4; border-radius: 50px; margin-top:20px">
-<div style="padding: 20px">
-
-<header style="margin-top:10px;">
-	
-		<div style="display: flex;flex-direction: row;justify-content: center; align-items: center;margin-left: 120px">
-			<h2>MEUS PETS</h2>
-			  
-			
-<?php if(isset($_SESSION['id'])):?> 
-				<a class="btn btn-secondary" href="add.php" style="margin-left:20px"><i class="fa fa-plus"></i> Novo pet</a>
-                                <?php endif; ?>
-								</div> 
-
-			
-				
-	
-</header>
-
+	<div style="padding: 20px">
+		<header style="margin-top:10px;">
+			<div style="display: flex;flex-direction: row;justify-content: center; align-items: center;margin-left: 120px">
+				<h2>MEUS PETS</h2>		
+					<?php if(isset($_SESSION['id'])):?> 
+						<a class="btn btn-secondary" href="add.php" style="margin-left:20px"><i class="fa fa-plus"></i> Novo pet</a>
+					<?php endif; ?>
+			</div> 
+		</header>
+	</div>
 <?php if (!empty($_SESSION['message'])) : ?>
 	<div class="alert alert-<?php echo $_SESSION['type']; ?> alert-dismissible" role="alert">
 		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>

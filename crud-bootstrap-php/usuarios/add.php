@@ -16,28 +16,30 @@ ob_start();
         <?php clear_messages();?>
       <?php endif; ?>
       <div style="background-color: #00a4b4; border-radius: 15px; margin-top:50px">
-      <h2>  Novo Usuário</h2>
+      <div style="padding: 20px; display: flex;flex-direction: row;justify-content: center; align-items: center;margin-left: 120px;margin-right: 120px">
+      <h2> Novo Usuário</h2>
+      </div>
       <form action="add.php" method="post" enctype="multipart/form-data" style="padding: 20px">
         <!-- area de campos do form -->
    
           <div class="row">
-              <div class="form-group col-md-4">
+              <div class="form-group col-md-6">
                   <label for="name">Nome</label>
                   <input type="text" class="form-control" name="usuario[nome]">
               </div>
 
-              <div class="form-group col-md-4">
+              <div class="form-group col-md-6">
                   <label for="campo2">Usuário (Login)</label>
                   <input type="text" class="form-control" name="usuario[user]">
               </div>
 
-              <div class="form-group col-md-4">
+              <div class="form-group col-md-6">
                   <label for="campo3">Senha</label>
                   <input type="password" class="form-control" name="usuario['password']">
               </div>
-          </div>
+         
           
-          <div class="row">
+         
               <div class="form-group col-md-4">
                   <label for="campo1">Foto</label>
                   <input type="file" class="form-control" id="foto" name="foto">
@@ -50,9 +52,11 @@ ob_start();
             </div>
             
             <div id="actions" class="row">
-                <div class="col-md-12">
-                    <button type="submit" class="btn btn-secondary" href="<?php echo BASEURL; ?>index.php">Salvar</button>
-                    <a href="index.php" class="btn btn-light">Cancelar</a>
+                <div class="col-md-6">
+                    <button type="submit" class="btn btn-secondary" href="<?php echo BASEURL; ?>index.php" style="width: 620px">Salvar</button>
+                    </div>
+                    <div class="col-md-6">
+                    <a href="<?php echo BASEURL; ?>index.php" class="btn btn-light" style="width: 620px">Cancelar</a>
                 </div>
           </div>
           </div>

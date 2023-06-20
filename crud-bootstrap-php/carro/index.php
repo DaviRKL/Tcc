@@ -28,16 +28,12 @@ label{
 		<div class="col-sm-6">
 			<h2>Carros</h2>
 		</div>
-                
-		
-		
-			<div class="col-sm-6 text-end h2" >
-                        <?php if(isset($_SESSION['id'])):?> 
-				<a class="btn btn-secondary" href="add.php"  ><i class="fa fa-plus"></i> Novo Carro</a>
-                                <?php endif; ?>
-				<a class="btn btn-default" href="index.php"><i class="fa fa-refresh"></i> Atualizar</a>
-			</div>
-		
+		<div class="col-sm-6 text-end h2" >
+					<?php if(isset($_SESSION['id'])):?> 
+			<a class="btn btn-secondary" href="add.php"  ><i class="fa fa-plus"></i> Novo Carro</a>
+							<?php endif; ?>
+			<a class="btn btn-default" href="index.php"><i class="fa fa-refresh"></i> Atualizar</a>
+		</div>	
 	</div>
 </header>
 <form name = "filtro" method="post" action="index.php">
@@ -49,7 +45,7 @@ label{
 					</div>
 				</div>
 			</div>
-		</form>
+</form>
 <?php if (!empty($_SESSION['message'])) : ?>
 	<div class="alert alert-<?php echo $_SESSION['type']; ?> alert-dismissible" role="alert">
 		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
