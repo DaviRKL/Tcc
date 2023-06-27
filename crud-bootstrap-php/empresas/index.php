@@ -50,7 +50,9 @@ label{
 				</div>
 			</div>
 		</form>
-<?php if (!empty($_SESSION['message'])) : ?>
+		
+<?php 
+if (!empty($_SESSION['message'])) : ?>
 	<div class="alert alert-<?php echo $_SESSION['type']; ?> alert-dismissible" role="alert">
 		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 		<?php echo $_SESSION['message']; ?>

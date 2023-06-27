@@ -77,6 +77,7 @@ if(isset($_POST['USER']) || isset($_POST['senha'])) {
 		<link rel="stylesheet" href="<?php echo BASEURL; ?>css/bootstrap/bootstrap.min.css">
 		<link rel="stylesheet"  href="<?php echo BASEURL; ?>css/normalize.css">
 		<link rel="stylesheet" href="<?php echo BASEURL; ?>css/awesome/all.min.css">
+		<script src="https://www.google.com/recaptcha/api.js"></script>
 		<style>
 
 				@import url('https://fonts.googleapis.com/css2?family=Karla:wght@300&family=Roboto+Condensed:wght@300&display=swap');
@@ -183,7 +184,6 @@ font-family: 'Roboto Condensed', sans-serif;
 
 body{
 
-    
 font-family: 'Roboto Condensed', sans-serif;
     overflow-x: hidden;
 }
@@ -494,28 +494,37 @@ header .mobile-toggler{
 				</div>	
 				<div class="form-group col-md-2">
 					<ul class="navbar-nav ml-auto">
-						<?php if(isset($_SESSION['id'])):?>
-								<H5 style="color: whitesmoke, padding-right: 20px;"><i class="fa-solid fa-user"></i>  Bem vindo, <?php echo $_SESSION['user'];  ?></H5>            
-						<?php endif; ?>
+						
 					</ul>	 
 				</div>
 			
 				<div class="form-group col-md-2">
 					<ul class="navbar-nav mr-auto">
+					<?php if(isset($_SESSION['id'])):?>
+						<div class="form-group col-md-6">
+							<H5 style="color: whitesmoke, padding-right: 20px;padding-top: 7px;"><i class="fa-solid fa-user"></i>  Bem vindo, <?php echo $_SESSION['user'];  ?></H5>  
+						</div>
+								          
+						<?php endif; ?>
 						<?php if(!isset($_SESSION['id'])):?>
 							<div class="form-group col-md-3">
 								<a class="nav-link" href="<?php echo BASEURL; ?>login.php">Entre</a>		
 							</div>
 							<div class="form-group col-md-5">
-								<a class="nav-link" href="<?php echo BASEURL; ?>usuarios/add.php">Cadastre-se  <i class="fa-solid fa-user"></i></a>
+								<a class="nav-link" href="<?php echo BASEURL; ?>usuarios/add.php">Cadastre-se<i class="fa-solid fa-user"></i></a>
 							</div>
 						<?php endif; ?>
+						
+								
+							
+						<?php if(isset($_SESSION['id'])):?>
+							<div class="form-group col-md-5">
+						<a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#logoutmodal"><i class="fa-solid fa-right-from-bracket"></i> Sair</a>
+						</div>
+					<?php endif; ?>	 
 					</ul>
 				</div>
-					
-					<?php if(isset($_SESSION['id'])):?>
-						<a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#logoutmodal"><i class="fa-solid fa-right-from-bracket"></i> Sair</a>
-					<?php endif; ?>	 
+				
 			</div>
 		</nav>
 

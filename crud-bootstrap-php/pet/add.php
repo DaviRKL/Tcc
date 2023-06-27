@@ -8,7 +8,7 @@ include('../protect.php');
 <?php include(HEADER_TEMPLATE); ?>
 
 
-<div style="background-color: #00a4b4; border-radius: 15px; margin-top:20px">
+<div style="background-color: #00a4b4; border-radius: 15px; margin-top:35px">
 
 <form action="add.php" enctype="multipart/form-data" method="post" style="padding: 20px">
 <h2>Novo pet</h2>
