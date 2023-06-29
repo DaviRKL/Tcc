@@ -140,9 +140,8 @@ font-family: 'Roboto Condensed', sans-serif;
 			}
 			table{ 
 				
-font-family: 'Roboto Condensed', sans-serif;
+				font-family: 'Roboto Condensed', sans-serif;
 				background:#00a4b4; 
-				
 				border-radius: 15px;
 			}
 			td,th{
@@ -437,7 +436,7 @@ header .mobile-toggler{
     text-align: center;
 }
 label{
-	display: flex;flex-direction: row;justify-content: center; align-items: center; margin-top: 20px;
+	display: flex;flex-direction: row;justify-content: center; align-items: center; margin-top: 20px; 
 }
 
 @media(max-width:767px){
@@ -467,9 +466,16 @@ label{
 								</li>
 						</ul>
 						<ul class="navbar-nav me-auto mb-6 mb-lg-0">
-								<li class="nav-item">
-									<a class="nav-link" href="<?php echo BASEURL; ?>pet" role="button"><i class="fa-solid fa-dog"></i>Pets</a>
-								</li>
+							<li class="nav-item">
+								<a class="nav-link" href="<?php echo BASEURL; ?>pet" role="button"><i class="fa-solid fa-dog"></i>Pets</a>
+							</li>
+							<?php if(isset($_SESSION['id'])):?> 
+								<?php if ($_SESSION['user']=="admin"):?>
+									<li class="nav-item">
+										<a class="nav-link" href="<?php echo BASEURL; ?>empresas" ><i class="fa-solid fa-user-tie"></i> Empresas</a>
+									</li>
+								<?php endif; ?>
+							<?php endif; ?>	
 						</ul>
 						<div class="barra">
 							<ul class="navbar-nav">
@@ -481,21 +487,6 @@ label{
 								</li>
 							</ul>
 						</div>
-						<?php if(isset($_SESSION['id'])):?> 
-							<?php if ($_SESSION['user']=="admin"):?>
-								<ul class="navbar-nav">
-									<a class="nav-link" href="<?php echo BASEURL; ?>empresas" ><i class="fa-solid fa-user-tie"></i> Empresas</a>
-									<a class="nav-link" href="<?php echo BASEURL; ?>ongs"><i class="fa-solid fa-car-on"></i> Adoção</a>
-										<li class="nav-item dropdown">
-											<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"><i class="fa-solid fa-users"></i> Usuários</a>
-												<ul class="dropdown-menu">
-													<li><a class="dropdown-item" href="<?php echo BASEURL; ?>usuarios/add.php"><i class="fa-solid fa-user-plus"></i> Adicionar usuários</a></li>
-													<li><a class="dropdown-item"  href="<?php echo BASEURL; ?>usuarios"><i class="fa-solid fa-users"></i> Usuários</a></li>
-												</ul>
-										</li>
-								</ul>
-							<?php endif; ?>
-						<?php endif; ?>	
 					</div>
 				</div>	
 				<div class="form-group col-md-2">
@@ -508,9 +499,8 @@ label{
 					<ul class="navbar-nav mr-auto">
 					<?php if(isset($_SESSION['id'])):?>
 						<div class="form-group col-md-6">
-							<H5 style="color: whitesmoke, padding-right: 20px;padding-top: 7px;"><i class="fa-solid fa-user"></i>  Bem vindo, <?php echo $_SESSION['user'];  ?></H5>  
-						</div>
-								          
+							<p style="color: whitesmoke, padding-right: 20px;margin-top: 9px;"><i class="fa-solid fa-user"></i>  Bem vindo, <?php echo $_SESSION['user'];  ?></p>  
+						</div>	          
 						<?php endif; ?>
 						<?php if(!isset($_SESSION['id'])):?>
 							<div class="form-group col-md-3">
@@ -526,12 +516,12 @@ label{
 							<a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#logoutmodal"><i class="fa-solid fa-right-from-bracket"></i> Sair</a>
 						</div>
 					<?php endif; ?>	 
+					
 					</ul>
 				</div>
 				
 			</div>
 		</nav>
-
 	</body>
  <main class="container">
 <?php include('modaluser.php'); ?>

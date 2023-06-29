@@ -13,11 +13,10 @@ $agendamento = null;
 function index() {
 	global $agendamentos;
 	
-  $agendamento = $_POST['agendamento'];
-  if ( $_SESSION['id'] == $agendamento['id_usuario']){
+
+ 
     $agendamentos = find_all('agendamentos');
-    
-  }
+ 
 }
 
 
