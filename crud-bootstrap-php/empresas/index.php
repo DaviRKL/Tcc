@@ -17,26 +17,27 @@ ob_start();
 
 <div style="background-color: #00a4b4; border-radius: 50px; margin-top:30px">
 	<div style="padding: 20px">
-		<header style="margin-top:10px;">
-			<div class="row">
-				<div class="col-md-11" style="display: flex;flex-direction: row;justify-content: center; align-items: center;margin-left: 120px">
-					<h2>Carros</h2>
-					<?php if(isset($_SESSION['id'])):?> 
-						<a class="btn btn-secondary" href="add.php" style="margin-left: 20px"  ><i class="fa fa-plus"></i> Novo Carro</a>
-					<?php endif; ?>
+		<div class="row">
+			<header style="margin-top:10px;">
+				<div class="col-md-11" style="display: flex;flex-direction: row;justify-content: center; align-items: center;margin-left: 100px">
+					<h2>Agendamentos marcados</h2>
 				</div>
-			</div>
-		</header>
-		<form name = "filtro" method="post" action="index.php">
-			<div class="row">
-				<div class = "form-group col-md-4">
+			</header>
+			<div class="col-md-11" style="display: flex;flex-direction: row;justify-content: center; align-items: center;margin-left: 120px">
+					
+				
+			<form name = "filtro" method="post" action="index.php">
+					<div class = "form-group col-md-11">
 					<div class ="input-group mb-3">
-						<input type="text" class="form-control" maxlength="80" name="cars" required>
+					<input type="text" class="form-control" maxlength="80" name="cars" placeholder="nome"required>
 						<button type="submit" class="btn btn-secondary"><i class='fas fa-search'></i> Consultar</button>
 					</div>
-				</div>
+					</div>
 			</div>
 		</form>		
+		</div>
+	
+		
 		<?php 
 		if (!empty($_SESSION['message'])) : ?>
 			<div class="alert alert-<?php echo $_SESSION['type']; ?> alert-dismissible" role="alert">
@@ -54,8 +55,8 @@ ob_start();
 						<th width='120px'style="background-color: #0ACCA7; color:#FFF">Marca</th>
 						<th width='100px'style="background-color: #0ACCA7; color:#FFF">Ano</th>
 						<th width='80px'style="background-color: #0ACCA7; color:#FFF">Data de cadastro</th>
-						<th width='150px'style="background-color: #0ACCA7; color:#FFF">Foto</th>
-						<th width='200px'style="background-color: #0ACCA7; color:#FFF">Opções</th>
+						<th width='250px'style="background-color: #0ACCA7; color:#FFF">Foto</th>
+						<th width='100px'style="background-color: #0ACCA7; color:#FFF">Opções</th>
 					</tr>
 				</tr>
 			</thead>
@@ -77,11 +78,10 @@ ob_start();
 							}
 							$id = base64_encode($carro['id']);
 							?></td>
-							<td style="background-color: #0ACCA7; color:#FFF"class="actions text-start"> 
+							<td style="background-color: #0ACCA7; color:#FFF" class="actions text-start"> 
 								
 								<?php if(isset($_SESSION['id'])):?> 
-							
-									<a href="#" class="btn btn-sm btn-dark" data-bs-toggle="modal" data-bs-target="#delete-carro-modal" data-carro="<?php echo $carro['id']; ?>" ><i class="fa-solid fa-circle-check"></i> Concluir</a>
+									<a href="#" class="btn btn-sm btn-dark"  style="display: flex;flex-direction: row;justify-content: center; align-items: center;margin-top: 40px" data-bs-toggle="modal" data-bs-target="#delete-carro-modal" data-carro="<?php echo $carro['id']; ?>" ><i class="fa-solid fa-circle-check"></i>  Concluir</a>
 								<?php endif; ?>
 							</td>
 						</tr>
