@@ -6,7 +6,8 @@
 	$db = open_database();
 ?>
 
-	<div class="row"style="margin-top: 20px" >
+	<div class="row"style="margin-top: 20px;background-color: #00a4b4; border-radius: 50px; margin-top:20px" >
+	<div style="padding: 20px">
 	<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -15,13 +16,13 @@
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="images/ban.jpg" style="height:500px;"class="d-block w-100" alt="...">
+      <img src="images/ban.jpg" style="height:500px;border-radius: 50px;"class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="images/ca.jpg" style="height:500px;"class="d-block w-100" alt="...">
+      <img src="images/ca.jpg" style="height:500px;border-radius: 50px;"class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="images/banban.jpg" style="height:500px;" class="d-block w-100" alt="...">
+      <img src="images/banban.jpg" style="height:500px;border-radius: 50px;" class="d-block w-100" alt="...">
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -34,6 +35,8 @@
   </button>
 </div>
 	</div>
+  </div>
+  </div>
 
 
 

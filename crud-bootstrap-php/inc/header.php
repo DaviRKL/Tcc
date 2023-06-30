@@ -9,8 +9,6 @@ $Senha = '';
 $Database = 'wda_crud';
 $Host = 'localhost';
 
-
-
 $mysqli = new mysqli($Host, $Usuario, $Senha, $Database);
 
 if($mysqli->error){
@@ -482,7 +480,7 @@ label{
 								<li class="nav-item">
 									<form class="d-flex" role="search">
 										<i class="fa-solid fa-paw fa-2x" style="color: #fff; margin-right: 10px; margin-top: 3px; border: 0px; "></i><input class="form-control me-2" style="width: 400px;box-shadow: 4px 6px 7px -2px rgba(0,0,0,0.68);-webkit-box-shadow: 4px 6px 7px -2px rgba(0,0,0,0.68);-moz-box-shadow: 4px 6px 7px -2px rgba(0,0,0,0.68);" type="search" placeholder="Pesquisar" aria-label="Search">
-										<button class="btn btn-outline-success" type="submit" style="color: #fff; border: 0px; background-color: #8396A8; box-shadow: 2px 3px 5px 1px rgba(0,0,0,0.68);-webkit-box-shadow: 2px 3px 5px 1px rgba(0,0,0,0.68);-moz-box-shadow: 2px 3px 5px 1px rgba(0,0,0,0.68);">Pesquisar</button>
+										<button class="btn btn-outline-success" type="submit" style="color: #fff; border: 0px; background-color: #0ACCA7; box-shadow: 2px 3px 5px 1px rgba(0,0,0,0.68);-webkit-box-shadow: 2px 3px 5px 1px rgba(0,0,0,0.68);-moz-box-shadow: 2px 3px 5px 1px rgba(0,0,0,0.68);">Pesquisar</button>
 									</form>
 								</li>
 							</ul>

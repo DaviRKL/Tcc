@@ -16,28 +16,24 @@ ob_start();
 </style>
 
 <div style="background-color: #00a4b4; border-radius: 50px; margin-top:30px">
-	<div style="padding: 20px">
+	<div style="padding: 10px">
 		<div class="row">
-			<header style="margin-top:10px;">
+			<header >
 				<div class="col-md-11" style="display: flex;flex-direction: row;justify-content: center; align-items: center;margin-left: 100px">
 					<h2>Agendamentos marcados</h2>
 				</div>
 			</header>
 			<div class="col-md-11" style="display: flex;flex-direction: row;justify-content: center; align-items: center;margin-left: 120px">
-					
-				
 			<form name = "filtro" method="post" action="index.php">
 					<div class = "form-group col-md-11">
-					<div class ="input-group mb-3">
-					<input type="text" class="form-control" maxlength="80" name="cars" placeholder="nome"required>
-						<button type="submit" class="btn btn-secondary"><i class='fas fa-search'></i> Consultar</button>
-					</div>
+						<div class ="input-group mb-3">
+							<input type="text" class="form-control" maxlength="80" name="cars" placeholder="nome" required>
+							<button type="submit" class="btn btn-secondary"><i class='fas fa-search'></i> Consultar</button>
+						</div>
 					</div>
 			</div>
 		</form>		
 		</div>
-	
-		
 		<?php 
 		if (!empty($_SESSION['message'])) : ?>
 			<div class="alert alert-<?php echo $_SESSION['type']; ?> alert-dismissible" role="alert">
@@ -50,12 +46,12 @@ ob_start();
 			<thead style="background-color: #0ACCA7">
 				<tr>
 					<tr>
-						<th width='40px' style="background-color: #0ACCA7; color:#FFF">Id</th>
-						<th width='120px'style="background-color: #0ACCA7; color:#FFF">Modelo</th>
-						<th width='120px'style="background-color: #0ACCA7; color:#FFF">Marca</th>
-						<th width='100px'style="background-color: #0ACCA7; color:#FFF">Ano</th>
-						<th width='80px'style="background-color: #0ACCA7; color:#FFF">Data de cadastro</th>
-						<th width='250px'style="background-color: #0ACCA7; color:#FFF">Foto</th>
+						<th width='100px' style="background-color: #0ACCA7; color:#FFF">Data</th>
+						<th width='80px'style="background-color: #0ACCA7; color:#FFF">Horário</th>
+						<th width='120px'style="background-color: #0ACCA7; color:#FFF">Serviço</th>
+						<th width='120px'style="background-color: #0ACCA7; color:#FFF">Nome do Tutor</th>
+						<th width='120px'style="background-color: #0ACCA7; color:#FFF">Nome do Pet</th>
+						<th width='200px'style="background-color: #0ACCA7; color:#FFF">Foto do Pet</th>
 						<th width='100px'style="background-color: #0ACCA7; color:#FFF">Opções</th>
 					</tr>
 				</tr>
@@ -79,9 +75,11 @@ ob_start();
 							$id = base64_encode($carro['id']);
 							?></td>
 							<td style="background-color: #0ACCA7; color:#FFF" class="actions text-start"> 
-								
 								<?php if(isset($_SESSION['id'])):?> 
-									<a href="#" class="btn btn-sm btn-dark"  style="display: flex;flex-direction: row;justify-content: center; align-items: center;margin-top: 40px" data-bs-toggle="modal" data-bs-target="#delete-carro-modal" data-carro="<?php echo $carro['id']; ?>" ><i class="fa-solid fa-circle-check"></i>  Concluir</a>
+									<div style="display: flex;flex-direction: row;justify-content: center; align-items: center;margin-top: 40px">
+										<a href="view.php?id=<?php echo $carro['id']; ?>" style="margin-right: 4px"class="btn btn-dark"><i class="fa fa-eye"></i> Ver Pet</a>
+										<a href="#" class="btn  btn-dark"   data-bs-toggle="modal" data-bs-target="#delete-carro-modal" data-carro="<?php echo $carro['id']; ?>" ><i class="fa-solid fa-circle-check"></i>  Concluir</a>
+									</div>
 								<?php endif; ?>
 							</td>
 						</tr>
