@@ -40,7 +40,7 @@ font-family: 'Roboto Condensed', sans-serif;
 				
 			}
 			
-			.navbar{
+			.navbar, .card{
 				-webkit-box-shadow: 2px 17px 13px -4px rgba(0,0,0,0.75);
 -moz-box-shadow: 2px 17px 13px -4px rgba(0,0,0,0.75);
 box-shadow: 2px 17px 13px -4px rgba(0,0,0,0.75);
