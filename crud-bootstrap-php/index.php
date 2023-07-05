@@ -49,9 +49,9 @@ box-shadow: 5px 12px 13px 11px rgba(0,0,0,0.75);
 <div class="container text-center">
   <div class="row">
   
-    <div class="col-3"style="padding: 20px">
-     <div class="card" style="width: 17rem;padding-top: 20px">
-        <img src="images/paw.png" class="card-img-top" alt="...">
+    <div class="col-md-3"style="padding: 20px">
+     <div class="card" style="width: 18rem;">
+        <img src="images/pawww.jpg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Card title</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -59,9 +59,19 @@ box-shadow: 5px 12px 13px 11px rgba(0,0,0,0.75);
         </div>
       </div>
     </div>
-    <div class="col-3"style="padding: 20px">
-    <div class="card" style="width: 17rem;padding-top: 20px">
-          <img src="images/paw.png" class="card-img-top" alt="...">
+    <div class="col-md-3"style="padding: 20px">
+    <div class="card" style="width: 18rem;">
+          <img src="images/pawww.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary"style="background-color: #0ACCA7; color: #FFF; border: 0px;box-shadow: 2px 3px 5px 1px rgba(0,0,0,0.68);-webkit-box-shadow: 2px 3px 5px 1px rgba(0,0,0,0.68);-moz-box-shadow: 2px 3px 5px 1px rgba(0,0,0,0.68);"">Go somewhere</a>
+          </div>
+          </div>
+    </div>
+    <div class="col-md-3"style="padding: 20px">
+    <div class="card" style="width: 18rem;">
+          <img src="images/pawww.jpg" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">Card title</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -70,18 +80,8 @@ box-shadow: 5px 12px 13px 11px rgba(0,0,0,0.75);
           </div>
     </div>
     <div class="col-3"style="padding: 20px">
-    <div class="card" style="width: 17rem;padding-top: 20px">
-          <img src="images/paw.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary"style="background-color: #0ACCA7; color: #FFF; border: 0px;box-shadow: 2px 3px 5px 1px rgba(0,0,0,0.68);-webkit-box-shadow: 2px 3px 5px 1px rgba(0,0,0,0.68);-moz-box-shadow: 2px 3px 5px 1px rgba(0,0,0,0.68);"">Go somewhere</a>
-          </div>
-          </div>
-    </div>
-    <div class="col-3"style="padding: 20px">
-    <div class="card" style="width: 17rem;padding-top: 20px">
-          <img src="images/paw.png" class="card-img-top" alt="...">
+    <div class="card" style="width: 18rem;">
+          <img src="images/pawww.jpg" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">Card title</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>

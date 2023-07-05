@@ -31,9 +31,11 @@ box-shadow: inset -5px 6px 13px -8px rgba(0,0,0,0.75);
 	</div>
 </footer>
 	<script src="<?php echo BASEURL; ?>js/jquery-3.7.0.min.js"></script>
+	
     <script src="<?php echo BASEURL; ?>js/bootstrap/bootstrap.min.js"></script>
 	<script src="<?php echo BASEURL; ?>js/awesome/all.min.js"></script>
     <script src="<?php echo BASEURL; ?>js/main.js"></script>
 	<script src="https://www.google.com/recaptcha/api.js"></script>
+	
 </body>
 </html>
