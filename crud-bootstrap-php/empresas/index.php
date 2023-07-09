@@ -20,11 +20,11 @@ include('../protectAdmin.php');
 	<div style="padding: 10px">
 		<div class="row">
 			<header >
-				<div class="col-md-11" style="display: flex;flex-direction: row;justify-content: center; align-items: center;margin-left: 100px">
-					<h2>Agendamentos marcados</h2>
+				<div class="col-md-11 mx-auto">
+					<h2 class="text-center">Agendamentos marcados</h2>
 				</div>
 			</header>
-			<div class="col-md-11" style="display: flex;flex-direction: row;justify-content: center; align-items: center;margin-left: 120px">
+			<div class="col-md-11 text-center" style="display: flex;flex-direction: row;justify-content: center; align-items: center;margin-left: 70px">
 			<form name = "filtro" method="post" action="index.php">
 					<div class = "form-group col-md-11">
 						<div class ="input-group mb-3">
@@ -43,55 +43,57 @@ include('../protectAdmin.php');
 			</div>
 			<?php clear_messages(); ?>
 		<?php endif; ?>
-		<table class="table table-hover" style="background-color: #0ACCA7;border-radius: 50px; " >
-			<thead style="background-color: #0ACCA7">
-				<tr>
+		<div class="table-responsive-md">
+			<table class="table table-hover table-sm align-middle table-borderless " style="background-color: #0ACCA7; --webkit-box-shadow: 5px -3px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 5px -3px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 5px -3px 5px 0px rgba(0,0,0,0.75);" >
+				<thead style="background-color: #0ACCA7">
 					<tr>
-						<th width='100px' style="background-color: #0ACCA7; color:#FFF">Data</th>
-						<th width='80px'style="background-color: #0ACCA7; color:#FFF">Horário</th>
-						<th width='120px'style="background-color: #0ACCA7; color:#FFF">Serviço</th>
-						<th width='120px'style="background-color: #0ACCA7; color:#FFF">Nome do Tutor</th>
-						<th width='120px'style="background-color: #0ACCA7; color:#FFF">Nome do Pet</th>
-						<th width='200px'style="background-color: #0ACCA7; color:#FFF">Foto do Pet</th>
-						<th width='100px'style="background-color: #0ACCA7; color:#FFF">Opções</th>
-					</tr>
-				</tr>
-			</thead>
-			<tbody >
-				<?php if ($carros) : ?>
-					<?php foreach ($carros as $carro) : ?>
-						<tr style="background-color: #00a4b4;">
-							<td style="background-color: #0ACCA7; color:#FFF"><?php echo $carro['id']; ?></td>
-							<td style="background-color: #0ACCA7; color:#FFF"><?php echo $carro['modelo']; ?></td>
-							<td style="background-color: #0ACCA7; color:#FFF"><?php echo $carro['marca']; ?></td>
-							<td style="background-color: #0ACCA7; color:#FFF"><?php echo $carro['ano']; ?></td>
-							<?php $d = new Datetime($carro['datacad']);?>
-							<td style="background-color: #0ACCA7; color:#FFF"><?php echo FormataData($carro['datacad']);?></td>
-							<td style="background-color: #0ACCA7; color:#FFF"><?php
-							if (!empty($carro['foto'])){
-								echo  "<img src=\"imagens/" . $carro['foto'] . "\" class=\"shadow p-1 mb-1 bg-body rounded\" width=\"200px\">";
-							}else{
-								echo  "<img src=\"imagens/SemImagem.png\" class=\"shadow p-1 mb-1 bg-body rounded\" width=\"200px\">";
-							}
-							$id = base64_encode($carro['id']);
-							?></td>
-							<td style="background-color: #0ACCA7; color:#FFF" class="actions text-start"> 
-								<?php if(isset($_SESSION['id'])):?> 
-									<div style="display: flex;flex-direction: row;justify-content: center; align-items: center;margin-top: 40px">
-										<a href="view.php?id=<?php echo $carro['id']; ?>" style="margin-right: 4px"class="btn btn-dark"><i class="fa fa-eye"></i> Ver Pet</a>
-										<a href="#" class="btn  btn-dark"   data-bs-toggle="modal" data-bs-target="#delete-carro-modal" data-carro="<?php echo $carro['id']; ?>" ><i class="fa-solid fa-circle-check"></i>  Concluir</a>
-									</div>
-								<?php endif; ?>
-							</td>
+						<tr>
+							<th width='100px' style="background-color: #0ACCA7; color:#FFF">Data</th>
+							<th width='80px'style="background-color: #0ACCA7; color:#FFF">Horário</th>
+							<th width='120px'style="background-color: #0ACCA7; color:#FFF">Serviço</th>
+							<th width='120px'style="background-color: #0ACCA7; color:#FFF">Nome do Tutor</th>
+							<th width='120px'style="background-color: #0ACCA7; color:#FFF">Nome do Pet</th>
+							<th width='200px'style="background-color: #0ACCA7; color:#FFF">Foto do Pet</th>
+							<th width='100px'style="background-color: #0ACCA7; color:#FFF">Opções</th>
 						</tr>
-					<?php endforeach; ?>
-				<?php else : ?>
-					<tr>
-						<td colspan="6">Nenhum registro encontrado.</td>
 					</tr>
-				<?php endif; ?>
-			</tbody>
-		</table>
+				</thead>
+				<tbody >
+					<?php if ($carros) : ?>
+						<?php foreach ($carros as $carro) : ?>
+							<tr style="background-color: #00a4b4;">
+								<td style="background-color: #0ACCA7; color:#FFF"><?php echo $carro['id']; ?></td>
+								<td style="background-color: #0ACCA7; color:#FFF"><?php echo $carro['modelo']; ?></td>
+								<td style="background-color: #0ACCA7; color:#FFF"><?php echo $carro['marca']; ?></td>
+								<td style="background-color: #0ACCA7; color:#FFF"><?php echo $carro['ano']; ?></td>
+								<?php $d = new Datetime($carro['datacad']);?>
+								<td style="background-color: #0ACCA7; color:#FFF"><?php echo FormataData($carro['datacad']);?></td>
+								<td style="background-color: #0ACCA7; color:#FFF"><?php
+								if (!empty($carro['foto'])){
+									echo  "<img src=\"imagens/" . $carro['foto'] . "\" class=\"shadow p-1 mb-1 bg-body rounded\" width=\"200px\">";
+								}else{
+									echo  "<img src=\"imagens/SemImagem.png\" class=\"shadow p-1 mb-1 bg-body rounded\" width=\"200px\">";
+								}
+								$id = base64_encode($carro['id']);
+								?></td>
+								<td style="background-color: #0ACCA7; color:#FFF" class="actions text-start"> 
+									<?php if(isset($_SESSION['id'])):?> 
+											<a href="view.php?id=<?php echo $carro['id']; ?>" style="width: 150px"class="btn btn-dark"><i class="fa fa-eye"></i> Ver Pet</a>
+											<a href="#" class="btn btn-dark" style="width: 150px"data-bs-toggle="modal" data-bs-target="#delete-carro-modal" data-carro="<?php echo $carro['id']; ?>" ><i class="fa-solid fa-circle-check"></i>  Concluir</a>
+									<?php endif; ?>
+								</td>
+							</tr>
+						<?php endforeach; ?>
+					<?php else : ?>
+						<tr>
+							<td colspan="6">Nenhum registro encontrado.</td>
+						</tr>
+					<?php endif; ?>
+				</tbody>
+			</table>
+		</div>
 	</div>
 </div>
 <?php include('modal.php'); ?>

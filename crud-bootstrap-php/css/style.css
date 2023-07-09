@@ -96,7 +96,9 @@ font-family: 'Roboto Condensed', sans-serif;
 			.nav-link:hover{
 				color:#FFF;
 			}
-			
+			.card{
+                background-color: #0ACCA7;
+              }
 		
 			p{
     color: whitesmoke;
