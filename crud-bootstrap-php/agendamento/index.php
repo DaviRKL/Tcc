@@ -41,16 +41,16 @@ label{
 			<?php clear_messages(); ?>
 		<?php endif; ?>
 		<div class="container text-center">
-  			<div class="row">
+  			<div class="row">       
 				<?php if ($agendamentos) : ?>
 					<?php foreach ($agendamentos as $agendamento) : ?>
 						<div class="col-md-4"style="padding: 20px">		
-							<div class="card" style="width: 20rem;">	
+							<div class="card" style="width: 20rem;">	 
 								<div class="card-body" style="background-color: #0ACCA7;">
 										<h4 class="card-title"style="color:#FFF; display: flex;flex-direction: row;justify-content: center; align-items: center;">Pet: <?php echo $agendamento['pet']; ?></h4>
 								</div>
-								<ul class="list-group list-group-flush table-borderless">
-										<li class="list-group-item"style=" background-color: #0ACCA7"><H5>Local: <?php echo $agendamento['loja']; ?></H5></li>
+								<ul class="list-group list-group-flush" style: >
+										<li class="list-group-item"style=" background-color: #0ACCA7"><H5>Local: <?php echo $agendamento['empresa']; ?></H5></li>
 										<li class="list-group-item"style=" background-color: #0ACCA7"><H5>Serviço: <?php echo $agendamento['servico']; ?></H5></li>
 										<li class="list-group-item"style=" background-color: #0ACCA7"><H5>Data: <?php echo $agendamento['data']; ?></H5></li>
 										<?php $d = new Datetime($agendamento['horario']);?>
@@ -63,7 +63,7 @@ label{
 										<?php endif; ?>
 								</div>
 							</div>
-						</div>		
+						</div>
 					<?php endforeach; ?>
 				<?php else : ?>
 					<p>TEM nada KKKKKKKKKKKKKK</p>	
@@ -72,7 +72,7 @@ label{
 		</div>
 	</div>
 </div>
-
+ 
 				
 <?php include('modal.php'); ?>
 <?php include(FOOTER_TEMPLATE); 

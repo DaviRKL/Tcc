@@ -54,8 +54,8 @@
         <input type="text" class="form-control" name="usuario[nome]">
       </div>
       <div class="form-group col-md-12" style="padding-left: 400px; padding-right:400px;">
-        <label for="campo2">Usuário (Login)</label>
-        <input type="text" class="form-control" name="usuario[user]">
+        <label for="campo2">Email</label>
+        <input type="email" class="form-control" name="usuario[email]">
       </div>
       <div class="form-group col-md-12" style="padding-left: 400px; padding-right:400px;">
         <label for="campo3">Senha</label>
