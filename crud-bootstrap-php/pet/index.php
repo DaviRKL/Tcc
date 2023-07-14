@@ -18,9 +18,7 @@ ob_start();
 	label{
 		align: left
 	}
-	.card{
-  background-color: #0ACCA7;
-}
+
 
 </style>
 <div style="background-color: #00a4b4; border-radius: 50px; margin-top:30px">

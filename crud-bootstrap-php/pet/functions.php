@@ -1,6 +1,7 @@
 <?php
 
 require_once('../config.php');
+require_once('../inc/header.php');
 require_once(DBAPI);
 
 
@@ -10,9 +11,11 @@ $pet = null;
 /**
  *  Listagem de Clientes
  */
-function index() {
+function index($id=null) {
 	global $pets;
-    $pets = find_all('pets');
+  $id = $_SESSION['id'];
+  $pets = filter('pets', "id_tutor =  $id");
+
 }
 
 
@@ -91,9 +94,9 @@ function add() {
           }
                 
             $today = new DateTime("now");
-           $pet['datanasc'] = $today->format("Y-m-d H:i:s");
+           $pet['datanasc'] = $today->format("Y-m-d");
           $pet['foto'] = $nomearquivo;
-
+          $pet['id_tutor']= $_SESSION['id'];
           save('pets', $pet);
           header('Location: index.php');
       } catch (Exception $e) {

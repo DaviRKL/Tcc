@@ -61,7 +61,7 @@ box-shadow: inset -5px 6px 13px -8px rgba(0,0,0,0.75);
                 <h2> Faça o seu Login</h2>
                 </div>
 				<div class="form-group col-md-12" style="width:200px;">
-					<label for="USER"> LOGIN</label>
+					<label for="USER"> EMAIL</label>
 					<input type="text" class="form-control" name="USER" id="USER"  required>
 				</div>
 				<div class="form-group col-md-12" style="width:200px;">

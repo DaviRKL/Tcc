@@ -7,6 +7,8 @@ ob_start();
       return $da->format ("h:i");  
 	}
 	include(HEADER_TEMPLATE);
+	require_once('functions.php'); 
+	
 ?>
 <style>
 

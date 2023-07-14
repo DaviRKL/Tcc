@@ -6,7 +6,7 @@ if(!isset($_SESSION)) {
 $logado="";
 $Usuario = 'root';
 $Senha = '';
-$Database = 'wda_crud';
+$Database = 'tcc';
 $Host = 'localhost';
 
 $mysqli = new mysqli($Host, $Usuario, $Senha, $Database);
@@ -33,7 +33,7 @@ if(isset($_POST['USER']) || isset($_POST['senha'])) {
 		$login = $mysqli->real_escape_string($_POST['USER']);
 		$senha = $mysqli->real_escape_string($_POST['senha']);
 
-		$sql_code = "SELECT * FROM usuarios WHERE user = '$login' AND password = '$senha'";
+		$sql_code = "SELECT * FROM usuarios WHERE email = '$login' AND password = '$senha'";
 		$sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " .$mysqli->error);
 
 		$quantidade = $sql_query->num_rows;
@@ -48,7 +48,7 @@ if(isset($_POST['USER']) || isset($_POST['senha'])) {
 			$_SESSION['id'] = $Usuario['id'];
 			$_SESSION['nome'] = $Usuario['nome'];
 			$logado="ok";
-			$_SESSION['user']= $Usuario['user'];
+			$_SESSION['email']= $Usuario['email'];
 			header("Location: index.php");
 
 		} else {
@@ -95,7 +95,7 @@ if(isset($_POST['USER']) || isset($_POST['senha'])) {
 							<a class="nav-link" href="<?php echo BASEURL; ?>pet" role="button"><i class="fa-solid fa-dog"></i>Pets</a>
 						</li>
 						<?php if(isset($_SESSION['id'])):?> 
-							<?php if ($_SESSION['user']=="admin"):?>
+							<?php if ($_SESSION['email']=="admin"):?>
 								<li class="nav-item">
 									<a class="nav-link" href="<?php echo BASEURL; ?>empresas" ><i class="fa-solid fa-user-tie"></i> Empresas</a>
 								</li>
@@ -115,7 +115,7 @@ if(isset($_POST['USER']) || isset($_POST['senha'])) {
 						<ul class="navbar-nav mr-auto">
 							<?php if(isset($_SESSION['id'])):?>
 								<div class="form-group col-md-7">
-									<p style="padding-right: 20px;margin-top: 9px;"><i class="fa-solid fa-user"></i>  Bem vindo, <?php echo $_SESSION['user']; ?></p>  
+									<p style="padding-right: 20px;margin-top: 9px;"><i class="fa-solid fa-user"></i>  Bem vindo, <?php echo $_SESSION['email']; ?></p>  
 								</div>	          
 							<?php endif; ?>
 							<?php if(!isset($_SESSION['id'])):?>

@@ -32,9 +32,8 @@
 
 		try {
 		  if ($id) {
-			$sql = "SELECT * FROM " . $table . " WHERE id = " . $id;
+			$sql = "SELECT * FROM " . $table . " WHERE id_tutor = " . $id;
 			$result = $database->query($sql);
-			
 			if ($result->num_rows > 0) {
 			  $found = $result->fetch_assoc();
 			}
@@ -54,6 +53,29 @@
 			} 
 			}
 		  }
+		} catch (Exception $e) {
+		  $_SESSION['message'] = $e->GetMessage();
+		  $_SESSION['type'] = 'danger';
+	  }
+		
+		close_database($database);
+		return $found;
+	}
+	function findScheduling( $table = null, $id = null ) {
+	  
+		$database = open_database();
+		$found = null;
+
+		try {
+		  if ($id) {
+			$sql = "SELECT * FROM " . $table . " WHERE id = " . $id;
+			$result = $database->query($sql);
+			
+			if ($result->num_rows > 0) {
+			  $found = $result->fetch_assoc();
+			}
+			
+		  } 
 		} catch (Exception $e) {
 		  $_SESSION['message'] = $e->GetMessage();
 		  $_SESSION['type'] = 'danger';

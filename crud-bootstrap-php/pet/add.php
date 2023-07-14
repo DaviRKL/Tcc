@@ -16,6 +16,7 @@ include('../protect.php');
     <div class="form-group col-md-6">
       <label for="modelo">Nome do pet</label>
       <input type="text" class="form-control" name="pet['nome']">
+     
     </div>
    <div class="form-group col-md-2">
       <label for="marca">Tipo do pet</label>

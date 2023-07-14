@@ -1,6 +1,7 @@
 <?php
 
 require_once('../config.php');
+require_once('../inc/header.php');
 require_once(DBAPI);
 
 
@@ -10,21 +11,18 @@ $agendamento = null;
 /**
  *  Listagem de Clientes
  */
-function index() {
+function index($id = null) {
 	global $agendamentos;
-	
+  $id = $_SESSION['id'];
+  $agendamentos = filter('agendamentos', "id_tutor =  $id");
 
- 
-    $agendamentos = find_all('agendamentos');
  
 }
-
 
 function upload ($pasta_destino, $arquivo_destino, $tipo_arquivo, $nome_temp, $tamanho_arquivo) {
   try {
       $nomearquivo = basename($arquivo_destino);
       $uploadOK = 1;
-
       if(isset($_POST["submit"])) {
           $check = getimagesize($nome_temp);
           if($check !== false) { 
@@ -35,7 +33,7 @@ function upload ($pasta_destino, $arquivo_destino, $tipo_arquivo, $nome_temp, $t
               $uploadOK = 0;
               throw new Exception("O arquivo não é uma imagem!");
           }
-      }
+      } 
       
       // Check if file already exists
       if (file_exists($arquivo_destino)) {
@@ -130,8 +128,8 @@ try {
 }
 
 function view($id = null) {
-  global $agendamento;
-  $agendamento = find('agendamentos', $id);
+  global $carro;
+  $carro = find('carros', $id);
 }
 function filtro($marca = null) {
   global $agendamento;

@@ -10,7 +10,7 @@ if(!isset($_SESSION['id'])) {
 }
 if(isset($_SESSION['id'])) {
 	
-	if($_SESSION['user']!= "admin") {
+	if($_SESSION['email']!= "admin") {
 		die("Você não pode acessar esta página porque não é adminitrador.<p><a  href=\"../index.php\">Voltar para tela incial
 		</a></p>");
 	}
