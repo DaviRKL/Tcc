@@ -46,9 +46,6 @@ border:4px solid #7914C7 ; width: 200px;
 			<table class="table table-hover">
 				<thead>
 					<tr>
-            
-					
-
 						<th width='40px'>ID</th>
 						<th  width='110px'>Nome</th>
 						<th  width='120px'>Usuario</th>

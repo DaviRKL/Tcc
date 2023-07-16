@@ -26,7 +26,7 @@ function upload ($pasta_destino, $arquivo_destino, $tipo_arquivo, $nome_temp, $t
 
       if(isset($_POST["submit"])) {
           $check = getimagesize($nome_temp);
-          if($check !== false) { 
+          if(!$check) { 
               $_SESSION['message'] = "File is an image - " . $check["mime"] . ".";
               $_SESSION['type'] = "info";
               $uploadOK = 1;
@@ -77,7 +77,7 @@ function add() {
   if (!empty($_POST['pet'])) {
       try {
           $pet = $_POST['pet'];
-
+          
           if (!empty($_FILES["foto"]["name"])){
             //Upload da foto
               $pasta_destino = "imagens/";
@@ -94,7 +94,7 @@ function add() {
           }
                 
             $today = new DateTime("now");
-           $pet['datanasc'] = $today->format("Y-m-d");
+           $pet['datanasc'] = $today->format("Y-m-d H:i:s");
           $pet['foto'] = $nomearquivo;
           $pet['id_tutor']= $_SESSION['id'];
           save('pets', $pet);
