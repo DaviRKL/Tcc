@@ -1,108 +1,94 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:wght@300&family=Roboto+Condensed:wght@300&display=swap');
-			body {
-				padding-top: 50px;
-				padding-bottom: 20px;
-			}
-			.btn-light, .btn-default, input, select {
-				
-font-family: 'Roboto Condensed', sans-serif;
-				color: #FFF;
-				background-color:#20324F;
-			}
-			.btn-light:hover, .btn-default:hover {
-				color: #FFF;
-				background-color: #ABC3DB;
-			}
-			.btn-secondary {
-				
-font-family: 'Roboto Condensed', sans-serif;
-				color: #FFF;
-				background-color:   #2C445C;
-			}
-			.btn-secondary:hover {
-				color: #FFF;
-				background-color: #8396A8;
-			}
-			.btn-dark{
-				
-font-family: 'Roboto Condensed', sans-serif;
-				color: #FFF;
-				background-color:#00B2C2;
-			}
-			.btn-dark:hover {
-				color: #FFF;
-				background-color: #8396A8;
-			}
-			header, #actions, h2{
-				
-font-family: 'Roboto Condensed', sans-serif;
-				margin-top: 10px;
-				
-			}
-			
-			.navbar, .card{
-				-webkit-box-shadow: 2px 17px 13px -4px rgba(0,0,0,0.75);
--moz-box-shadow: 2px 17px 13px -4px rgba(0,0,0,0.75);
-box-shadow: 2px 17px 13px -4px rgba(0,0,0,0.75);
-			}
-			.navbar, li{
-				
-font-family: 'Roboto Condensed', sans-serif;
-				background-color: #00a4b4;
-				align: center;
-			}
-			.dropdown-item{
-				
-font-family: 'Roboto Condensed', sans-serif;
-				color: white;
-			}
-			table{ 
-				
-				font-family: 'Roboto Condensed', sans-serif;
-				background:#00a4b4; 
-				border-radius: 15px;
-			}
-			td,th{
-				
-font-family: 'Roboto Condensed', sans-serif;
-				color: #FFF;
-			}
-			h5,h2, H4, label{
-				
-font-family: 'Roboto Condensed', sans-serif;
-				color: whitesmoke;
-			}
-			h4{
-				
-font-family: 'Roboto Condensed', sans-serif;
-				padding-top: 7px;
-			}
-			#main {
-				
-font-family: 'Roboto Condensed', sans-serif;
-				transition: margin-left .5s;
-				padding: 16px;
-			}	
-			.barra{
-				
-font-family: 'Roboto Condensed', sans-serif;
-				justify-content: center;
-			}
-			.nav-link{
-				
-font-family: 'Roboto Condensed', sans-serif;
-				color:#C8D2C8;
-			}
-			.nav-link:hover{
-				color:#FFF;
-			}
-			.card{
-                background-color: #0ACCA7;
-              }
-		
-			p{
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+.btn-light, .btn-default, input, select {
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #FFF;
+    background-color:#20324F;
+}
+.btn-light:hover, .btn-default:hover {
+    color: #FFF;
+    background-color: #ABC3DB;
+}
+.btn-secondary {
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #FFF;
+    background-color:   #2C445C;
+}
+.btn-secondary:hover {
+    color: #FFF;
+    background-color: #8396A8;
+}
+.btn-dark{
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #FFF;
+    background-color:#00B2C2;
+}
+.btn-dark:hover {
+    color: #FFF;
+    background-color: #8396A8;
+}
+header, #actions, h2{
+    font-family: 'Roboto Condensed', sans-serif;
+    margin-top: 10px;
+}
+
+.navbar, .card{
+    -webkit-box-shadow: 2px 17px 13px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 17px 13px -4px rgba(0,0,0,0.75);
+    box-shadow: 2px 17px 13px -4px rgba(0,0,0,0.75);
+}
+.navbar, li{
+    font-family: 'Roboto Condensed', sans-serif;
+    background-color: #00a4b4;
+    align: center;
+}
+.dropdown-item{
+    font-family: 'Roboto Condensed', sans-serif;
+    color: white;
+}
+table{ 
+    font-family: 'Roboto Condensed', sans-serif;
+    background:#00a4b4; 
+    border-radius: 15px;
+}
+td,th{
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #FFF;
+}
+h5,h2, H4, label{
+    font-family: 'Roboto Condensed', sans-serif;
     color: whitesmoke;
-	font-family: 'Roboto Condensed', sans-serif;
+}
+h4{	
+    font-family: 'Roboto Condensed', sans-serif;
+    padding-top: 7px;
+}
+#main {
+    font-family: 'Roboto Condensed', sans-serif;
+    transition: margin-left .5s;
+    padding: 16px;
+}	
+.barra{
+    font-family: 'Roboto Condensed', sans-serif;
+    justify-content: center;
+}
+.nav-link{
+    font-family: 'Roboto Condensed', sans-serif;
+    color:#C8D2C8;
+}
+.nav-link:hover{
+    color:#FFF;
+}
+.card{
+    background-color: #0ACCA7;
+    }
+
+p{
+    color: whitesmoke;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 body{
 
@@ -110,6 +96,9 @@ font-family: 'Roboto Condensed', sans-serif;
     overflow-x: hidden;
 }
 
+.modal-content{
+    background-color: #00B2C2;
+    }
 a{
 
     text-decoration: none;
@@ -198,105 +187,6 @@ header .mobile-toggler{
     font-size: 30px;
 }
 
-/* modal */
-
-.modal-dialog{
-
-    margin: 0;
-    width: 430px;
-}
-
-@media(max-width: 450px){
-
-    .modal-dialog{
-
-        width: 82%;
-    }
-}
-
-.modal-content{
-
-    border-radius: 0;
-    height: 100vh;
-    overflow-y: scroll;
-    background-color: #102447;
-}
-
-.modal-header{
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 88%;
-    margin: 0 auto;
-    padding-bottom: 16px;
-    border-bottom: 2px solid #fefefe;
-}
-
-.modal-header img{
-
-    width: 140px;
-    height: 66px;
-    margin-top: 17.5px;
-}
-
-.modal-header .btn-close{
-
-    background: transparent;
-    opacity: 1;
-}
-
-.modal-header i{
-
-    color: #fefefe;
-    font-size: 30px;
-}
-
-.modal-body{
-
-    width: 88%;
-    margin: 0 auto;
-    padding: 75px 0 0 0;
-    flex: unset;
-}
-
-.modal-body .modal-line{
-
-	
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 7px 0;
-    margin-bottom: 50px;
-    cursor: pointer;
-    transition: all .5s ease;
-    color: #274d8a;
-    border-bottom: 1px solid #274d8a;
-}
-
-.modal-body .modal-line:hover{
-
-    color: #fefefe;
-    border-bottom: 1px solid #fefefe;
-}
-
-.modal-line a{
-
-    font-size: 17px;
-    font-weight: 500;
-    letter-spacing: 2.5px;
-    color: #fefefe;
-}
-
-.modal-line i{
-
-    color: currentColor;
-    font-size: 30px;
-    width: 35px;
-    margin-right: 15px;
-    padding: 0 0 3px 3px;
-}
 
 .navb-button{
 
@@ -319,22 +209,7 @@ header .mobile-toggler{
     color: #fefefe;
 }
 
-.mobile-modal-footer{
 
-    width: 87%;
-    margin: 0 auto;
-    padding: 20% 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 25px;
-    color: #274d8a;
-}
-
-.mobile-modal-footer i:hover{
-
-    color: #fefefe;
-}
 
 .section-1{
 

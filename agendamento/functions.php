@@ -15,10 +15,12 @@ function index($id = null) {
 	global $agendamentos;
   $id = $_SESSION['id'];
   $agendamentos = filter('agendamentos', "id_tutor =  $id");
-
- 
 }
-
+function get_pet($id=null) {
+	global $pets;
+  $id = $_SESSION['id'];
+  $pets = filter('pets', "id_tutor =  $id");
+}
 function upload ($pasta_destino, $arquivo_destino, $tipo_arquivo, $nome_temp, $tamanho_arquivo) {
   try {
       $nomearquivo = basename($arquivo_destino);
@@ -72,13 +74,17 @@ function upload ($pasta_destino, $arquivo_destino, $tipo_arquivo, $nome_temp, $t
   }
 }
 function add() {
-
   if (!empty($_POST['agendamento'])) {
     
     $today = new DateTime("now");
      // date_create('now', new DateTimeZone('America/Sao_Paulo'));
     $agendamento = $_POST['agendamento'];
-    $agendamento['id_usuario'] = $_SESSION['id'];
+    $agendamento['id_tutor'] = $_SESSION['id'];
+    $acha = $agendamento['id_tutor'];
+      $id =  $agendamento['id_tutor'];
+      $nomePet=  filterPET("id =  $id");
+      $agendamento['pet'] = $nomePet['nome'];
+
     save('agendamentos', $agendamento);
     header('location: index.php');
   }

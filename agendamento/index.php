@@ -61,7 +61,7 @@ label{
 								<div class="card-body"style="display: flex;flex-direction: row;justify-content: center; align-items: center;background-color: #0ACCA7;" >
 										<?php if(isset($_SESSION['id'])):?> 
 											<a href="edit.php?id=<?php echo $agendamento['id']; ?>" class="btn btn-sm btn-secondary"><i class="fa-solid fa-user-pen"></i> Editar</a>
-											<a href="#" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#delete-pet-modal" data-pet="<?php echo $agendamento['id']; ?>"><i class="fa fa-trash"></i> Excluir</a>
+											<a href="#" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#delete-agendamento-modal" data-agendamento="<?php echo $agendamento['id']; ?>"><i class="fa fa-trash"></i> Excluir</a>
 										<?php endif; ?>
 								</div>
 							</div>

@@ -34,3 +34,22 @@ $('#delete-carro-modal').on('show.bs.modal', function (event) {
   modal.find('.modal-title').text('Excluir Carro #' + id);
   modal.find('#confirm').attr('href', 'delete.php?id=' + id);
 });
+
+$('#delete-pet-modal').on('show.bs.modal', function (event) {
+  
+  var button = $(event.relatedTarget);
+  var id = button.data('pet');
+  
+  var modal = $(this);
+  modal.find('.modal-title').text('Excluir Pet #' + id);
+  modal.find('#confirm').attr('href', 'delete.php?id=' + id);
+});
+$('#delete-agendamento-modal').on('show.bs.modal', function (event) {
+  
+  var button = $(event.relatedTarget);
+  var id = button.data('agendamento');
+  
+  var modal = $(this);
+  modal.find('.modal-title').text('Excluir Pet #' + id);
+  modal.find('#confirm').attr('href', 'delete.php?id=' + id);
+});

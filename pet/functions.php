@@ -93,8 +93,8 @@ function add() {
               $pet['foto'] = $nomearquivo;
           }
                 
-            $today = new DateTime("now");
-           $pet['datanasc'] = $today->format("Y-m-d H:i:s");
+            
+           
           $pet['foto'] = $nomearquivo;
           $pet['id_tutor']= $_SESSION['id'];
           save('pets', $pet);

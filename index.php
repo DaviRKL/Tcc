@@ -16,7 +16,7 @@
       #CimaCard{
         color:  #07295F;
         margin-right: 100px;
-        font-size: 25px;
+        font-size: 20px;
         font-weight: bold;
       }
       .card-img-top{
@@ -86,7 +86,7 @@
       <div class="card" style="width: 18rem;">
           <img src="images/ong.jpg" class="card-img-top" alt="...">
           <div class="card-body">
-            <a class="card-title" href="<?php echo BASEURL;?>ongs" >Ongs</a>
+            <a class="card-title" href="<?php echo BASEURL;?>ongs">Ongs</a>
           </div>
       </div>
     </div>
