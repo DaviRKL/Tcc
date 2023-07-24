@@ -10,7 +10,7 @@
 						<p>Deseja realmente sair?</p>
 					</div>
 					<div class="modal-footer">
-							<a id="confirm" class="btn btn-dark" href="<?php echo BASEURL; ?>logout.php"><i class="fa-solid fa-right-from-bracket"></i></i> Sim</a>
+							<a id="confirm" class="btn btn-dark" href="<?php echo BASEURL; ?>logins/logout.php"><i class="fa-solid fa-right-from-bracket"></i></i> Sim</a>
 							<a id="cancel" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i> Não</a>
 					</div>
 				</div>

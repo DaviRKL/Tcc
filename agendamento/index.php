@@ -1,5 +1,6 @@
 <?php
 ob_start();
+include('../protecao/protect.php');
     require_once('functions.php');
     index();
 	function FormataData($data){
@@ -7,7 +8,7 @@ ob_start();
       return $da->format ("h:i");  
 	}
 	include(HEADER_TEMPLATE);
-	require_once('functions.php'); 
+	
 	
 ?>
 <style>

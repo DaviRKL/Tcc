@@ -1,7 +1,9 @@
 <?php
 ob_start();
+include('../protect.php');
     require_once('functions.php');
     index();
+	
 	function FormataData($data){
       $da = new DateTime ($data);
       return $da->format ("d-m-Y");  

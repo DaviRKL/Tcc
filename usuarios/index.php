@@ -1,6 +1,6 @@
 <?php
 ob_start();
-	include('../protectAdmin.php');
+	include('../protecao/protectAdmin.php');
     require_once('functions.php');
     index();
     include(HEADER_TEMPLATE); 

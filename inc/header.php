@@ -2,66 +2,7 @@
 if(!isset($_SESSION)) {
 	session_start();
 }
-
-$logado="";
-$Usuario = 'root';
-$Senha = '';
-$Database = 'tcc';
-$Host = 'localhost';
-
-$mysqli = new mysqli($Host, $Usuario, $Senha, $Database);
-
-if($mysqli->error){
-    die("Falha ao conectar ao banco de dados" . $mysqli->error);
-}
-
-
-
-if(isset($_POST['USER']) || isset($_POST['senha'])) {
-
-	if(strlen($_POST['USER']) == 0){
-		echo "Preencha seu usuario";
-		$logado = "nao";
-		
-	}
-	else if(strlen($_POST['senha']) ==0){
-		echo "Preencha sua senha";
-		$logado = "nao";
-		
-	}
-	else{
-		$login = $mysqli->real_escape_string($_POST['USER']);
-		$senha = $mysqli->real_escape_string($_POST['senha']);
-
-		$sql_code = "SELECT * FROM usuarios WHERE email = '$login' AND password = '$senha'";
-		$sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " .$mysqli->error);
-
-		$quantidade = $sql_query->num_rows;
-
-		if($quantidade == 1) {
-			$Usuario = $sql_query->fetch_assoc();
-
-			if(!isset($_SESSION)) {
-				session_start();
-			}
-
-			$_SESSION['id'] = $Usuario['id'];
-			$_SESSION['nome'] = $Usuario['nome'];
-			$logado="ok";
-			$_SESSION['email']= $Usuario['email'];
-			header("Location: index.php");
-
-		} else {
-			echo "Falha ao logar! Usuario ou senha incorretos";
-                        			$_SESSION['message'] = "Falha ao logar! Usuario ou senha incorretos";
-            $_SESSION['type'] = "danger";
-			$logado = "nao";
-			header("Location: login.php");
-		}
-	}
-
-}
-
+include_once('controla_login.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -73,7 +14,6 @@ if(isset($_POST['USER']) || isset($_POST['senha'])) {
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="icon" href="<?php echo BASEURL; ?>images/paw.ico" type="image/x-icon">
 		<link rel="stylesheet" href="<?php echo BASEURL; ?>css/bootstrap/bootstrap.min.css">
-		<link rel="stylesheet"  href="<?php echo BASEURL; ?>css/normalize.css">
 		<link rel="stylesheet" href="<?php echo BASEURL; ?>css/awesome/all.min.css">
 		<link rel="stylesheet" href="<?php echo BASEURL; ?>css/style.css">
 	</head>
@@ -120,7 +60,7 @@ if(isset($_POST['USER']) || isset($_POST['senha'])) {
 							<?php endif; ?>
 							<?php if(!isset($_SESSION['id'])):?>
 								<div class="form-group col-md-3">
-									<a class="nav-link" href="<?php echo BASEURL;?>login.php">Entre</a>		
+									<a class="nav-link" href="<?php echo BASEURL;?>logins/login.php">Entre</a>		
 								</div>
 								<div class="form-group col-md-5">
 									<a class="nav-link" href="<?php echo BASEURL;?>usuarios/add.php">Cadastre-se<i class="fa-solid fa-user"></i></a>
