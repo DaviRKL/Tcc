@@ -16,6 +16,7 @@ include_once('controla_login.php');
 		<link rel="stylesheet" href="<?php echo BASEURL; ?>css/bootstrap/bootstrap.min.css">
 		<link rel="stylesheet" href="<?php echo BASEURL; ?>css/awesome/all.min.css">
 		<link rel="stylesheet" href="<?php echo BASEURL; ?>css/style.css">
+		<link href="css/bootstrap.css" rel="stylesheet">	
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-xxl navbar-dark fixed-top">

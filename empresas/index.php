@@ -1,6 +1,6 @@
 <?php
 ob_start();
-include('../protectAdmin.php');
+include('../protecao/protect.php');
     require_once('functions.php');
     index();
 	function FormataData($data){

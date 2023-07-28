@@ -1,6 +1,6 @@
 <?php 
 ob_start();
-include('../protect.php');
+include('../protecao/protect.php');
   require_once('functions.php'); 
   $nome = $_GET['id'];
 $sqlconsulta =  "select * from carros where id = $nome";
