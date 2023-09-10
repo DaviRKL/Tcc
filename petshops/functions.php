@@ -11,23 +11,27 @@ $empresa = null;
 /**
  *  Listagem de Clientes
  */
-function index($id = null) {
+function index() {
 	global $empresas;
-  $id = $_SESSION['id'];
-  $empresas = filter('empresas', "id_tutor =  $id");
+  $empresas = find_all('empresas');
 }
-function get_pet($id=null) {
-	global $pets;
-  $id = $_SESSION['id'];
-  $pets = filter('pets', "id_tutor =  $id");
-}
+
+
+// function get_pet_name($id_pet=null) {
+// $id_pet = "" ;
+//   global $nome_pet;
+  
+// $nome_pet = filter('pets', "id_tutor = $id_pet ");
+// }
+
 function upload ($pasta_destino, $arquivo_destino, $tipo_arquivo, $nome_temp, $tamanho_arquivo) {
   try {
       $nomearquivo = basename($arquivo_destino);
       $uploadOK = 1;
+
       if(isset($_POST["submit"])) {
           $check = getimagesize($nome_temp);
-          if($check !== false) { 
+          if(!$check) { 
               $_SESSION['message'] = "File is an image - " . $check["mime"] . ".";
               $_SESSION['type'] = "info";
               $uploadOK = 1;
@@ -35,7 +39,7 @@ function upload ($pasta_destino, $arquivo_destino, $tipo_arquivo, $nome_temp, $t
               $uploadOK = 0;
               throw new Exception("O arquivo não é uma imagem!");
           }
-      } 
+      }
       
       // Check if file already exists
       if (file_exists($arquivo_destino)) {
@@ -73,16 +77,15 @@ function upload ($pasta_destino, $arquivo_destino, $tipo_arquivo, $nome_temp, $t
       $_SESSION['type'] = "danger";
   }
 }
-
 function add() {
 
   if (!empty($_POST['empresa'])) {
       try {
           $empresa = $_POST['empresa'];
-
+          
           if (!empty($_FILES["foto"]["name"])){
             //Upload da foto
-              $pasta_destino = "fotos/";
+              $pasta_destino = "imagens/";
               $arquivo_destino = $pasta_destino . basename($_FILES["foto"]["name"]);
               $nomearquivo = basename($_FILES["foto"]['name']);
               $resolucao_arquivo = getimagesize($_FILES["foto"]["tmp_name"]);
@@ -94,14 +97,11 @@ function add() {
 
               $empresa['foto'] = $nomearquivo;
           }
-
-          if (!empty($empresa['password'])){
-              $senha = criptografia($empresa['password']);
-              $empresa['password'] = $senha;
-          }
-
+                
+            
+           
           $empresa['foto'] = $nomearquivo;
-
+         
           save('empresas', $empresa);
           header('Location: index.php');
       } catch (Exception $e) {
@@ -154,9 +154,9 @@ try {
     }
 }
 
-function view($id = null) {
+function view($cnpj = null) {
   global $empresa;
-  $empresa = find('empresas', $id);
+  $empresa = find1('empresas', $cnpj);
 }
 function filtro($marca = null) {
   global $empresa;

@@ -1,10 +1,5 @@
 
 	</main> <!-- /container -->
-	<style>
-
-
-
-</style>
 <footer  id="footer">
 	<?php 
 		$d = new DateTime("now");
@@ -20,6 +15,6 @@
 	<script src="<?php echo BASEURL; ?>js/awesome/all.min.js"></script>
     <script src="<?php echo BASEURL; ?>js/main.js"></script>
 	<script src="https://www.google.com/recaptcha/api.js"></script>
-	
+	<script src='<?php echo BASEURL; ?>js/fullcalendar/index.global.min.js'></script>
 </body>
 </html>

@@ -9,93 +9,118 @@ include('../protecao/protect.php');
 	}
 	include(HEADER_TEMPLATE);
 ?>
+<?php
+// Inclua seu arquivo de configuração de banco de dados aqui
+ 
+
+// Conecte-se ao seu banco de dados (substitua com suas próprias credenciais)
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "tcc";
+
+$con = new mysqli($servername, $username, $password, $dbname);
+if ($con->connect_error) {
+    die("Erro na conexão: " . $con->connect_error);
+}
+
+ $fetch_event= mysqli_query($con, "SELECT DISTINCT id, servico as title, data as start, horario as startTime FROM agendamentos ");
+?>
 <style>
 
- th{
-	background-color: #0ACCA7;
+ h2{
+color: #102447;
  }
 </style>
 
-<div style="background-color: #00a4b4; border-radius: 50px; margin-top:30px">
-	<div style="padding: 10px">
+<div style=" margin-top:30px">
+	<div style="padding: 5px">
 		<div class="row">
-			<header >
+			<header>
 				<div class="col-md-11 mx-auto">
 					<h2 class="text-center">Agendamentos marcados</h2>
 				</div>
 			</header>
-			<div class="col-md-11 text-center" style="display: flex;flex-direction: row;justify-content: center; align-items: center;margin-left: 70px">
-			<form name = "filtro" method="post" action="index.php">
-					<div class = "form-group col-md-11">
-						<div class ="input-group mb-3">
-							<input type="text" class="form-control" maxlength="80" name="cars" placeholder="nome" required>
-							<button type="submit" class="btn btn-secondary"><i class='fas fa-search'></i> Consultar</button>
-						</div>
-					</div>
-			</div>
-		</form>		
-		</div>
-		<?php 
-		if (!empty($_SESSION['message'])) : ?>
-			<div class="alert alert-<?php echo $_SESSION['type']; ?> alert-dismissible" role="alert">
-				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-				<?php echo $_SESSION['message']; ?>
-			</div>
-			<?php clear_messages(); ?>
-		<?php endif; ?>
-		<div class="table-responsive-md">
-			<table class="table table-hover table-sm align-middle table-borderless " style="background-color: #0ACCA7; --webkit-box-shadow: 5px -3px 5px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 5px -3px 5px 0px rgba(0,0,0,0.75);
-box-shadow: 5px -3px 5px 0px rgba(0,0,0,0.75);" >
-				<thead style="background-color: #0ACCA7">
-					<tr>
-						<tr>
-							<th width='100px' style="background-color: #0ACCA7; color:#FFF">Data</th>
-							<th width='80px'style="background-color: #0ACCA7; color:#FFF">Horário</th>
-							<th width='120px'style="background-color: #0ACCA7; color:#FFF">Serviço</th>
-							<th width='120px'style="background-color: #0ACCA7; color:#FFF">Nome do Tutor</th>
-							<th width='120px'style="background-color: #0ACCA7; color:#FFF">Nome do Pet</th>
-							<th width='200px'style="background-color: #0ACCA7; color:#FFF">Foto do Pet</th>
-							<th width='100px'style="background-color: #0ACCA7; color:#FFF">Opções</th>
-						</tr>
-					</tr>
-				</thead>
-				<tbody >
-					<?php if ($carros) : ?>
-						<?php foreach ($carros as $carro) : ?>
-							<tr style="background-color: #00a4b4;">
-								<td style="background-color: #0ACCA7; color:#FFF"><?php echo $carro['id']; ?></td>
-								<td style="background-color: #0ACCA7; color:#FFF"><?php echo $carro['modelo']; ?></td>
-								<td style="background-color: #0ACCA7; color:#FFF"><?php echo $carro['marca']; ?></td>
-								<td style="background-color: #0ACCA7; color:#FFF"><?php echo $carro['ano']; ?></td>
-								<?php $d = new Datetime($carro['datacad']);?>
-								<td style="background-color: #0ACCA7; color:#FFF"><?php echo FormataData($carro['datacad']);?></td>
-								<td style="background-color: #0ACCA7; color:#FFF"><?php
-								if (!empty($carro['foto'])){
-									echo  "<img src=\"imagens/" . $carro['foto'] . "\" class=\"shadow p-1 mb-1 bg-body rounded\" width=\"200px\">";
-								}else{
-									echo  "<img src=\"imagens/SemImagem.png\" class=\"shadow p-1 mb-1 bg-body rounded\" width=\"200px\">";
-								}
-								$id = base64_encode($carro['id']);
-								?></td>
-								<td style="background-color: #0ACCA7; color:#FFF" class="actions text-start"> 
-									<?php if(isset($_SESSION['id'])):?> 
-											<a href="view.php?id=<?php echo $carro['id']; ?>" style="width: 150px"class="btn btn-dark"><i class="fa fa-eye"></i> Ver Pet</a>
-											<a href="#" class="btn btn-dark" style="width: 150px"data-bs-toggle="modal" data-bs-target="#delete-carro-modal" data-carro="<?php echo $carro['id']; ?>" ><i class="fa-solid fa-circle-check"></i>  Concluir</a>
-									<?php endif; ?>
-								</td>
-							</tr>
-						<?php endforeach; ?>
-					<?php else : ?>
-						<tr>
-							<td colspan="6">Nenhum registro encontrado.</td>
-						</tr>
-					<?php endif; ?>
-				</tbody>
-			</table>
+			<div id='calendar'></div>
 		</div>
 	</div>
 </div>
 <?php include('modal.php'); ?>
 <?php include(FOOTER_TEMPLATE); 
 ob_end_flush();?>
+
+<!-- <script src="../js/fullcalendar/calendar.js">  -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      themeSystem: 'bootstrap5',
+      locale: 'pt-br',
+      buttonText: {
+        today: "Hoje",
+        month: "Mês",
+        week: "Semana",
+        day: "Dia"
+    },
+      headerToolbar: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay'
+      },
+      
+      //initialDate: '2023-01-12',
+      navLinks: true, // can click day/week names to navigate views
+      selectable: true,
+      selectMirror: true,
+      select: function(arg) {
+        var title = prompt('Event Title:');
+        if (title) {
+          calendar.addEvent({
+            title: title,
+            start: arg.start,
+            end: arg.end,
+            allDay: arg.allDay
+          })
+        }
+        calendar.unselect()
+      },
+      eventClick: function(info) {
+            // Ao clicar em um evento, obtenha o ID do evento
+            var eventId = info.event.id;
+
+            // Redirecione para o edit.php com o ID do evento como parâmetro
+            window.location.href = '../agendamento/view.php?id=' + eventId;
+        },
+      editable: false,
+      dayMaxEvents: true, // allow "more" link when too many events
+      
+      events: [
+        
+        <?php     
+        while($result = mysqli_fetch_array($fetch_event)) 
+        {
+          $start = $result['start'];
+
+          // Calcular o valor de end adicionando uma hora ao start
+          $end = date('Y-m-d H:i:s', strtotime($start . ' +1 hour')); 
+          $startTime = $result['startTime'];
+
+          // Adicionar uma hora ao startTime para calcular o endTime
+          $endTime = date('Y-m-d H:i:s', strtotime($startTime . ' +1 hour'));
+          ?>
+ 
+        {
+          id: '<?php echo $result['id'];?>',
+      title: '<?php echo $result['title'];?>',
+      start: '<?php echo $start;?>',
+      end: '<?php echo $end;?>',
+     
+      endTime: '<?php echo $endTime;?>'
+        },
+      <?php } ?>
+      ]
+    });
+
+    calendar.render();
+  });
+  </script>

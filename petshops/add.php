@@ -10,32 +10,33 @@ include('../protecao/protect.php');
 
 <div style="background-color: #00a4b4; border-radius: 15px; margin-top:35px">
   <form action="add.php" enctype="multipart/form-data" method="post" style="padding: 20px">
-    <h2>Novo Pet Shop</h2>
+    <h2>Novo pet</h2>
     <div class="row">
       <div class="form-group col-md-6">
-        <label for="modelo">Nome da empresa</label>
-        <input type="text" class="form-control" name="empresa['nome']">
+        <label for="modelo">Nome do pet</label>
+        <input type="text" class="form-control" name="pet['nome']">
       </div>
       <div class="form-group col-md-2">
-        <label for="marca">Telefone</label>
-        <input type="text" class="form-control" name="empresa['Telefone']">
+      <label for="marca">Tipo do pet</label>
+        <select  class="form-control" name="pet['tipo']">
+          <option value="Cachorro">Cachorro</option>
+          <option value="Gato">Gato</option>
+        </select>
       </div>
       <div class="form-group col-md-2">
-        <label for="marca">Endereço</label>
-        <input type="text" class="form-control" name="empresa['endereço']">
+        <label for="marca">Sexo</label>
+        <select  class="form-control" name="pet['sexo']">
+          <option value="Macho">Macho</option>
+          <option value="Femea">Fêmea</option>
+        </select>
       </div>
       <div class="form-group col-md-2">
-        <label for="ano">Preço do banho</label>
-        <input type="number" class="form-control" name="empresa['precoBanho']">
+        <label for="ano">Raça</label>
+        <input type="text" class="form-control" name="pet['raca']">
       </div>
       <div class="form-group col-md-3">
-        <label for="datacad">Preço Tosa</label>
-        <input type="number" class="form-control" name="empresa['precoTosa]">
-      </div>
-      <div class="form-group col-md-3">
-        <label for="datacad">Sobre o PetShop</label>
-        <input type="text" style="width:500px;height:100px;" class="form-control" name="empresa['sobre']"  max="100" >
-        
+        <label for="datacad">Data de nascimento</label>
+        <input type="date" class="form-control" name="pet['datanasc']">
       </div>
       <div class="form-group col-md-7">
         <label for="foto">Foto</label>

@@ -38,7 +38,12 @@ header, #actions, h2{
 .espaco-topo{
     margin-bottom: 50px;
 }
-
+.offcanvas{
+   
+    font-family: 'Roboto Condensed', sans-serif;
+    background-color: #00a4b4;
+   
+}
 .navbar{ 
     background: rgb(0,163,180);
     background: linear-gradient(90deg, rgba(0,163,180,1) 0%, rgba(7,41,95,1) 76%);
@@ -46,11 +51,8 @@ header, #actions, h2{
     background-color: #00a4b4;
     align-items: center;
 }
-.navbar, .card{
-    -webkit-box-shadow: 2px 17px 13px -4px rgba(0,0,0,0.75);
-    -moz-box-shadow: 2px 17px 13px -4px rgba(0,0,0,0.75);
-    box-shadow: 2px 17px 13px -4px rgba(0,0,0,0.75);
-}
+
+ 
 #footer {
     position: fixed;
   left: 0;
@@ -63,6 +65,7 @@ header, #actions, h2{
   height:  55px;
   -webkit-box-shadow: inset -5px 6px 13px -8px rgba(0,0,0,0.75);
 -moz-box-shadow: inset -5px 6px 13px -8px rgba(0,0,0,0.75);
+z-index: 2;
 
 }
 .dropdown-item{
@@ -104,6 +107,7 @@ h4{
 }
 .card{
     background-color: #0ACCA7;
+    border: none;
     }
 
 p{
@@ -259,3 +263,14 @@ label{
         margin: auto;
     }
 }
+#calendar {
+   
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-top: 10px;
+    z-index: 1;
+}
+  
+
+
+  

@@ -1,13 +1,16 @@
 <?php
 ob_start();
+
 include('../protecao/protect.php');
     require_once('functions.php');
+	include(HEADER_TEMPLATE);
     index();
+	
 	function FormataData($data){
       $da = new DateTime ($data);
       return $da->format ("h:i");  
 	}
-	include(HEADER_TEMPLATE);
+	
 	
 	
 ?>
@@ -45,15 +48,23 @@ label{
 		<?php endif; ?>
 		<div class="container text-center">
   			<div class="row">       
-				<?php if ($agendamentos) : ?>
-					<?php foreach ($agendamentos as $agendamento) : ?>
+				<?php 
+					if ($agendamentos) : 
+						foreach ($agendamentos as $agendamento) : 
+							$pet_id = $agendamento['id_pet'];
+						$pet_info = get_pet_info($pet_id);
+						$pet_name = $pet_info['nome'];
+						$cnpj= $agendamento['id_empresa'];
+						$empresa_name = get_empresa_name($cnpj);
+				?>
 						<div class="col-md-4"style="padding: 20px">		
 							<div class="card" style="width: 20rem;">	 
 								<div class="card-body" style="background-color: #0ACCA7;">
-										<h4 class="card-title"style="color:#FFF; display: flex;flex-direction: row;justify-content: center; align-items: center;">Pet: <?php echo $agendamento['pet']; ?></h4>
+									<h4 class="card-title"style="color:#FFF; display: flex;flex-direction: row;justify-content: center; align-items: center;">
+									Pet: <?php echo $pet_name; ?></h4>
 								</div>
 								<ul class="list-group list-group-flush" style: >
-										<li class="list-group-item"style=" background-color: #0ACCA7"><H5>Local: <?php echo $agendamento['empresa']; ?></H5></li>
+										<li class="list-group-item"style=" background-color: #0ACCA7"><H5>Local: <?php echo $empresa_name; ?></H5></li>
 										<li class="list-group-item"style=" background-color: #0ACCA7"><H5>Serviço: <?php echo $agendamento['servico']; ?></H5></li>
 										<li class="list-group-item"style=" background-color: #0ACCA7"><H5>Data: <?php echo $agendamento['data']; ?></H5></li>
 										<?php $d = new Datetime($agendamento['horario']);?>

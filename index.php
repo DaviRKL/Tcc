@@ -12,7 +12,11 @@
 .card-title{
   color: whitesmoke;
 }
+.card-body{
 
+background: rgb(0,163,180);
+    background: linear-gradient(90deg, rgba(0,163,180,1) 0%, rgba(7,41,95,1) 76%);
+}
       #CimaCard{
         color:  #07295F;
         margin-right: 100px;

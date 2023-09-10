@@ -25,6 +25,129 @@
 		}
 	}
 
+	function get_pet_info($pet_id) {
+		// Substitua as informações de conexão com o banco de dados com as suas
+		$database = open_database();
+		$found = null;
+	
+		// Consulta SQL para buscar o nome e a foto do pet pelo ID
+		$sql = "SELECT nome, foto FROM pets WHERE id = $pet_id";
+	
+		// Execute a consulta
+		$result = $database->query($sql);
+	
+		// Verifique se a consulta retornou resultados
+		if ($result->num_rows > 0) {
+			// Obtém o resultado da consulta
+			$row = $result->fetch_assoc();
+	
+			// Crie um array associativo com o nome e a foto do pet
+			$pet_info = [
+				'nome' => $row["nome"],
+				'foto' => $row["foto"]
+			];
+	
+			// Retorna o array associativo
+			return $pet_info;
+		} else {
+			// Se o pet não for encontrado, retorne uma mensagem de erro ou um valor padrão
+			return ["nome" => "Pet não encontrado", "foto" => "caminho/para/foto/default.jpg"];
+		}
+	
+		// Feche a conexão com o banco de dados
+		close_database($database);
+		return $found;
+	}
+	function get_tutor_name($id) {
+		// Substitua as informações de conexão com o banco de dados com as suas
+		$database = open_database();
+		$found = null;
+	
+		// Consulta SQL para buscar o nome do pet pelo ID
+		$sql = "SELECT nome FROM usuarios WHERE id = $id";
+	
+		// Execute a consulta
+		$result = $database->query($sql);
+	
+		// Verifique se a consulta retornou resultados
+		if ($result->num_rows > 0) {
+			// Obtém o resultado da consulta
+			$row = $result->fetch_assoc();
+	
+			// Retorna o nome do pet
+			return $row["nome"];
+		} else {
+			// Se o pet não for encontrado, retorne uma mensagem de erro ou um valor padrão
+			return "Pet não encontrado";
+		}
+	
+		// Feche a conexão com o banco de dados
+		close_database($database);
+		return $found;
+	}
+	function get_empresa_name($cnpj) {
+		// Substitua as informações de conexão com o banco de dados com as suas
+		$database = open_database();
+		$found = null;
+	
+		// Consulta SQL para buscar o nome do pet pelo ID
+		$sql = "SELECT nome FROM empresas WHERE cnpj = $cnpj";
+	
+		// Execute a consulta
+		$result = $database->query($sql);
+	
+		// Verifique se a consulta retornou resultados
+		if ($result->num_rows > 0) {
+			// Obtém o resultado da consulta
+			$row = $result->fetch_assoc();
+	
+			// Retorna o nome do pet
+			return $row["nome"];
+		} else {
+			// Se o pet não for encontrado, retorne uma mensagem de erro ou um valor padrão
+			return "Empresa não encontrado";
+		}
+	
+		// Feche a conexão com o banco de dados
+		close_database($database);
+		return $found;
+	}
+	function find1( $table = null, $id = null ) {
+	  
+		$database = open_database();
+		$found = null;
+
+		try {
+		  if ($id) {
+			$sql = "SELECT * FROM " . $table . " WHERE cnpj = " . $id;
+			$result = $database->query($sql);
+			if ($result->num_rows > 0) {
+			  $found = $result->fetch_assoc();
+			}
+			
+		  } else {
+			
+			$sql = "SELECT * FROM " . $table;
+			$result = $database->query($sql);
+			
+			if ($result->num_rows > 0) {
+			  //$found = $result->fetch_all(MYSQLI_ASSOC);
+			
+			// Metodo alternativo
+			$found = array();
+			while ($row = $result->fetch_assoc()) {
+			  array_push($found, $row);
+			} 
+			}
+		  }
+		} catch (Exception $e) {
+		  $_SESSION['message'] = $e->GetMessage();
+		  $_SESSION['type'] = 'danger';
+	  }
+		
+		close_database($database);
+		return $found;
+	}
 	function find( $table = null, $id = null ) {
 	  
 		$database = open_database();
@@ -33,6 +156,42 @@
 		try {
 		  if ($id) {
 			$sql = "SELECT * FROM " . $table . " WHERE id_tutor = " . $id;
+			$result = $database->query($sql);
+			if ($result->num_rows > 0) {
+			  $found = $result->fetch_assoc();
+			}
+			
+		  } else {
+			
+			$sql = "SELECT * FROM " . $table;
+			$result = $database->query($sql);
+			
+			if ($result->num_rows > 0) {
+			  //$found = $result->fetch_all(MYSQLI_ASSOC);
+			
+			// Metodo alternativo
+			$found = array();
+			while ($row = $result->fetch_assoc()) {
+			  array_push($found, $row);
+			} 
+			}
+		  }
+		} catch (Exception $e) {
+		  $_SESSION['message'] = $e->GetMessage();
+		  $_SESSION['type'] = 'danger';
+	  }
+		
+		close_database($database);
+		return $found;
+	}
+	function find2( $table = null, $id = null ) {
+	  
+		$database = open_database();
+		$found = null;
+
+		try {
+		  if ($id) {
+			$sql = "SELECT * FROM " . $table . " WHERE id = " . $id;
 			$result = $database->query($sql);
 			if ($result->num_rows > 0) {
 			  $found = $result->fetch_assoc();

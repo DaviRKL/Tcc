@@ -2,6 +2,7 @@
 
 require_once('../config.php');
 require_once('../inc/header.php');
+
 require_once(DBAPI);
 
 
@@ -21,6 +22,12 @@ function get_pet($id=null) {
   $id = $_SESSION['id'];
   $pets = filter('pets', "id_tutor =  $id");
 }
+
+function get_empresa(){
+  global $empresas;
+  $empresas = find_all('empresas');
+}
+
 function upload ($pasta_destino, $arquivo_destino, $tipo_arquivo, $nome_temp, $tamanho_arquivo) {
   try {
       $nomearquivo = basename($arquivo_destino);
@@ -74,17 +81,11 @@ function upload ($pasta_destino, $arquivo_destino, $tipo_arquivo, $nome_temp, $t
   }
 }
 function add() {
+
   if (!empty($_POST['agendamento'])) {
     
-    $today = new DateTime("now");
-     // date_create('now', new DateTimeZone('America/Sao_Paulo'));
     $agendamento = $_POST['agendamento'];
     $agendamento['id_tutor'] = $_SESSION['id'];
-    $acha = $agendamento['id_tutor'];
-      $id =  $agendamento['id_tutor'];
-      $nomePet=  filterPET("id =  $id");
-      $agendamento['pet'] = $nomePet['nome'];
-
     save('agendamentos', $agendamento);
     header('location: index.php');
   }
@@ -134,8 +135,8 @@ try {
 }
 
 function view($id = null) {
-  global $carro;
-  $carro = find('carros', $id);
+  global $agendamento;
+  $agendamento = find2('agendamentos', $id);
 }
 function filtro($marca = null) {
   global $agendamento;
