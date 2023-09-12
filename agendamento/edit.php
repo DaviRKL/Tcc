@@ -16,7 +16,11 @@ include('../protecao/protect.php');
       }
 ?>
 
-
+<style>
+label{
+	color: #102447;
+}
+</style>
 
 <h2>Atualizar carro</h2>
 

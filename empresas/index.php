@@ -2,7 +2,7 @@
 ob_start();
 include('../protecao/protect.php');
     require_once('functions.php');
-    index();
+  
 	function FormataData($data){
       $da = new DateTime ($data);
       return $da->format ("d-m-Y");  

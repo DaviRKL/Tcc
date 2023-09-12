@@ -19,6 +19,9 @@ include('../protecao/protect.php');
 td,th{
 	color: #FFF;
 }
+h5{
+	color: #102447;
+}
 #cars{ 
 border:4px solid #7914C7 ; width: 200px; 
 }
@@ -72,8 +75,7 @@ label{
 								</ul>
 								<div class="card-body"style="display: flex;flex-direction: row;justify-content: center; align-items: center;background-color: #0ACCA7;" >
 										<?php if(isset($_SESSION['id'])):?> 
-											<a href="edit.php?id=<?php echo $agendamento['id']; ?>" class="btn btn-sm btn-secondary"><i class="fa-solid fa-user-pen"></i> Editar</a>
-											<a href="#" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#delete-agendamento-modal" data-agendamento="<?php echo $agendamento['id']; ?>"><i class="fa fa-trash"></i> Excluir</a>
+											<a href="#" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#delete-agendamento-modal" data-agendamento="<?php echo $agendamento['id']; ?>"><i class="fa-solid fa-ban"></i> Cancelar</a>
 										<?php endif; ?>
 								</div>
 							</div>
@@ -85,9 +87,7 @@ label{
 			</div>
 		</div>
 	</div>
-</div>
- 
-				
+</div>			
 <?php include('modal.php'); ?>
 <?php include(FOOTER_TEMPLATE); 
 ob_end_flush();?>
