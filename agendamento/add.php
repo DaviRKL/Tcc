@@ -14,7 +14,7 @@ include('../protecao/protect.php');
 
 <form action="add.php" enctype="multipart/form-data" id="agendamentoForm" method="post" style="padding: 20px">
 <h2>Novo agendamento</h2>
-<p>*O 78pagamento deverá ser efetuado na loja, com dinheiro ou cartão*</p>
+<p>*O pagamento deverá ser efetuado na loja, com dinheiro ou cartão*</p>
   <div class="row">
     <div class="form-group col-md-6">
       <label for="modelo">Selecione o pet</label>
@@ -51,11 +51,30 @@ include('../protecao/protect.php');
     <div class="form-group col-md-3">
       <label for="datacad">Data</label>
       <input type="date" class="form-control" name="agendamento['data']" id="data" >
-    
     </div>
     <div class="form-group col-md-3">
       <label for="datacad">Horário </label>
-      <input type="time" class="form-control" name="agendamento['horario']" id="horario">
+      <select type="time" class="form-control" name="agendamento['horario']" id="horario">
+        <option value="09:00">09:00</option>
+        <option value="09:30">09:30</option>
+        <option value="10:00">10:00</option>
+        <option value="10:30">10:30</option>
+        <option value="11:00">11:00</option>
+        <option value="11:30">11:30</option>
+        <option value="12:00">12:00</option>
+        <option value="12:30">12:30</option>
+        <option value="13:00">13:00</option>
+        <option value="13:30">13:30</option>
+        <option value="14:00">14:00</option>
+        <option value="14:30">14:30</option>
+        <option value="15:00">15:00</option>
+        <option value="15:30">15:30</option>
+        <option value="16:00">16:00</option>
+        <option value="16:30">16:30</option>
+        <option value="17:00">17:00</option>
+        <option value="17:30">17:30</option>
+        
+      </select>
       <span id="disponibilidade"></span>
     </div>
   <div id="actions" class="row">
@@ -71,46 +90,36 @@ ob_end_flush();?>
 
 
 <script>
-document.getElementById('horario').addEventListener('input', function() {
-    var horarioSelecionado = this.value;
-    var dataSelecionada = document.getElementById('data').value; // Obtenha a data selecionada
-    // Crie um objeto XMLHttpRequest para fazer a solicitação AJAX
-    var xhr = new XMLHttpRequest();
+document.addEventListener("DOMContentLoaded", function () {
+  const horarioSelect = document.getElementById("horario");
+  const salvarButton = document.querySelector('button[type="submit"]');
+  const disponibilidadeSpan = document.getElementById("disponibilidade");
 
-    // Defina o método e a URL da solicitação
-    xhr.open('POST', 'verificar_data.php', true);
+  horarioSelect.addEventListener("change", function () {
+    const selectedDate = document.getElementById("data").value;
+    const selectedHorario = this.value;
 
-    // Configura a função de callback para lidar com a resposta
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            // Exibe a resposta no elemento de disponibilidade
-            var disponibilidade = document.getElementById('disponibilidade');
-            disponibilidade.textContent = xhr.responseText;
+    // Fazer a solicitação AJAX
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "verificar_agendamentos.php", true);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
-            // Habilita ou desabilita o botão de envio com base na disponibilidade
-            var submitButton = document.querySelector('button[type="submit"]');
-            submitButton.disabled = xhr.responseText.includes("indisponível");
+    xhr.onload = function () {
+      if (xhr.status === 200) {
+        const response = JSON.parse(xhr.responseText);
+        if (response) {
+          salvarButton.disabled = true;
+          disponibilidadeSpan.innerText = "Horário indisponível.";
+        } else {
+          salvarButton.disabled = false;
+          disponibilidadeSpan.innerText = "";
         }
+      }
     };
 
-    // Defina o cabeçalho da solicitação
-    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
-    // Envie a solicitação com o horário como parâmetro
-    xhr.send('data=' + dataSelecionada + '&horario=' + horarioSelecionado);
+    xhr.send(`data=${selectedDate}&horario=${selectedHorario}`);
+  });
 });
-
-// Adicione um ouvinte de evento para o formulário para validar antes de enviar
-document.getElementById('agendamentoForm').addEventListener('submit', function(event) {
-    var disponibilidade = document.getElementById('disponibilidade');
-    
-    // Verifique se o horário está indisponível antes de enviar o formulário
-    if (disponibilidade.textContent.includes("indisponível")) {
-        event.preventDefault(); // Impede o envio do formulário se o horário estiver indisponível
-        alert("O horário selecionado não está disponível para agendamento.");
-    }
-});
-
 
   $(document).ready(() =>{
   $("#foto").change(function () {

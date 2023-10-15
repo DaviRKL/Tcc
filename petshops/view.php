@@ -34,7 +34,7 @@ ob_start();
 
 					<dt>Sobre a empresa:</dt>
 					<dd><?php echo $empresa['sobre']; ?></dd>
-					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29312.52826906888!2d-51.382072466369415!3d-23.313362812372212!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94eca79579d8070b%3A0x86c186f3adc758ae!2sRol%C3%A2ndia%2C%20PR%2C%2086600-000!5e0!3m2!1spt-BR!2sbr!4v1693692215635!5m2!1spt-BR!2sbr" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58560.58861304238!2d-47.488434897546384!3d-23.4591374604475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c5f51a01916eaf%3A0x95fb7a34d2c347e9!2sTauste%20Itavuvu!5e0!3m2!1spt-BR!2sbr!4v1695825087492!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 				</dl>
 				<div id="actions" class="row">
 					<div class="col-md-12">

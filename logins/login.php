@@ -45,7 +45,7 @@
                 </div>
 				<div class="form-group col-md-12" style="width:200px;">
 					<label for="USER"> EMAIL</label>
-					<input type="text" class="form-control" name="USER" id="USER"  required>
+					<input type="email" class="form-control" name="USER" id="USER"  required>
 				</div>
 				<div class="form-group col-md-12" style="width:200px;">
 					<label for="senha"> SENHA</label>
@@ -60,13 +60,8 @@
                 <a  href="https://instagram.com/" target="_blank"><img src="https://img.shields.io/badge/google-4285F4?style=for-the-badge&logo=google&logoColor=white" target="_blank"></a>
                 </div>
                 <div class="form-group col-md-12" style="display: flex;flex-direction: row;justify-content: center; align-items: center;margin-top: 20px;margin-left: 120px;margin-right: 120px" >
-                    <div class="g-recaptcha" data-sitekey="6LdSZdEmAAAAAPzie5WGn96a_YHQ_cpoIZgq0iCz"></div>
+                    <div class="g-recaptcha" data-sitekey="6LdSZdEmAAAAAPzie5WGn96a_YHQ_cpoIZgq0iCz" required></div>
                 </div>
-               
-               
-                
-                
-
 				<div id="actions" class="row">
 					<div class="col-md-12">
 					<button type="submit" class="btn btn-secondary" style="width: 1005px">Continuar</button>
@@ -79,3 +74,4 @@
 </div>
 
 <?php include(FOOTER_TEMPLATE);?>
+

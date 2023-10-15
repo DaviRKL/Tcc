@@ -19,6 +19,7 @@ include_once('controla_login.php');
 		<link href="css/bootstrap.css" rel="stylesheet">	
 	</head>
 	<body>
+		
 		<nav class="navbar bg-body-tertiary fixed-top">
   <div class="container-fluid">
   <div class=" col-6">
@@ -30,7 +31,7 @@ include_once('controla_login.php');
 	 
   </div>
     <?php if(isset($_SESSION['id'])):?>
-		<div class=" col">
+		<div class="col">
 			<p style="margin-top: 9px;margin-left: 20px;"><i class="fa-solid fa-user"></i>  Bem vindo, <?php echo $_SESSION['email']; ?></p>  
 		</div>	
 									
@@ -66,7 +67,7 @@ include_once('controla_login.php');
 		  <a class="nav-link" href="<?php echo BASEURL; ?>empresas/add.php" role="button"><i class="fa-solid fa-paw"></i> Cadastre-se como empresa</a>
           </li>
 		  <?php if(isset($_SESSION['id'])):?> 
-			<?php if ($_SESSION['email']=="admin"):?>
+			<?php if ($_SESSION['email']=="admin@admin.com"):?>
 				<li class="nav-item">
 					<a class="nav-link" href="<?php echo BASEURL; ?>empresas" ><i class="fa-solid fa-user-tie"></i> Empresas</a>
 				</li>

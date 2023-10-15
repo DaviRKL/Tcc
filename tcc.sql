@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 11-Set-2023 às 00:41
+-- Tempo de geração: 25-Set-2023 às 15:44
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.2.0
 
@@ -134,7 +134,7 @@ CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL,
   `nome` varchar(50) DEFAULT NULL,
   `email` varchar(30) DEFAULT NULL,
-  `password` int(30) DEFAULT NULL,
+  `password` varchar(30) DEFAULT NULL,
   `foto` varchar(30) DEFAULT NULL,
   `fk_empresas_cnpj` int(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -144,9 +144,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nome`, `email`, `password`, `foto`, `fk_empresas_cnpj`) VALUES
-(1, 'sei lakkkk', 'admin', 12345, 'Bugatti.jpg', NULL),
-(6, 'Eu mesmo', 'ahaha@gmail.com', 12345, 'sandro.jpg', NULL),
-(7, 'asjifhnd]pf', 'ahha@gmail.com', 0, '', NULL);
+(1, 'sei lakkkk', 'admin@admin.com', '12345', 'Bugatti.jpg', NULL),
+(6, 'Eu mesmo', 'ahaha@gmail.com', '12345', 'sandro.jpg', NULL),
+(7, 'asjifhnd]pf', 'ahha@gmail.com', '0', '', NULL);
 
 --
 -- Índices para tabelas despejadas
@@ -210,16 +210,6 @@ ALTER TABLE `empresas`
 --
 ALTER TABLE `pets`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- Restrições para despejos de tabelas
---
-
---
--- Limitadores para a tabela `usuarios`
---
-ALTER TABLE `usuarios`
-  ADD CONSTRAINT `FK_usuarios_4` FOREIGN KEY (`fk_empresas_cnpj`) REFERENCES `empresas` (`cnpj`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
