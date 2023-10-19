@@ -49,7 +49,7 @@ include('../protecao/protect.php');
     <div id="actions" class="row">
       <div class="col-md-12">
         <button type="submit" class="btn btn-secondary">Salvar</button>
-        <a href="index.php" class="btn btn-light">Cancelar</a>
+        <a href="<?php echo BASEURL; ?>" class="btn btn-light">Cancelar</a>
       </div>
     </div>
   </form>

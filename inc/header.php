@@ -16,15 +16,18 @@ include_once('controla_login.php');
 		<link rel="stylesheet" href="<?php echo BASEURL; ?>css/bootstrap/bootstrap.min.css">
 		<link rel="stylesheet" href="<?php echo BASEURL; ?>css/awesome/all.min.css">
 		<link rel="stylesheet" href="<?php echo BASEURL; ?>css/style.css">
-		<link href="css/bootstrap.css" rel="stylesheet">	
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/custom.css">
+		
 	</head>
 	<body>
 		
 		<nav class="navbar bg-body-tertiary fixed-top">
   <div class="container-fluid">
   <div class=" col-6">
-  <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon" style="border: none;"></span>
+  <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation" style="border: none;">
+      <span class="navbar-toggler-icon" ></span>
   </button>
   </div>
   <div class=" col-4">

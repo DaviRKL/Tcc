@@ -1,6 +1,7 @@
 <?php 
 ob_start();
 	require_once('functions.php'); 
+	  concluir();
 	view($_GET['id']);
 	$pet_id = $agendamento['id_pet'];
 						$pet_info = get_pet_info($pet_id);
@@ -10,6 +11,7 @@ $pet_foto = $pet_info['foto'];
 						$empresa_name = get_empresa_name($cnpj);
 						$id=$agendamento['id_tutor'];
 						$tutor_name = get_tutor_name($id);
+						
 ?>
 
 <?php include(HEADER_TEMPLATE); ?>
@@ -51,8 +53,9 @@ $pet_foto = $pet_info['foto'];
 		</div>
 		<div id="actions" class="row">
 			<div class="col-md-12" style="padding-left: 20px; display: flex;flex-direction: row;justify-content: center; align-items: center;">
-			<a href="#" class="btn btn-dark"  style="width: 500px; padding-left: 20px; background-color:  #0ACCA7"  data-bs-toggle="modal" data-bs-target="#delete-agendamento-modal" data-agendamento="<?php echo $agendamento['id']; ?>" ><i class="fa-solid fa-circle-check"></i>  Concluir atendimento</a>
-				<a href="index.php" class="btn btn-default" style="width: 500px"><i class="fa-solid fa-rotate-left"></i> Voltar</a>
+
+			<button type="submit" class="btn btn-dark"  style="width: 500px; padding-left: 20px; background-color:  #0ACCA7" ><i class="fa-solid fa-circle-check"></i>  Concluir atendimento</button>
+				<a href="<?php echo BASEURL; ?>empresas/index.php" class="btn btn-default" style="width: 500px"><i class="fa-solid fa-rotate-left"></i> Voltar</a>
 			</div>
 		</div>
 	</div>

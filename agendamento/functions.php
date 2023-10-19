@@ -133,7 +133,34 @@ try {
       $_SESSION['type'] = "danger";
     }
 }
+function concluir() {
 
+  //$today = new DateTime("now");
+  // $now = date_create('now', new DateTimeZone('America/Sao_Paulo'));
+  try {
+        if (isset($_GET['id'])) {
+  
+          $id = $_GET['id'];
+  
+          if (isset($_POST['agendamento'])) {
+  
+            $agendamento = $_POST['agendamento'];
+            $agendamento['status'] == 'concluido';
+            update('agendamentos', $id, $agendamento);
+            header('location: index.php');
+          } else {
+  
+            global $agendamento;
+            $agendamento = find("agendamentos", $id);
+          } 
+        } else {
+          header('location: index.php');
+        }
+      } catch (Exception $e) {
+        $_SESSION['message'] = "Aconteceu um erro: " . $e->getMessage();
+        $_SESSION['type'] = "danger";
+      }
+  }
 function view($id = null) {
   global $agendamento;
   $agendamento = find2('agendamentos', $id);

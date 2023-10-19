@@ -24,7 +24,7 @@ if ($con->connect_error) {
     die("Erro na conexão: " . $con->connect_error);
 }
 
- $fetch_event= mysqli_query($con, "SELECT DISTINCT id, servico as title, data as start, horario as startTime FROM agendamentos ");
+ $fetch_event= mysqli_query($con, "SELECT DISTINCT id, servico as title, data as start, horario as startTime, eventColor FROM agendamentos ");
 ?>
 <style>
 
@@ -114,8 +114,8 @@ document.addEventListener('DOMContentLoaded', function() {
       title: '<?php echo $result['title'];?>',
       start: '<?php echo $start;?>',
       end: '<?php echo $end;?>',
-     
-      endTime: '<?php echo $endTime;?>'
+      endTime: '<?php echo $endTime;?>',
+      color: '<?php echo $result['eventColor'];?>'
         },
       <?php } ?>
       ]

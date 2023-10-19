@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 25-Set-2023 às 15:44
+-- Tempo de geração: 16-Out-2023 às 16:50
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.2.0
 
@@ -29,24 +29,28 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `agendamentos` (
   `id` int(11) NOT NULL,
-  `id_tutor` int(11) DEFAULT NULL,
-  `id_pet` int(11) DEFAULT NULL,
-  `id_empresa` int(11) DEFAULT NULL,
-  `servico` varchar(50) DEFAULT NULL,
-  `data` date DEFAULT NULL,
-  `horario` time DEFAULT NULL
+  `id_tutor` int(11) NOT NULL,
+  `id_pet` int(11) NOT NULL,
+  `id_empresa` int(20) NOT NULL,
+  `servico` varchar(50) NOT NULL,
+  `data` date NOT NULL,
+  `horario` time NOT NULL CHECK (`horario` in ('09:00','09:30','10:00','10:30','11:00','11:30','12:00','12:30','13:00','13:30','14:00','14:30','15:00','15:30','16:00','16:30','17:00','17:30','18:00')),
+  `status` varchar(12) DEFAULT 'Inconcluido',
+  `eventColor` varchar(7) DEFAULT '#ff0000'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `agendamentos`
 --
 
-INSERT INTO `agendamentos` (`id`, `id_tutor`, `id_pet`, `id_empresa`, `servico`, `data`, `horario`) VALUES
-(6, 2, NULL, 0, 'Banha e Tobas', '2023-05-07', '20:34:00'),
-(40, 1, 6, 23456469, 'Banho', '2023-09-05', '23:02:00'),
-(44, 1, 1, 23456467, 'Banho e Tosa', '2023-09-05', '15:28:00'),
-(45, 1, 6, 23456467, 'Banho e Tosa', '2023-09-06', '00:00:00'),
-(46, 1, 1, 23456467, 'Banho e Tosa', '2023-09-07', '20:20:00');
+INSERT INTO `agendamentos` (`id`, `id_tutor`, `id_pet`, `id_empresa`, `servico`, `data`, `horario`, `status`, `eventColor`) VALUES
+(6, 2, 0, 0, 'Banha e Tobas', '2023-05-07', '10:30:00', NULL, 'blue'),
+(40, 1, 6, 23456469, 'Banho', '2023-09-05', '13:00:00', NULL, 'blue'),
+(44, 1, 1, 23456467, 'Banho e Tosa', '2023-09-05', '15:30:00', NULL, 'blue'),
+(45, 1, 6, 23456467, 'Banho e Tosa', '2023-09-06', '10:00:00', NULL, 'blue'),
+(46, 1, 1, 23456467, 'Banho e Tosa', '2023-09-07', '11:30:00', NULL, 'blue'),
+(51, 1, 1, 23456467, 'Banho e Tosa', '2023-09-28', '13:30:00', NULL, 'blue'),
+(53, 1, 1, 23456467, 'Banho e Tosa', '2023-09-28', '10:00:00', NULL, 'blue');
 
 -- --------------------------------------------------------
 
@@ -106,12 +110,12 @@ INSERT INTO `empresas` (`cnpj`, `nome`, `endereço`, `telefone`, `precoBanho`, `
 
 CREATE TABLE `pets` (
   `id` int(11) NOT NULL,
-  `id_tutor` int(11) DEFAULT NULL,
-  `nome` varchar(50) DEFAULT NULL,
-  `tipo` varchar(20) DEFAULT NULL,
-  `sexo` varchar(10) DEFAULT NULL,
-  `raca` varchar(50) DEFAULT NULL,
-  `datanasc` varchar(11) DEFAULT NULL,
+  `id_tutor` int(11) NOT NULL,
+  `nome` varchar(50) NOT NULL,
+  `tipo` varchar(20) NOT NULL,
+  `sexo` varchar(10) NOT NULL,
+  `raca` varchar(50) NOT NULL,
+  `datanasc` varchar(11) NOT NULL,
   `foto` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -191,7 +195,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `agendamentos`
 --
 ALTER TABLE `agendamentos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT de tabela `carrouses`
