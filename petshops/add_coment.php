@@ -2,6 +2,9 @@
 
 session_start(); // Iniciar a sessão
 require_once('functions.php'); 
+view($_GET['cnpj']);
+require_once('processa.php');
+processa($_GET['cnpj']);
 ?>
 <?php include(HEADER_TEMPLATE); ?>
 
@@ -12,15 +15,15 @@ require_once('functions.php');
 
 <body>
 
- 
+<?php $cnpj = $_GET['cnpj']; ?>
 
     
 <div class="container">
-	<div class="row">
+	<div class="row"  style="display: flex;flex-direction: row;justify-content: center; align-items: center;margin-left: 120px;margin-right: 120px">
 		<div style="background-color: #00a4b4; border-radius: 50px; margin-top:30px">
 			<div style="padding: 20px">
-				<div class="col-md-4">
-                    <h1>Avalie</h1>
+				<div class="col-md-4" >
+                     <h2>Avalie a <?php echo $empresa['nome']; ?></h2>
                     <?php
                     // Imprimir a mensagem de erro ou sucesso salvo na sessão
                     if(isset($_SESSION['msg'])){
@@ -29,7 +32,8 @@ require_once('functions.php');
                     }
                     ?>    
                     <!-- Inicio do formulário -->
-                    <form method="POST" action="processa.php">
+                    <form method="POST" action="add_coment.php?cnpj=<?php echo $cnpj ?>">
+                    
                         <div class="estrelas">
                             <!-- Carrega o formulário definindo nenhuma estrela selecionada -->
                             <input type="radio" name="estrela" id="vazio" value="" checked>
@@ -53,7 +57,7 @@ require_once('functions.php');
                             <!-- Opção para selecionar 5 estrela -->
                             <label for="estrela_cinco"><i class="opcao fa"></i></label>
                             <input type="radio" name="estrela" id="estrela_cinco" id="vazio" value="5"><br><br>
-
+                        </div>
                             <!-- Campo para enviar a mensagem -->
                             <textarea name="mensagem" rows="4" cols="30" placeholder="Digite o seu comentário..."></textarea><br>
 
@@ -61,11 +65,11 @@ require_once('functions.php');
                             
                             <div id="actions" class="row">
                                     <div class="col-md-12">
-                                    <input type="submit" style="width: 100px;  background: rgb(0,163,180); background: linear-gradient(90deg, rgba(0,163,180,1) 0%, rgba(7,41,95,1) 76%); border: none;" class="btn btn-secondary" value="Cadastrar">
+                                    <input type="submit" style="width: 100px;  border: none;" class="btn btn-secondary" value="Cadastrar">
                                     <a href="index.php" class="btn btn-default"><i class="fa-solid fa-rotate-left"></i> Voltar</a>
                                     </div>
                                 </div>
-                        </div>
+                        
                     </form>
                 </div>
             </div>

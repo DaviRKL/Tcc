@@ -29,3 +29,8 @@
 .estrela-vazia{
     color: var(--cinza);
 }
+
+.estrelas {
+    display: flex; /* Use flexbox para organizar os elementos em linha */
+    align-items: center; /* Alinhe verticalmente no centro */
+}

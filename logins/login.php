@@ -64,7 +64,7 @@
                 </div>
 				<div id="actions" class="row">
 					<div class="col-md-12">
-					<button type="submit" class="btn btn-secondary" style="width: 1005px">Continuar</button>
+					<button type="submit" class="btn btn-secondary" style="width: 800px">Continuar</button>
 				</div>
               
    

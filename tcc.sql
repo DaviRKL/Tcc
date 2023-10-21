@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 16-Out-2023 às 16:50
--- Versão do servidor: 10.4.27-MariaDB
--- versão do PHP: 8.2.0
+-- Tempo de geração: 20-Out-2023 às 20:02
+-- Versão do servidor: 10.4.25-MariaDB
+-- versão do PHP: 8.0.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -37,7 +37,7 @@ CREATE TABLE `agendamentos` (
   `horario` time NOT NULL CHECK (`horario` in ('09:00','09:30','10:00','10:30','11:00','11:30','12:00','12:30','13:00','13:30','14:00','14:30','15:00','15:30','16:00','16:30','17:00','17:30','18:00')),
   `status` varchar(12) DEFAULT 'Inconcluido',
   `eventColor` varchar(7) DEFAULT '#ff0000'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `agendamentos`
@@ -55,6 +55,35 @@ INSERT INTO `agendamentos` (`id`, `id_tutor`, `id_pet`, `id_empresa`, `servico`,
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `avaliacoes`
+--
+
+CREATE TABLE `avaliacoes` (
+  `id` int(11) NOT NULL,
+  `qtd_estrela` int(11) NOT NULL,
+  `mensagem` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime DEFAULT NULL,
+  `id_empresa` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `avaliacoes`
+--
+
+INSERT INTO `avaliacoes` (`id`, `qtd_estrela`, `mensagem`, `created`, `modified`, `id_empresa`) VALUES
+(1, 4, 'O tutorial ajudou no meu trabalho.', '2023-09-16 12:02:27', NULL, NULL),
+(2, 5, 'Ótimo tutorial.', '2023-09-16 12:02:56', NULL, NULL),
+(3, 5, 'KAKKAKAKAKAKAKA MUITO BOM', '2023-10-20 18:50:48', NULL, NULL),
+(4, 4, 'MUITO RUIM NAAAAAAAAAAo', '2023-10-20 19:15:01', NULL, '0'),
+(5, 3, 'AS IDEIA KAKAKAKAKKAKAKKAKAKAKKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', '2023-10-20 14:36:55', NULL, NULL),
+(6, 2, 'KAKAKAKKAKA', '2023-10-20 14:48:02', NULL, NULL),
+(7, 4, 'KAKFNA`PSFNA agora vai', '2023-10-20 14:54:46', NULL, '0'),
+(8, 4, 'AGORA FOI AMEM', '2023-10-20 14:56:32', NULL, '23456467');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `carrouses`
 --
 
@@ -62,7 +91,7 @@ CREATE TABLE `carrouses` (
   `id` int(11) NOT NULL,
   `imagen_carousel` varchar(220) NOT NULL,
   `nome` varchar(220) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `carrouses`
@@ -89,7 +118,7 @@ CREATE TABLE `empresas` (
   `precoTosa` int(4) DEFAULT NULL,
   `foto` varchar(30) DEFAULT NULL,
   `sobre` varchar(500) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `empresas`
@@ -117,7 +146,7 @@ CREATE TABLE `pets` (
   `raca` varchar(50) NOT NULL,
   `datanasc` varchar(11) NOT NULL,
   `foto` varchar(30) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `pets`
@@ -141,7 +170,7 @@ CREATE TABLE `usuarios` (
   `password` varchar(30) DEFAULT NULL,
   `foto` varchar(30) DEFAULT NULL,
   `fk_empresas_cnpj` int(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `usuarios`
@@ -160,6 +189,12 @@ INSERT INTO `usuarios` (`id`, `nome`, `email`, `password`, `foto`, `fk_empresas_
 -- Índices para tabela `agendamentos`
 --
 ALTER TABLE `agendamentos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `avaliacoes`
+--
+ALTER TABLE `avaliacoes`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -196,6 +231,12 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `agendamentos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+
+--
+-- AUTO_INCREMENT de tabela `avaliacoes`
+--
+ALTER TABLE `avaliacoes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `carrouses`

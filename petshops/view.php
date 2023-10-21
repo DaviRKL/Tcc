@@ -2,6 +2,7 @@
 ob_start();
 	require_once('functions.php'); 
 	view($_GET['cnpj']);
+	$cnpj = $_GET['cnpj'];
 ?>
 <style>
 	dt, h2{
@@ -48,7 +49,7 @@ ob_start();
 				<div id="actions" class="row">
 					<div class="col-md-12">
 						<a href="<?php echo BASEURL; ?>agendamento/add.php?id=<?php echo $empresa['cnpj']; ?>" style="width: 100px;  background: rgb(0,163,180);background: linear-gradient(90deg, rgba(0,163,180,1) 0%, rgba(7,41,95,1) 76%); border: none;" class="btn btn-secondary">Agende já</a>
-						<a href="add_coment.php" class="btn btn-default"><i class="fa-regular fa-comment"></i> Avalie esta empresa</a>
+						<a href="add_coment.php?cnpj=<?php echo $empresa['cnpj']; ?>" class="btn btn-default"><i class="fa-regular fa-comment"></i> Avalie esta empresa</a>
 						<a href="index.php" class="btn btn-default"><i class="fa-solid fa-rotate-left"></i> Voltar</a>
 					</div>
 				</div>
@@ -59,10 +60,9 @@ ob_start();
 // Recuperar as avaliações do banco de dados
 $query_avaliacoes = "SELECT id, qtd_estrela, mensagem 
 					FROM avaliacoes
-					ORDER BY id DESC";
-
+					WHERE id_empresa = $cnpj 
+					ORDER BY created DESC";
 // Preparar a QUERY
-    //$conn = new PDO("mysql:host=$host;port=$port;dbname=" . $dbname, $user, $pass);
 $conn = new pdo("mysql:host=" .DB_HOST .";dbname=" . DB_NAME, DB_USER, DB_PASSWORD);
 $result_avaliacoes = $conn->prepare($query_avaliacoes);
 

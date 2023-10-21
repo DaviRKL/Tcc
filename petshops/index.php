@@ -57,7 +57,7 @@ include('../protecao/protect.php');
 										$cnpj = base64_encode($empresa['cnpj']);
 									?>
 									 <div class="card-body">
-										<h4 class="card-title"style=" display: flex;flex-direction: row;justify-content: center; align-items: center; color:white;"><?php echo $empresa['nome']; ?></h5>
+									 <a href="view.php?cnpj=<?php echo $empresa['cnpj']; ?>" class="card-title"style=" display: flex;flex-direction: row;justify-content: center; align-items: center; color:white;" ><?php echo $empresa['nome']; ?></a>
 									</div>
 									<div class="card-body"style=" display: flex;flex-direction: row;justify-content: center; align-items: center;" >
 										<?php if(isset($_SESSION['cnpj'])):?> 
@@ -65,7 +65,7 @@ include('../protecao/protect.php');
 											<a href="#" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#delete-empresa-modal" data-empresa="<?php echo $empresa['cnpj']; ?>"><i class="fa fa-trash"></i> Excluir</a>
 										<?php endif; ?>
 									</div> 
-									<a href="view.php?cnpj=<?php echo $empresa['cnpj']; ?>" class="card-title"style=" display: flex;flex-direction: row;justify-content: center; align-items: center; color:white;" ><?php echo $empresa['nome']; ?></a>
+									
 									
 								</div>				
 							</div>	
