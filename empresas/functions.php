@@ -82,7 +82,7 @@ function add() {
 
           if (!empty($_FILES["foto"]["name"])){
             //Upload da foto
-              $pasta_destino = "fotos/";
+              $pasta_destino = "../petshops/imagens/";
               $arquivo_destino = $pasta_destino . basename($_FILES["foto"]["name"]);
               $nomearquivo = basename($_FILES["foto"]['name']);
               $resolucao_arquivo = getimagesize($_FILES["foto"]["tmp_name"]);

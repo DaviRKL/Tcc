@@ -17,6 +17,10 @@ body {
     color: #FFF;
     background-color:   #2C445C;
 }
+H2, a{
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #2C445C;
+}
 .btn-secondary:hover {
     color: #FFF;
     background-color: #8396A8;
@@ -81,7 +85,7 @@ td,th{
     font-family: 'Roboto Condensed', sans-serif;
     color: #FFF;
 }
-h5,h2, H4, label{
+h5, H4, label{
     font-family: 'Roboto Condensed', sans-serif;
     color: whitesmoke;
 }

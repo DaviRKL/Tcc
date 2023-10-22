@@ -78,7 +78,7 @@
 			return $row["nome"];
 		} else {
 			// Se o pet não for encontrado, retorne uma mensagem de erro ou um valor padrão
-			return "Pet não encontrado";
+			return "Nome não encontrado";
 		}
 	
 		// Feche a conexão com o banco de dados

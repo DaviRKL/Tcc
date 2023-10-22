@@ -3,7 +3,8 @@ ob_start();
 include('../protecao/protect.php');
     require_once('functions.php');
     index();
-	
+	$tabela = 'avaliacoes';
+	$coluna = 'qtd_estrela';
 	function FormataData($data){
       $da = new DateTime ($data);
       return $da->format ("d-m-Y");  
@@ -23,8 +24,10 @@ include('../protecao/protect.php');
 	.card{
 		background-color: transparent;
 	}
+	
+	
 </style>
-<div style="background-color: #00a4b4; border-radius: 50px; margin-top:30px">
+<div style="margin-top:30px">
 	<div style="padding: 20px">
 		<header style="margin-top:10px;">
 			<div style="display: flex;flex-direction: row;justify-content: center; align-items: center;margin-left: 120px">
@@ -42,31 +45,41 @@ include('../protecao/protect.php');
 		</div>
 		<?php clear_messages(); ?>
 	<?php endif; ?>
-	<div class="container text-center">
+	<div class="container text-center fluid">
   		<div class="row">
 			<?php if ($empresas) : ?>
 				<?php foreach ($empresas as $empresa) : ?>
-							<div class="col-md-4"style="padding: 20px">		
-								<div class="card" style="wcnpjth: 20rem;">
+					
+							<div class="col-xl-4"style="padding: 20px">		
+								<div class="card" >
 									<?php
 										if (!empty($empresa['foto'])){
-											echo  "<img src=\"imagens/" . $empresa['foto'] . "\" class=\"card-img-top\" wcnpjth=\"200px\"height=\"200px\">";
+											echo  "<img src=\"imagens/" . $empresa['foto'] . "\" class=\"card-img-top\" width=\"200px\"height=\"200px\">";
 										}else{
-											echo  "<img src=\"imagens/SemImagem.png\" class=\"card-img-top\" wcnpjth=\"200px\"height=\"200px\">";
+											echo  "<img src=\"imagens/SemImagem.png\" class=\"card-img-top\" width=\"200px\"height=\"200px\">";
 										}
 										$cnpj = base64_encode($empresa['cnpj']);
 									?>
 									 <div class="card-body">
-									 <a href="view.php?cnpj=<?php echo $empresa['cnpj']; ?>" class="card-title"style=" display: flex;flex-direction: row;justify-content: center; align-items: center; color:white;" ><?php echo $empresa['nome']; ?></a>
+									<div class="col-xl-12">
+									 <a href="view.php?cnpj=<?php echo $empresa['cnpj']; ?>" class="card-title"style="margin-right: 160px"><?php echo $empresa['nome']; ?></a>
+									 <?php 
+									 	   $cnpj = $empresa['cnpj'];
+									 	   $media = calcularMedia(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME, $tabela, $coluna, $cnpj);
+								          // Criar o for para percorrer as 5 estrelas
+					 for ($i = 1; $i <= 5; $i++) {
+ 
+						// Acessa o IF quando a quantidade de estrelas selecionadas é menor a quantidade de estrela percorrida e imprime a estrela preenchida
+						if ($i <= $media) {
+							echo '<i class="estrela-preenchida fa-solid fa-star"></i>';
+						} else {
+							echo '<i class="estrela-vazia fa-solid fa-star"></i>';
+						}
+					}
+
+									 ?>
 									</div>
-									<div class="card-body"style=" display: flex;flex-direction: row;justify-content: center; align-items: center;" >
-										<?php if(isset($_SESSION['cnpj'])):?> 
-											<a href="edit.php?cnpj=<?php echo $empresa['cnpj']; ?>" class="btn btn-sm btn-secondary"><i class="fa-solcnpj fa-user-pen"></i> Editar</a>
-											<a href="#" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#delete-empresa-modal" data-empresa="<?php echo $empresa['cnpj']; ?>"><i class="fa fa-trash"></i> Excluir</a>
-										<?php endif; ?>
-									</div> 
-									
-									
+									</div>
 								</div>				
 							</div>	
 				<?php endforeach; ?>

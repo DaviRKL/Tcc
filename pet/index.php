@@ -6,7 +6,7 @@ include('../protecao/protect.php');
 	
 	function FormataData($data){
       $da = new DateTime ($data);
-      return $da->format ("d-m-Y");  
+      return $da->format ("d/m/Y");  
 	}
 	include(HEADER_TEMPLATE);
 ?>

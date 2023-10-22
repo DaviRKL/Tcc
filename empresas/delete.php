@@ -9,7 +9,7 @@ $sqlconsulta =  "select * from carros where id = $nome";
 	$host = "localhost"; 			
 	$user = "root"; 
 	$pass = ""; 
-	$db = "wda_crud";
+	$db = "tcc";
 $conexao = mysqlI_connect($host, $user, $pass, $db);
 	$resultado = @mysqli_query($conexao, $sqlconsulta);
 			$dados=mysqli_fetch_array($resultado);

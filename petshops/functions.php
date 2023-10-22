@@ -92,16 +92,12 @@ function add() {
               $tamanho_arquivo = $_FILES["foto"]["size"];
               $nome_temp = $_FILES["foto"]["tmp_name"];
               $tipo_arquivo = strtolower(pathinfo($arquivo_destino, PATHINFO_EXTENSION));
-
+             
               upload($pasta_destino, $arquivo_destino, $tipo_arquivo, $nome_temp, $tamanho_arquivo);
 
               $empresa['foto'] = $nomearquivo;
           }
-                
-            
-           
           $empresa['foto'] = $nomearquivo;
-         
           save('empresas', $empresa);
           header('Location: index.php');
       } catch (Exception $e) {
@@ -109,6 +105,92 @@ function add() {
           $_SESSION['type'] = "danger";
       }
   }
+}
+
+function processa($id_empresa= null){
+  if (!empty($_POST['estrela'])) {
+      $id_empresa = $_GET['cnpj'];
+      $id_usuario = $_SESSION['id'];
+  // Receber os dados do formulário
+  $estrela = filter_input(INPUT_POST, 'estrela', FILTER_DEFAULT);
+  $mensagem = filter_input(INPUT_POST, 'mensagem', FILTER_DEFAULT);
+
+  // Criar a QUERY cadastrar no banco de dados
+  $query_avaliacao = "INSERT INTO avaliacoes (qtd_estrela, mensagem, created, id_empresa, id_usuario) VALUES (:qtd_estrela, :mensagem, :created, :id_empresa, :id_usuario)";
+  
+  $conn = new PDO("mysql:host=".DB_HOST .";dbname=" . DB_NAME, DB_USER, DB_PASSWORD);
+  $cad_avaliacao = $conn->prepare($query_avaliacao);
+  $created = date("Y-m-d H:i:s");
+  
+  
+  // Substituir os links pelo valor
+  $cad_avaliacao->bindParam(':qtd_estrela', $estrela, PDO::PARAM_INT);
+  $cad_avaliacao->bindParam(':mensagem', $mensagem, PDO::PARAM_STR);
+  $cad_avaliacao->bindParam(':created', $created, PDO::PARAM_STR);
+  $cad_avaliacao->bindParam(':id_empresa', $id_empresa, PDO::PARAM_INT);
+  $cad_avaliacao->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
+  
+  
+  // Acessa o IF quando cadastrar corretamente
+  if ($cad_avaliacao->execute()) {
+
+      // Criar a mensagem de erro
+      $_SESSION['msg'] = "<p style='color: green;'>Avaliação cadastrar com sucesso.</p>";
+
+      // Redirecionar o usuário para a página inicial
+     
+      header("Location: view.php?cnpj=$id_empresa");
+  } else {
+
+      // Criar a mensagem de erro
+      $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Avaliação não cadastrar.</p>";
+
+      // Redirecionar o usuário para a página inicial
+      header("Location: view.php?cnpj=$id_empresa");
+  }
+} 
+}
+
+function calcularMedia($host, $usuario, $senha, $banco, $tabela, $coluna, $cnpj) {
+  // Conectar ao banco de dados
+  $conexao = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+
+  // Verificar a conexão
+  if (!$conexao) {
+      die("Erro na conexão com o banco de dados: " . mysqli_connect_error());
+  }
+
+  // Consulta SQL para selecionar os dados da coluna
+  $consulta = "SELECT qtd_estrela FROM avaliacoes WHERE id_empresa = $cnpj";
+
+  // Executar a consulta
+  $resultado = mysqli_query($conexao, $consulta);
+
+  if (!$resultado) {
+      die("Erro na consulta: " . mysqli_error($conexao));
+  }
+
+  // Inicializar variáveis para calcular a média
+  $soma = 0;
+  $contador = 0;
+
+  // Loop através dos resultados e somar os valores
+  while ($linha = mysqli_fetch_assoc($resultado)) {
+      $soma += $linha['qtd_estrela'];
+      $contador++;
+  }
+
+  // Calcular a média
+  if ($contador > 0) {
+      $media = $soma / $contador;
+  } else {
+      $media = 0; // Evita divisão por zero
+  }
+  $mediaInteiro = intval($media);
+  // Fechar a conexão com o banco de dados
+  mysqli_close($conexao);
+
+  return $mediaInteiro;
 }
 function edit() {
 

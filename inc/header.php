@@ -17,8 +17,9 @@ include_once('controla_login.php');
 		<link rel="stylesheet" href="<?php echo BASEURL; ?>css/awesome/all.min.css">
 		<link rel="stylesheet" href="<?php echo BASEURL; ?>css/style.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-		<link href="css/bootstrap.css" rel="stylesheet">
-		<link rel="stylesheet" href="css/custom.css">
+		<link rel="stylesheet" href="<?php echo BASEURL; ?>css/bootstrap.css">
+		<link rel="stylesheet" href="<?php echo BASEURL; ?>css/custom.css">
+		
 		
 	</head>
 	<body>
@@ -30,12 +31,12 @@ include_once('controla_login.php');
       <span class="navbar-toggler-icon" ></span>
   </button>
   </div>
-  <div class=" col-4">
-	 
+  <div class=" col-4" >
+  	<img src="<?php echo BASEURL; ?>images/Logo.png" style="height: 50px" />
   </div>
     <?php if(isset($_SESSION['id'])):?>
-		<div class="col">
-			<p style="margin-top: 9px;margin-left: 20px;"><i class="fa-solid fa-user"></i>  Bem vindo, <?php echo $_SESSION['email']; ?></p>  
+		<div class="col" style="margin-right: 10px">
+			<p style="margin-top: 9px;margin-left: 20px;"><i class="fa-solid fa-user"></i> <?php echo $_SESSION['email']; ?></p>  
 		</div>	
 									
 									<a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#logoutmodal"><i class="fa-solid fa-right-from-bracket"></i> Sair</a>  
