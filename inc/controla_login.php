@@ -51,7 +51,7 @@ if(isset($_POST['USER']) || isset($_POST['senha'])) {
                         			$_SESSION['message'] = "Falha ao logar! Usuario ou senha incorretos";
             $_SESSION['type'] = "danger";
 			$logado = "nao";
-			header("Location: login.php");
+			header("Location: logins/login.php");
 		}
 	}
 

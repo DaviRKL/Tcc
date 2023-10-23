@@ -53,17 +53,16 @@
                     
 				</div>
                 <div class="form-group col-md-12" style="display: flex;flex-direction: row;justify-content: center; align-items: center;margin-top: 20px;margin-left: 120px;margin-right: 120px" >
-                    <p>Ou faça login utilizando</p>
-                </div>
-                <div class="form-group col-md-12" style="display: flex;flex-direction: row;justify-content: center; align-items: center;margin-left: 120px;margin-right: 120px" >
-                <a style="margin-right: 5px" href="https://instagram.com/" target="_blank"><img src="https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white" target="_blank"></a>
-                <a  href="https://instagram.com/" target="_blank"><img src="https://img.shields.io/badge/google-4285F4?style=for-the-badge&logo=google&logoColor=white" target="_blank"></a>
-                </div>
-                <div class="form-group col-md-12" style="display: flex;flex-direction: row;justify-content: center; align-items: center;margin-top: 20px;margin-left: 120px;margin-right: 120px" >
                     <div class="g-recaptcha" data-sitekey="6LdSZdEmAAAAAPzie5WGn96a_YHQ_cpoIZgq0iCz" required></div>
                 </div>
+                <div class="form-group col-md-12" style="display: flex;flex-direction: row;justify-content: center; align-items: center;margin-top: 20px;margin-left: 120px;margin-right: 120px" >
+                    <p>Ou</p>
+                </div>
+                <div class="form-group col-md-12" style="display: flex;flex-direction: row;justify-content: center; align-items: center;margin-left: 120px;margin-right: 120px" >
+                <a href="../empresas/index.php">Faça Login como uma empresa</a>
+                </div>
 				<div id="actions" class="row">
-					<div class="col-md-12">
+					<div class="col-md-12" style="display: flex;flex-direction: row;justify-content: center; align-items: center;">
 					<button type="submit" class="btn btn-secondary" style="width: 800px">Continuar</button>
 				</div>
               

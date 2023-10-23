@@ -90,7 +90,7 @@ include('../protecao/protect.php');
 	</div>	
 </div>
 <?php 
-	include('modal.php'); 
+
 	include(FOOTER_TEMPLATE); 
 	ob_end_flush();
 ?>

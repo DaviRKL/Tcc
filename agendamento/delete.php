@@ -2,8 +2,8 @@
 ob_start();
 include('../protecao/protect.php');
   require_once('functions.php'); 
-  $nome = $_GET['id'];
-$sqlconsulta =  "select * from carros where id = $nome";
+  $id = $_GET['id'];
+$sqlconsulta =  "select * from agendamentos where id = $id";
 	
 	// executando instrução SQL
 	$host = "localhost"; 			
@@ -16,11 +16,13 @@ $conexao = mysqlI_connect($host, $user, $pass, $db);
 			
 
   if (isset($_GET['id'])){
-	  
-    delete($_GET['id']);
-	unlink ('imagens/'.$dados['foto']);
+    $agendamento['status'] == 'concluido';
+    update('agendamentos', $id, $agendamento);
+    header('location: index.php');
   } else {
     die("ERRO: ID não definido.");
   }
   ob_end_flush();
+
+
 ?>

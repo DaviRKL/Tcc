@@ -1,6 +1,6 @@
 <?php 
 ob_start();
-include('../protecao/protect.php');
+// include('../protecao/protect.php');
   require_once('functions.php'); 
   add();
 ?>

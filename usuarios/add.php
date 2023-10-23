@@ -70,19 +70,18 @@
         <img class="form-control shadow p-2 mb-2 bg-body rounded" id="imgPreview" src="fotos/semImagem.png" alt="pic" style="height:  150px;">
       </div>
       <div class="form-group col-md-12" style="display: flex;flex-direction: row;justify-content: center; align-items: center;margin-top: 20px;" >
-        <p>Ou faça login utilizando</p>
-      </div>
-      <div class="form-group col-md-12" style="display: flex;flex-direction: row;justify-content: center; align-items: center;" >
-        <a style="margin-right: 5px" href="https://instagram.com/" target="_blank"><img src="https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white" target="_blank"></a>
-        <a href="https://instagram.com/" target="_blank"><img src="https://img.shields.io/badge/google-4285F4?style=for-the-badge&logo=google&logoColor=white" target="_blank"></a>
+        <div class="g-recaptcha" data-sitekey="6LdSZdEmAAAAAPzie5WGn96a_YHQ_cpoIZgq0iCz"></div>
       </div>
       <div class="form-group col-md-12" style="display: flex;flex-direction: row;justify-content: center; align-items: center;margin-top: 20px;" >
-        <div class="g-recaptcha" data-sitekey="6LdSZdEmAAAAAPzie5WGn96a_YHQ_cpoIZgq0iCz"></div>
+        <p>Ou</p>
+      </div>
+      <div class="form-group col-md-12" style="display: flex;flex-direction: row;justify-content: center; align-items: center;" >
+        <a href="../empresas/add.php">Cadastre-se como uma empresa</a>
       </div>
     </div>
     <div id="actions" class="row">
       <div class="col-md-6"style="padding-left: 20px; padding-bottom:20px;">
-        <button type="submit" class="btn btn-secondary" href="<?php echo BASEURL; ?>index.php" style="width: 640px; padding-left: 20px">Salvar</button>
+        <button type="submit" class="btn btn-secondary" href="<?php echo BASEURL; ?>index.php" style="width: 640px; padding-left: 20px;">Salvar</button>
       </div>
       <div class="col-md-6">
         <a href="<?php echo BASEURL; ?>index.php" class="btn btn-light" style="width: 620px">Cancelar</a>

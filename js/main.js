@@ -52,3 +52,11 @@ $('#delete-agendamento-modal').on('show.bs.modal', function (event) {
   modal.find('.modal-title').text('Cancelar agendamento #' + id);
   modal.find('#confirm').attr('href', 'delete.php?id=' + id);
 });
+$('#concluir').on('show.bs.modal', function (event) {
+  
+  var button = $(event.relatedTarget);
+  var id = button.data('concluir');
+  var modal = $(this);
+  modal.find('.modal-title').text('Cancelar agendamento #' + id);
+  modal.find('#confirm').attr('href', 'delete.php?id=' + id);
+});

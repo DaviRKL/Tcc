@@ -1,126 +1,71 @@
-<?php
-ob_start();
-include('../protecao/protect.php');
-    require_once('functions.php');
-  
-	function FormataData($data){
-      $da = new DateTime ($data);
-      return $da->format ("d-m-Y");  
-	}
-	include(HEADER_TEMPLATE);
+<?php 
+    require_once ('../config.php'); 
+        require_once DBAPI; 
+    include(HEADER_TEMPLATE); 
+
+    if (isset($_POST['submit'])) {
+    $secret = "6LdSZdEmAAAAADcvsv17xA36Bg7cKEuWdpTxu35Tuu";
+    $response = $_POST['g-recaptcha-response'];
+    $remoteip = $_SERVER['REMOTE_ADDR'];
+    $url = "https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$response&remoteip=$remoteip";
+    $data = file_get_contents($url);
+    $row = json_decode($data, true);
+
+    if ($row['success'] == "true") {
+        echo "<script>alert('Wow you are not a robot 😲');</script>";
+    } else {
+        echo "<script>alert('Oops you are a robot 😡');</script>";
+    }
+    }
+
+
+
 ?>
-<?php
-// Inclua seu arquivo de configuração de banco de dados aqui
- 
 
-// Conecte-se ao seu banco de dados (substitua com suas próprias credenciais)
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "tcc";
-
-$con = new mysqli($servername, $username, $password, $dbname);
-if ($con->connect_error) {
-    die("Erro na conexão: " . $con->connect_error);
-}
-
- $fetch_event= mysqli_query($con, "SELECT DISTINCT id, servico as title, data as start, horario as startTime, eventColor FROM agendamentos ");
-?>
 <style>
+    #loga {
+  padding-top: 25px;
+}
+</style>  
 
- h2{
-color: #102447;
- }
-</style>
 
-<div style=" margin-top:30px">
-	<div style="padding: 5px">
-		<div class="row">
-			<header>
-				<div class="col-md-11 mx-auto">
-					<h2 class="text-center">Agendamentos marcados</h2>
+<div style="background-color: #00a4b4; border-radius: 50px; margin-top:20px">
+    <div style="padding-bottom: 20px">
+        <form method="post" action="agenda.php" id="logaempresa">
+            <?php if (!empty($_SESSION['message'])) : ?>
+                <div class="alert alert-<?php echo $_SESSION['type']; ?> alert-dismissible" role="alert">
+                    <?php echo $_SESSION['message']; ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php clear_messages(); ?>
+            <?php endif; ?>
+            <div class="row" style="display: flex;flex-direction: row;justify-content: center; align-items: center;margin-left: 120px;margin-right: 120px">
+                <div class="form-group col-md-12" style="display: flex;flex-direction: row;justify-content: center; align-items: center;margin-left: 120px;margin-right: 120px" >
+                <h2> Faça o seu Login</h2>
+                </div>
+                <div class="form-group col-md-12" style="width:200px;">
+					<label for="CNPJ"> CNPJ</label>
+					<input type="number" class="form-control"name="CNPJ" id="CNPJ" required>
 				</div>
-			</header>
-			<div id='calendar'></div>
-		</div>
-	</div>
+				<div class="form-group col-md-12" style="width:200px;">
+					<label for="email_empresa"> EMAIL</label>
+					<input type="email" class="form-control" name="email_empresa" id="email_empresa"  required>
+				</div>
+				<div class="form-group col-md-12" style="width:200px;">
+					<label for="senha"> SENHA</label>
+					<input type="password" class="form-control"name="senha_empresa" id="senha_empresa" required>
+                    
+				</div>
+                <div class="form-group col-md-12" style="display: flex;flex-direction: row;justify-content: center; align-items: center;margin-top: 20px;margin-left: 120px;margin-right: 120px" >
+                    <div class="g-recaptcha" data-sitekey="6LdSZdEmAAAAAPzie5WGn96a_YHQ_cpoIZgq0iCz" required></div>
+                </div>
+				<div id="actions" class="row">
+                    <div class="col-md-12" style="display: flex;flex-direction: row;justify-content: center; align-items: center;">
+					<button type="submit" class="btn btn-secondary" style="width: 800px">Continuar</button>
+				</div>
+              
+   
+            </div>      
+    </div>
 </div>
-<?php include('modal.php'); ?>
-<?php include(FOOTER_TEMPLATE); 
-ob_end_flush();?>
-
-<!-- <script src="../js/fullcalendar/calendar.js">  -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    var calendarEl = document.getElementById('calendar');
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-      themeSystem: 'bootstrap5',
-      locale: 'pt-br',
-      buttonText: {
-        today: "Hoje",
-        month: "Mês",
-        week: "Semana",
-        day: "Dia"
-    },
-      headerToolbar: {
-        left: 'prev,next today',
-        center: 'title',
-        right: 'dayGridMonth,timeGridWeek,timeGridDay'
-      },
-      
-      //initialDate: '2023-01-12',
-      navLinks: true, // can click day/week names to navigate views
-      selectable: true,
-      selectMirror: true,
-      select: function(arg) {
-        var title = prompt('Event Title:');
-        if (title) {
-          calendar.addEvent({
-            title: title,
-            start: arg.start,
-            end: arg.end,
-            allDay: arg.allDay
-          })
-        }
-        calendar.unselect()
-      },
-      eventClick: function(info) {
-            // Ao clicar em um evento, obtenha o ID do evento
-            var eventId = info.event.id;
-
-            // Redirecione para o edit.php com o ID do evento como parâmetro
-            window.location.href = '../agendamento/view.php?id=' + eventId;
-        },
-      editable: false,
-      dayMaxEvents: true, // allow "more" link when too many events
-      
-      events: [
-        
-        <?php     
-        while($result = mysqli_fetch_array($fetch_event)) 
-        {
-          $start = $result['start'];
-
-          // Calcular o valor de end adicionando uma hora ao start
-          $end = date('Y-m-d H:i:s', strtotime($start . ' +1 hour')); 
-          $startTime = $result['startTime'];
-
-          // Adicionar uma hora ao startTime para calcular o endTime
-          $endTime = date('Y-m-d H:i:s', strtotime($startTime . ' +1 hour'));
-          ?>
- 
-        {
-          id: '<?php echo $result['id'];?>',
-      title: '<?php echo $result['title'];?>',
-      start: '<?php echo $start;?>',
-      end: '<?php echo $end;?>',
-      endTime: '<?php echo $endTime;?>',
-      color: '<?php echo $result['eventColor'];?>'
-        },
-      <?php } ?>
-      ]
-    });
-
-    calendar.render();
-  });
-  </script>
+<?php include(FOOTER_TEMPLATE);?>

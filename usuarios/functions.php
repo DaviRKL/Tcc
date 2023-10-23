@@ -106,9 +106,10 @@
                 }
 
                 $usuario['foto'] = $nomearquivo;
-
+                $_SESSION['message'] = "Você se cadastrou com sucesso agora faça o Login";
+                $_SESSION['type'] = "success";
                 save('usuarios', $usuario);
-                header('Location: index.php');
+                header('Location: '.BASEURL.'logins/login.php');
             } catch (Exception $e) {
                 $_SESSION['message'] = "Aconteceu um erro: " . $e->getMessage();
                 $_SESSION['type'] = "danger";
