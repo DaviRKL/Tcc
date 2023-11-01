@@ -24,13 +24,16 @@ if ($con->connect_error) {
     die("Erro na conexão: " . $con->connect_error);
 }
 $id_empresa= $_SESSION['id_empresa'];
- $fetch_event= mysqli_query($con, "SELECT DISTINCT id, servico as title, data as start, horario as startTime, eventColor FROM agendamentos WHERE id_empresa = $id_empresa ");
+ $fetch_event= mysqli_query($con, "SELECT DISTINCT id, servico as title, data as start, horario as startTime, eventColor FROM agendamentos WHERE id_empresa = '$id_empresa '");
 ?>
 <style>
 
  h2{
 color: #102447;
  }
+ .calendar{
+    z-index: -1;
+}
 </style>
 
 <div style=" margin-top:30px">
@@ -38,7 +41,8 @@ color: #102447;
 		<div class="row">
 			<header>
 				<div class="col-md-11 mx-auto">
-					<h2 class="text-center">Agendamentos marcados</h2>
+					<h2 class="text-center">Agendamentos marcados <a class="btn btn-secondary" href="addFuncionarios.php" style="margin-left:20px"><i class="fa fa-plus"></i> Novo funcionário</a></h2>
+          
 				</div>
 			</header>
 			<div id='calendar'></div>
@@ -67,23 +71,23 @@ document.addEventListener('DOMContentLoaded', function() {
         center: 'title',
         right: 'dayGridMonth,timeGridWeek,timeGridDay'
       },
-      
+      hiddenDays: [0],
       //initialDate: '2023-01-12',
       navLinks: true, // can click day/week names to navigate views
       selectable: true,
       selectMirror: true,
-      select: function(arg) {
-        var title = prompt('Event Title:');
-        if (title) {
-          calendar.addEvent({
-            title: title,
-            start: arg.start,
-            end: arg.end,
-            allDay: arg.allDay
-          })
-        }
-        calendar.unselect()
-      },
+      // select: function(arg) {
+      //   var title = prompt('Event Title:');
+      //   if (title) {
+      //     calendar.addEvent({
+      //       title: title,
+      //       start: arg.start,
+      //       end: arg.end,
+      //       allDay: arg.allDay
+      //     })
+      //   }
+      //   calendar.unselect()
+      // },
       eventClick: function(info) {
             // Ao clicar em um evento, obtenha o ID do evento
             var eventId = info.event.id;

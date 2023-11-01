@@ -1,16 +1,15 @@
-
 <?php 
 ob_start();
 include('../protecao/protect.php');
   require_once('functions.php'); 
-  $id = $_GET['id'];
-$sqlconsulta =  "select * from agendamentos where id = $id";
+  $nome = $_GET['id'];
+$sqlconsulta =  "select * from pets where id = $nome";
 	
 	// executando instrução SQL
 	$host = "localhost"; 			
 	$user = "root"; 
 	$pass = ""; 
-	$db = "tcc";
+	$db = "wda_crud";
 $conexao = mysqlI_connect($host, $user, $pass, $db);
 	$resultado = @mysqli_query($conexao, $sqlconsulta);
 			$dados=mysqli_fetch_array($resultado);
@@ -18,7 +17,7 @@ $conexao = mysqlI_connect($host, $user, $pass, $db);
 
   if (isset($_GET['id'])){
 	  
-    delete($id);
+    delete($_GET['id']);
 	unlink ('imagens/'.$dados['foto']);
   } else {
     die("ERRO: ID não definido.");

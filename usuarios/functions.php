@@ -108,6 +108,11 @@
                 $usuario['foto'] = $nomearquivo;
                 $_SESSION['message'] = "Você se cadastrou com sucesso agora faça o Login";
                 $_SESSION['type'] = "success";
+                $cnpj = $_SESSION['id_empresa'];
+                $usuario['fk_empresas_cnpj'] = $cnpj;
+                if(!isset($_SESSION['id_empresa'])){
+                  $usuario['fk_empresas_cnpj'] = $_SESSION['id_empresa'];
+                }
                 save('usuarios', $usuario);
                 header('Location: '.BASEURL.'logins/login.php');
             } catch (Exception $e) {

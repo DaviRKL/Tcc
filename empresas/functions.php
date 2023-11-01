@@ -21,6 +21,7 @@ function get_pet($id=null) {
   $id = $_SESSION['id'];
   $pets = filter('pets', "id_tutor =  $id");
 }
+
 function upload ($pasta_destino, $arquivo_destino, $tipo_arquivo, $nome_temp, $tamanho_arquivo) {
   try {
       $nomearquivo = basename($arquivo_destino);
@@ -101,9 +102,53 @@ function add() {
           }
 
           $empresa['foto'] = $nomearquivo;
-
+          
           save('empresas', $empresa);
+           $id = $_SESSION['id'];
+           $cnpj= $empresa['cnpj'];
+          update_cnpj_usuario('usuarios', $id, $cnpj);
           header('Location: index.php');
+      } catch (Exception $e) {
+          $_SESSION['message'] = "Aconteceu um erro: " . $e->getMessage();
+          $_SESSION['type'] = "danger";
+      }
+  }
+}
+function addfuncionario() {
+
+  if (!empty($_POST['usuario'])) {
+      try {
+          $usuario = $_POST['usuario'];
+
+          if (!empty($_FILES["foto"]["name"])){
+            //Upload da foto
+              $pasta_destino = "fotos/";
+              $arquivo_destino = $pasta_destino . basename($_FILES["foto"]["name"]);
+              $nomearquivo = basename($_FILES["foto"]['name']);
+              $resolucao_arquivo = getimagesize($_FILES["foto"]["tmp_name"]);
+              $tamanho_arquivo = $_FILES["foto"]["size"];
+              $nome_temp = $_FILES["foto"]["tmp_name"];
+              $tipo_arquivo = strtolower(pathinfo($arquivo_destino, PATHINFO_EXTENSION));
+
+              upload($pasta_destino, $arquivo_destino, $tipo_arquivo, $nome_temp, $tamanho_arquivo);
+
+              $usuario['foto'] = $nomearquivo;
+          }
+
+          if (!empty($usuario['password'])){
+              $senha = criptografia($usuario['password']);
+              $usuario['password'] = $senha;
+          }
+
+          $usuario['foto'] = $nomearquivo;
+          $_SESSION['message'] = "Você se cadastrou com sucesso agora faça o Login";
+          $_SESSION['type'] = "success";
+      
+          if(isset($_SESSION['id_empresa'])){
+            $usuario['fk_empresas_cnpj'] = $_SESSION['id_empresa'];
+          }
+          save('usuarios', $usuario);
+          header('Location: '.BASEURL.'empresas/agenda.php');
       } catch (Exception $e) {
           $_SESSION['message'] = "Aconteceu um erro: " . $e->getMessage();
           $_SESSION['type'] = "danger";

@@ -12,13 +12,17 @@ ob_start();
   <form action="add.php" enctype="multipart/form-data" method="post" style="padding: 20px">
     <h2>Novo Pet Shop</h2>
     <div class="row">
+    <div class="form-group col-md-12" style="width:200px;">
+					<label for="CNPJ"> CNPJ</label>
+					<input type="text" class="form-control"name="empresa['cnpj']" id="CNPJ" oninput="formatCNPJ(this)" maxlength="18" required>
+				</div>
       <div class="form-group col-md-6">
         <label for="modelo">Nome da empresa</label>
         <input type="text" class="form-control" name="empresa['nome']">
       </div>
       <div class="form-group col-md-2">
         <label for="marca">Telefone</label>
-        <input type="text" class="form-control" name="empresa['Telefone']">
+        <input type="text" class="form-control" oninput="formatTelefone(this)" maxlength="14"  name="empresa['Telefone']" required>
       </div>
       <div class="form-group col-md-2">
         <label for="marca">Endereço</label>
@@ -26,16 +30,15 @@ ob_start();
       </div>
       <div class="form-group col-md-2">
         <label for="ano">Preço do banho</label>
-        <input type="number" class="form-control" name="empresa['precoBanho']">
+        <input type="text" class="form-control" oninput="formatDinheiro(this)" name="empresa['precoBanho']" maxlength="5">
       </div>
       <div class="form-group col-md-3">
         <label for="datacad">Preço Tosa</label>
-        <input type="number" class="form-control" name="empresa['precoTosa]">
+        <input type="text" class="form-control" oninput="formatDinheiro(this)" name="empresa['precoTosa]" maxlength="5">
       </div>
       <div class="form-group col-md-3">
         <label for="datacad">Sobre o PetShop</label>
-        <input type="text" style="width:500px;height:100px;" class="form-control" name="empresa['sobre']"  max="100" >
-        
+        <input type="text" style="width:500px;height:100px;" class="form-control" name="empresa['sobre']"  max="100" > 
       </div>
       <div class="form-group col-md-7">
         <label for="foto">Foto</label>
@@ -70,4 +73,61 @@ ob_end_flush();?>
     }
   });
 });
+
+    function formatCNPJ(input) {
+      // Remove todos os caracteres não numéricos
+      let value = input.value.replace(/\D/g, "");
+      
+      // Adiciona a máscara
+      if (value.length >= 2) {
+        value = value.substring(0, 2) + "." + value.substring(2);
+      }
+      if (value.length >= 6) {
+        value = value.substring(0, 6) + "." + value.substring(6);
+      }
+      if (value.length >= 10) {
+        value = value.substring(0, 10) + "/" + value.substring(10);
+      }
+      if (value.length >= 15) {
+        value = value.substring(0, 15) + "-" + value.substring(15);
+      }
+
+      // Define o valor formatado no input
+      input.value = value;
+    }
+
+    function formatDinheiro(input) {
+      // Remove todos os caracteres não numéricos
+      let value = input.value.replace(/\D/g, "");
+      let formattedValue = "";
+
+      // Adiciona a máscara
+      if (value.length >= 0) {
+       
+        formattedValue = "R$" + value;
+      } 
+
+  
+
+      // Define o valor formatado no input
+      input.value =  formattedValue;
+    }
+    
+    function formatTelefone(input) {
+      let value = input.value.replace(/\D/g, ""); // Remove todos os caracteres não numéricos
+      let formattedValue = "";
+
+      if (value.length <= 2) {
+        formattedValue = "(" + value;
+      } else if (value.length <= 6) {
+        formattedValue = "(" + value.substring(0, 2) + ") " + value.substring(2);
+      } else if (value.length <= 10) {
+        formattedValue = "(" + value.substring(0, 2) + ") " + value.substring(2, 6) + "-" + value.substring(6);
+      } else {
+        formattedValue = "(" + value.substring(0, 2) + ") " + value.substring(2, 6) + "-" + value.substring(6, 10);
+      }
+
+      // Define o valor formatado no input
+      input.value = formattedValue;
+    }
 </script>

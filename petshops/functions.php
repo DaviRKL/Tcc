@@ -161,7 +161,7 @@ function calcularMedia($host, $usuario, $senha, $banco, $tabela, $coluna, $cnpj)
   }
 
   // Consulta SQL para selecionar os dados da coluna
-  $consulta = "SELECT qtd_estrela FROM avaliacoes WHERE id_empresa = $cnpj";
+  $consulta = "SELECT qtd_estrela FROM avaliacoes WHERE id_empresa = '$cnpj'";
 
   // Executar a consulta
   $resultado = mysqli_query($conexao, $consulta);
@@ -238,7 +238,7 @@ try {
 
 function view($cnpj = null) {
   global $empresa;
-  $empresa = find1('empresas', $cnpj);
+  $empresa = find1('empresas',$cnpj);
 }
 function filtro($marca = null) {
   global $empresa;

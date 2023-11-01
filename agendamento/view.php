@@ -1,14 +1,14 @@
 <?php 
 ob_start();
 	require_once('functions.php'); 
-	  concluir();
+	concluir();
 	view($_GET['id']);
 	$pet_id = $agendamento['id_pet'];
 						$pet_info = get_pet_info($pet_id);
 						$pet_name = $pet_info['nome'];
+						$pet_raca = $pet_info['raca'];
 $pet_foto = $pet_info['foto'];
-						$cnpj= $agendamento['id_empresa'];
-						$empresa_name = get_empresa_name($cnpj);
+						
 						$id=$agendamento['id_tutor'];
 						$tutor_name = get_tutor_name($id);
 						
@@ -35,10 +35,10 @@ $pet_foto = $pet_info['foto'];
 				<dd><?php echo $agendamento['servico']; ?></dd>
 
 				<dt>Raça:</dt>
-				<dd><?php echo $agendamento['data']; ?></dd>
+				<dd><?php echo $pet_raca ?></dd>
 
 				<dt>Data de nascimento:</dt>
-				<dd><?php echo $agendamento['horario']; ?></dd>
+				<dd><?php echo $agendamento['data']; ?></dd>
 				<dt>Foto:</dt>
 					<dd><?php
 						if (!empty($pet_foto)){
@@ -53,8 +53,8 @@ $pet_foto = $pet_info['foto'];
 		</div>
 		<div id="actions" class="row">
 			<div class="col-md-12" style="padding-left: 20px; display: flex;flex-direction: row;justify-content: center; align-items: center;">
-            <!-- <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#logoutmodal"><i class="fa-solid fa-right-from-bracket"></i> Sair</a>   -->
-			<a href="#" class="btn btn-dark"  style="width: 500px; padding-left: 20px; background-color:  #0ACCA7"  data-bs-toggle="modal" data-bs-target="#concluir" data-usuario="<?php echo $usuario['id']; ?>"><i class="fa-solid fa-circle-check"></i>  Concluir atendimento</a>
+       
+			<a href="#" class="btn btn-dark"  style="width: 500px; padding-left: 20px; background-color:  #0ACCA7"  data-bs-toggle="modal" data-bs-target="#concluir-agendamento-modal" data-concluir="<?php echo $agendamento['id']; ?>"><i class="fa-solid fa-circle-check"></i>  Concluir atendimento</a>
 				<a href="<?php echo BASEURL; ?>empresas/agenda.php" class="btn btn-default" style="width: 500px"><i class="fa-solid fa-rotate-left"></i> Voltar</a>
 			</div>
 		</div>
@@ -62,5 +62,5 @@ $pet_foto = $pet_info['foto'];
 </div>
 
 <?php include(FOOTER_TEMPLATE);
-include('modal.php'); 
+include('modal_concluir.php'); 
 ob_end_flush();?>

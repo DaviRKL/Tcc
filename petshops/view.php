@@ -55,7 +55,7 @@ ob_start();
 				// Recuperar as avaliações do banco de dados
 				$query_avaliacoes = "SELECT id, qtd_estrela, mensagem, id_usuario , created
 									FROM avaliacoes
-									WHERE id_empresa = $cnpj 
+									WHERE id_empresa = '$cnpj' 
 									ORDER BY created DESC";
 				// Preparar a QUERY
 				$conn = new pdo("mysql:host=" .DB_HOST .";dbname=" . DB_NAME, DB_USER, DB_PASSWORD);
@@ -70,7 +70,8 @@ ob_start();
 
 					// Extrair o array para imprimir pelo nome do elemento do array
 					extract($row_avaliacao);
-					$name = get_tutor_name($name =  $row_avaliacao['id_usuario']);
+			      $id= $row_avaliacao['id_usuario'];
+					$name = get_tutor_name($id);
 					echo "<p>Usuário: $name</p>";
 
 					// Criar o for para percorrer as 5 estrelas

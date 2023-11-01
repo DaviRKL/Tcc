@@ -31,7 +31,7 @@
 		$found = null;
 	
 		// Consulta SQL para buscar o nome e a foto do pet pelo ID
-		$sql = "SELECT nome, foto FROM pets WHERE id = $pet_id";
+		$sql = "SELECT nome, foto, raca FROM pets WHERE id = $pet_id";
 	
 		// Execute a consulta
 		$result = $database->query($sql);
@@ -44,7 +44,8 @@
 			// Crie um array associativo com o nome e a foto do pet
 			$pet_info = [
 				'nome' => $row["nome"],
-				'foto' => $row["foto"]
+				'foto' => $row["foto"],
+				'raca' => $row["raca"]
 			];
 	
 			// Retorna o array associativo
@@ -91,7 +92,7 @@
 		$found = null;
 	
 		// Consulta SQL para buscar o nome do pet pelo ID
-		$sql = "SELECT nome FROM empresas WHERE cnpj = $cnpj";
+		$sql = "SELECT nome FROM empresas WHERE cnpj = '$cnpj'";
 	
 		// Execute a consulta
 		$result = $database->query($sql);
@@ -119,7 +120,8 @@
 
 		try {
 		  if ($id) {
-			$sql = "SELECT * FROM " . $table . " WHERE cnpj = " . $id;
+		
+			$sql = "SELECT * FROM " . $table . " WHERE cnpj =  '$id'";
 			$result = $database->query($sql);
 			if ($result->num_rows > 0) {
 			  $found = $result->fetch_assoc();
@@ -257,6 +259,29 @@
 
 	  close_database($database);
 	}
+	// update_cnpj_usuario('empresas', $id, $cnpj);
+	function update_cnpj_usuario($table = null, $id = 0, $cnpj = null) {
+
+		$database = open_database();
+		
+	
+		$sql  = "UPDATE  $table SET fk_empresas_cnpj = '$cnpj' WHERE id=" . $id . ";";
+  
+		try {
+		  $database->query($sql);
+  
+		  $_SESSION['message'] = 'Registro atualizado com sucesso.';
+		  $_SESSION['type'] = 'success';
+  
+		} catch (Exception $e) { 
+  
+		  $_SESSION['message'] = 'Nao foi possivel realizar a operacao.';
+		  $_SESSION['type'] = 'danger';
+		} 
+  
+		close_database($database);
+	  }
+	  
 
 	function update($table = null, $id = 0, $data = null) {
 

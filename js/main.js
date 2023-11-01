@@ -49,14 +49,16 @@ $('#delete-agendamento-modal').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget);
   var id = button.data('agendamento');
   var modal = $(this);
-  modal.find('.modal-title').text('Cancelar agendamento #' + id);
+  modal.find('.modal-title').text('Cancelar agendamento');
   modal.find('#confirm').attr('href', 'delete.php?id=' + id);
 });
-$('#concluir').on('show.bs.modal', function (event) {
+
+$('#concluir-agendamento-modal').on('show.bs.modal', function (event) {
   
   var button = $(event.relatedTarget);
   var id = button.data('concluir');
   var modal = $(this);
-  modal.find('.modal-title').text('Cancelar agendamento #' + id);
+  modal.find('.modal-title').text('Concluir agendamento #' + id);
   modal.find('#confirm').attr('href', 'delete.php?id=' + id);
 });
+

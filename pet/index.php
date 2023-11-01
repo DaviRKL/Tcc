@@ -34,13 +34,6 @@ include('../protecao/protect.php');
 			</div> 
 		</header>
 	</div>
-	<?php if (!empty($_SESSION['message'])) : ?>
-		<div class="alert alert-<?php echo $_SESSION['type']; ?> alert-dismissible" role="alert">
-			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-			<?php echo $_SESSION['message']; ?>
-		</div>
-		<?php clear_messages(); ?>
-	<?php endif; ?>
 	<div class="container text-center">
   		<div class="row">
 			<?php if ($pets) : ?>
@@ -60,10 +53,10 @@ include('../protecao/protect.php');
 										<h4 class="card-title"style=" display: flex;flex-direction: row;justify-content: center; align-items: center;"><?php echo $pet['nome']; ?></h5>
 									</div>
 									<ul class="list-group list-group-flush">
-										<li class="list-group-item"style=" background-color: #0ACCA7">Tipo: <?php echo $pet['tipo']; ?></li>
-										<li class="list-group-item"style=" background-color: #0ACCA7">Sexo: <?php echo $pet['sexo']; ?></li>
-										<li class="list-group-item"style=" background-color: #0ACCA7">Raça: <?php echo $pet['raca']; ?></li>
-										<li class="list-group-item"style=" background-color: #0ACCA7">Data de nascimento: <?php $d = new Datetime($pet['datanasc']); echo FormataData($pet['datanasc']);?></li>
+										<li class="list-group-item">Tipo: <?php echo $pet['tipo']; ?></li>
+										<li class="list-group-item">Raça: <?php echo $pet['raca']; ?></li>
+										<li class="list-group-item">Sexo: <?php echo $pet['sexo']; ?></li>
+										<li class="list-group-item">Data de nascimento: <?php $d = new Datetime($pet['datanasc']); echo FormataData($pet['datanasc']);?></li>
 									</ul>
 									<div class="card-body"style=" display: flex;flex-direction: row;justify-content: center; align-items: center;" >
 										<?php if(isset($_SESSION['id'])):?> 
@@ -72,11 +65,10 @@ include('../protecao/protect.php');
 										<?php endif; ?>
 									</div>
 								</div>				
-							</div>	
-						
+							</div>		
 				<?php endforeach; ?>
 			<?php else : ?>
-				<p>TEM nada KKKKKKKKKKKKKK</p>	
+				<p>Você ainda não possui Pets</p>	
 			<?php endif; ?>
 		</div>	
 	</div>	

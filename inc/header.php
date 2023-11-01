@@ -35,7 +35,7 @@ include_once('controla_login_empresa.php');
   <div class=" col-4" >
   	<img src="<?php echo BASEURL; ?>images/Logo.png" style="height: 50px" />
   </div>
-    <?php if( (isset($_SESSION['id'])) || (isset($_SESSION['id_empresa']))) :?>
+    <?php if( (isset($_SESSION['id']))) :?>
 		<div class="col" style="margin-right: 10px">
 			<p style="margin-top: 9px;margin-left: 20px;"><i class="fa-solid fa-user"></i> <?php echo $_SESSION['email']; ?></p>  
 		</div>	
@@ -43,7 +43,7 @@ include_once('controla_login_empresa.php');
 									<a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#logoutmodal"><i class="fa-solid fa-right-from-bracket"></i> Sair</a>  
 									
 							<?php endif; ?>
-							<?php if(!isset($_SESSION['id']) || !isset($_SESSION['id_empresa'])):?>
+							<?php if(!isset($_SESSION['id']) ):?>
 									<a class="nav-link" href="<?php echo BASEURL;?>logins/login.php">Entre</a>		
 									<a class="nav-link" href="<?php echo BASEURL;?>usuarios/add.php">Cadastre-se<i class="fa-solid fa-user"></i></a>
 							<?php endif; ?>	
@@ -68,15 +68,10 @@ include_once('controla_login_empresa.php');
 		  <li class="nav-item">
 		  <a class="nav-link" href="<?php echo BASEURL; ?>petshops" role="button"><i class="fa-solid fa-paw"></i> Pet Shops</a>
           </li>
-		  <li class="nav-item">
-		  <a class="nav-link" href="<?php echo BASEURL; ?>empresas/add.php" role="button"><i class="fa-solid fa-paw"></i> Cadastre-se como empresa</a>
-          </li>
 		  <?php if(isset($_SESSION['id'])):?> 
-			<?php if ($_SESSION['email']=="admin@admin.com"):?>
 				<li class="nav-item">
-					<a class="nav-link" href="<?php echo BASEURL; ?>empresas" ><i class="fa-solid fa-user-tie"></i> Empresas</a>
+					<a class="nav-link" href="<?php echo BASEURL; ?>empresas/add.php" role="button"><i class="fa-solid fa-paw"></i> Cadastre-se como empresa</a>
 				</li>
-			<?php endif; ?>
 		 <?php endif; ?>	
         </ul>
       </div>

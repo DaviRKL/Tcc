@@ -42,14 +42,8 @@ label{
 				<?php endif; ?>
 			</div> 	
 		</header>
-		<?php if (!empty($_SESSION['message'])) : ?>
-			<div class="alert alert-<?php echo $_SESSION['type']; ?> alert-dismissible" role="alert">
-				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-				<?php echo $_SESSION['message']; ?>
-			</div>
-			<?php clear_messages(); ?>
-		<?php endif; ?>
-		<div class="container text-center">
+
+		<div class="container text-center" style=" margin-top:40px; margin-bottom: 20px">
   			<div class="row">       
 				<?php 
 					if ($agendamentos) : 
@@ -60,20 +54,20 @@ label{
 							$cnpj= $agendamento['id_empresa'];
 							$empresa_name = get_empresa_name($cnpj);
 				?>
-							<div class="col-lg-4"style="margin-bottom: 20px">		
+							<div class="col-lg-4"style="margin-bottom: 40px">		
 								<div class="card">	 
-									<div class="card-body" style="background-color: #0ACCA7;">
-										<h4 class="card-title"style="color:#FFF; display: flex;flex-direction: row;justify-content: center; align-items: center;">
+									<div class="card-body" >
+										<h4 class="card-title"style="display: flex;flex-direction: row;justify-content: center; align-items: center;">
 										Pet: <?php echo $pet_name; ?></h4>
 									</div>
 									<ul class="list-group list-group-flush" style: >
-											<li class="list-group-item"style=" background-color: #0ACCA7"><H5>Local: <?php echo $empresa_name; ?></H5></li>
-											<li class="list-group-item"style=" background-color: #0ACCA7"><H5>Serviço: <?php echo $agendamento['servico']; ?></H5></li>
-											<li class="list-group-item"style=" background-color: #0ACCA7"><H5>Data: <?php echo $agendamento['data']; ?></H5></li>
+											<li class="list-group-item"><H5>Local: <?php echo $empresa_name; ?></H5></li>
+											<li class="list-group-item"><H5>Serviço: <?php echo $agendamento['servico']; ?></H5></li>
+											<li class="list-group-item"><H5>Data: <?php echo $agendamento['data']; ?></H5></li>
 											<?php $d = new Datetime($agendamento['horario']);?>
-											<li class="list-group-item"style="background-color: #0ACCA7"><H5>Horário: <?php echo FormataData($agendamento['horario']); ?></H5></li>
+											<li class="list-group-item"><H5>Horário: <?php echo FormataData($agendamento['horario']); ?></H5></li>
 									</ul>
-									<div class="card-body"style="display: flex;flex-direction: row;justify-content: center; align-items: center;background-color: #0ACCA7;" >
+									<div class="card-body"style="display: flex;flex-direction: row;justify-content: center; align-items: center;" >
 											<?php if(isset($_SESSION['id'])):?> 
 												<a href="#" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#delete-agendamento-modal" data-agendamento="<?php echo $agendamento['id']; ?>"><i class="fa-solid fa-ban"></i> Cancelar</a>
 											<?php endif; ?>
@@ -82,7 +76,7 @@ label{
 							</div>
 					<?php endforeach; ?>
 				<?php else : ?>
-					<p>TEM nada KKKKKKKKKKKKKK</p>	
+					<p>Você ainda não possui nenhum agendamento</p>	
 				<?php endif; ?>
 			</div>
 		</div>

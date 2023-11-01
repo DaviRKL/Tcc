@@ -1,4 +1,3 @@
-
 <?php 
 ob_start();
 include('../protecao/protect.php');
@@ -17,11 +16,13 @@ $conexao = mysqlI_connect($host, $user, $pass, $db);
 			
 
   if (isset($_GET['id'])){
-	  
-    delete($id);
-	unlink ('imagens/'.$dados['foto']);
+    $agendamento['status'] == 'concluido';
+    update('agendamentos', $id, $agendamento);
+    header('location: index.php');
   } else {
     die("ERRO: ID não definido.");
   }
   ob_end_flush();
+
+
 ?>
