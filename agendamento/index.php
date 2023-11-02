@@ -6,10 +6,7 @@ include('../protecao/protect.php');
 	include(HEADER_TEMPLATE);
     index();
 	
-	function FormataData($data){
-      $da = new DateTime ($data);
-      return $da->format ("h:i");  
-	}
+
 	
 	
 	
@@ -63,9 +60,8 @@ label{
 									<ul class="list-group list-group-flush" style: >
 											<li class="list-group-item"><H5>Local: <?php echo $empresa_name; ?></H5></li>
 											<li class="list-group-item"><H5>Serviço: <?php echo $agendamento['servico']; ?></H5></li>
-											<li class="list-group-item"><H5>Data: <?php echo $agendamento['data']; ?></H5></li>
-											<?php $d = new Datetime($agendamento['horario']);?>
-											<li class="list-group-item"><H5>Horário: <?php echo FormataData($agendamento['horario']); ?></H5></li>
+											<li class="list-group-item"><H5>Data: <?php  echo FormataData($agendamento['data']);?></H5></li>
+											<li class="list-group-item"><H5>Horário: <?php echo FormataHora($agendamento['horario']); ?></H5></li>
 									</ul>
 									<div class="card-body"style="display: flex;flex-direction: row;justify-content: center; align-items: center;" >
 											<?php if(isset($_SESSION['id'])):?> 

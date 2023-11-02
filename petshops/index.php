@@ -5,10 +5,6 @@ include('../protecao/protect.php');
     index();
 	$tabela = 'avaliacoes';
 	$coluna = 'qtd_estrela';
-	function FormataData($data){
-      $da = new DateTime ($data);
-      return $da->format ("d-m-Y");  
-	}
 	include(HEADER_TEMPLATE);
 ?>
 <style>

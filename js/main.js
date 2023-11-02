@@ -59,6 +59,6 @@ $('#concluir-agendamento-modal').on('show.bs.modal', function (event) {
   var id = button.data('concluir');
   var modal = $(this);
   modal.find('.modal-title').text('Concluir agendamento #' + id);
-  modal.find('#confirm').attr('href', 'delete.php?id=' + id);
+  modal.find('#confirm').attr('href', 'conclui.php?id=' + id);
 });
 

@@ -400,4 +400,13 @@ function filter( $table = null, $p = null ) {
 		$_SESSION['type'] = "";
 		$_SESSION['message'] = "";
 	}
+
+	function FormataData($data){
+		$da = new DateTime ($data);
+		return $da->format ("d/m/Y");  
+	  }
+	  function FormataHora($data){
+		$da = new DateTime ($data);
+		return $da->format ("h:i");  
+	  }
   

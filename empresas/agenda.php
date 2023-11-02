@@ -3,10 +3,7 @@ ob_start();
 include('../protecao/protect_empresa.php');
     require_once('functions.php');
   
-	function FormataData($data){
-      $da = new DateTime ($data);
-      return $da->format ("d-m-Y");  
-	}
+	
 	include(HEADER_TEMPLATE);
 ?>
 <?php
@@ -24,8 +21,11 @@ if ($con->connect_error) {
     die("Erro na conexão: " . $con->connect_error);
 }
 $id_empresa= $_SESSION['id_empresa'];
- $fetch_event= mysqli_query($con, "SELECT DISTINCT id, servico as title, data as start, horario as startTime, eventColor FROM agendamentos WHERE id_empresa = '$id_empresa '");
+$fetch_event= mysqli_query($con, "SELECT DISTINCT id, servico as title, data as start, horario as startTime, eventColor FROM agendamentos WHERE id_empresa = '$id_empresa '");
+
+$empresa_name = get_empresa_name($id_empresa);
 ?>
+
 <style>
 
  h2{
@@ -40,9 +40,11 @@ color: #102447;
 	<div style="padding: 5px">
 		<div class="row">
 			<header>
+        <div class="col-md-11 mx-auto">
+					<h1 class="text-center"><?php echo $empresa_name ?> </h1>
+				</div>
 				<div class="col-md-11 mx-auto">
-					<h2 class="text-center">Agendamentos marcados <a class="btn btn-secondary" href="addFuncionarios.php" style="margin-left:20px"><i class="fa fa-plus"></i> Novo funcionário</a></h2>
-          
+					<h3 class="text-center">Agendamentos marcados <a class="btn btn-secondary" href="addFuncionarios.php" ><i class="fa fa-plus"></i> Novo funcionário</a></h3>
 				</div>
 			</header>
 			<div id='calendar'></div>

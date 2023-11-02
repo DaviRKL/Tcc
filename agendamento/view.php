@@ -23,7 +23,6 @@ $pet_foto = $pet_info['foto'];
 		</div>
 		<hr style="color:#FFF">
 		<div style="display: flex;flex-direction: row;justify-content: center; align-items: center;">
-			
 			<dl class="dl-horizontal">
 				<dt>Nome do Pet</dt>
 				<dd><?php echo $pet_name; ?></dd>
@@ -38,7 +37,7 @@ $pet_foto = $pet_info['foto'];
 				<dd><?php echo $pet_raca ?></dd>
 
 				<dt>Data de nascimento:</dt>
-				<dd><?php echo $agendamento['data']; ?></dd>
+				<dd><?php echo FormataData($agendamento['data']) ?></dd>
 				<dt>Foto:</dt>
 					<dd><?php
 						if (!empty($pet_foto)){
@@ -53,7 +52,6 @@ $pet_foto = $pet_info['foto'];
 		</div>
 		<div id="actions" class="row">
 			<div class="col-md-12" style="padding-left: 20px; display: flex;flex-direction: row;justify-content: center; align-items: center;">
-       
 			<a href="#" class="btn btn-dark"  style="width: 500px; padding-left: 20px; background-color:  #0ACCA7"  data-bs-toggle="modal" data-bs-target="#concluir-agendamento-modal" data-concluir="<?php echo $agendamento['id']; ?>"><i class="fa-solid fa-circle-check"></i>  Concluir atendimento</a>
 				<a href="<?php echo BASEURL; ?>empresas/agenda.php" class="btn btn-default" style="width: 500px"><i class="fa-solid fa-rotate-left"></i> Voltar</a>
 			</div>
@@ -61,6 +59,7 @@ $pet_foto = $pet_info['foto'];
 	</div>
 </div>
 
-<?php include(FOOTER_TEMPLATE);
+<?php 
 include('modal_concluir.php'); 
+include(FOOTER_TEMPLATE);
 ob_end_flush();?>

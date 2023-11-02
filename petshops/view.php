@@ -3,10 +3,6 @@ ob_start();
 	require_once('functions.php'); 
 	view($_GET['cnpj']);
 	$cnpj = $_GET['cnpj'];
-	function FormataData($data){
-		$da = new DateTime ($data);
-		return $da->format ("d/m/Y");  
-	  }
 ?>
 <style>
 	dt, h2{

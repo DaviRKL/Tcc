@@ -16,9 +16,10 @@ $conexao = mysqlI_connect($host, $user, $pass, $db);
 			
 
   if (isset($_GET['id'])){
-    $agendamento['status'] == 'concluido';
+    $agendamento['status'] = 'concluido';
+    $agendamento['eventColor'] = 'blue';
     update('agendamentos', $id, $agendamento);
-    header('location: index.php');
+    header('location: ../empresas/agenda.php');
   } else {
     die("ERRO: ID não definido.");
   }

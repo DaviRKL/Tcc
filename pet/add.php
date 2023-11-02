@@ -17,22 +17,21 @@ include('../protecao/protect.php');
         <input type="text" class="form-control" name="pet['nome']">
       </div>
       <div class="form-group col-md-2">
-      <label for="marca">Tipo do pet</label>
-      <input type="radio" id="dog" name="pet['tipo']" value="Cachorro" onclick="atualizarRacas()"> Cachorro</input>
-      <input type="radio" id="cat" name="pet['tipo']" value="Gato"  onclick="atualizarRacas()"> Gato</input>
+        <label for="marca">Tipo do pet</label>
+        <input class="form-check-input" type="radio" id="dog" name="pet['tipo']" value="Cachorro" onclick="atualizarRacas()"> Cachorro</input>
+        <input class="form-check-input" style="margin-left: 20px;"type="radio" id="cat" name="pet['tipo']" value="Gato"  onclick="atualizarRacas()"> Gato</input>
       </div>
       <div class="form-group col-md-2">
         <label for="ano">Raça</label>
-        <select class="form-control" name="pet['raca']" id="racaSelect"></select>
+        <select class="form-select" name="pet['raca']" id="racaSelect"></select>
       </div>
       <div class="form-group col-md-2">
         <label for="marca">Sexo</label>
-        <select  class="form-control" name="pet['sexo']">
+        <select  class="form-select" name="pet['sexo']">
           <option value="Macho">Macho</option>
           <option value="Femea">Fêmea</option>
         </select>
       </div>
-     
       <div class="form-group col-md-3">
         <label for="datacad">Data de nascimento</label>
         <input type="date" class="form-control" name="pet['datanasc']">

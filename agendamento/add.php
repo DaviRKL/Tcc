@@ -18,7 +18,7 @@ include('../protecao/protect.php');
   <div class="row">
     <div class="form-group col-lg-6">
       <label for="modelo">Selecione o pet</label>
-      <select  class="form-control" name="agendamento['id_pet']">
+      <select  class="form-select" name="agendamento['id_pet']">
         <?php if ($pets) : ?>
           <?php foreach ($pets as $pet) : ?>
             <option value="<?php echo $pet['id']?>"><?php echo $pet['nome'];?></option>
@@ -30,7 +30,7 @@ include('../protecao/protect.php');
     </div>
    <div class="form-group col-lg-2">
       <label for="marca">Selecione a loja</label>
-      <select  class="form-control" name="agendamento['id_empresa']">
+      <select  class="form-select" name="agendamento['id_empresa']">
       <?php if ($empresas) : ?>
 				<?php foreach ($empresas as $empresa) : ?>
             <option value="<?php echo $empresa['cnpj']?>"><?php echo $empresa['nome'];?></option>
@@ -42,7 +42,8 @@ include('../protecao/protect.php');
    </div>
     <div class="form-group col-lg-4">
       <label for="marca">Selecione os serviços</label>
-        <select class="form-control" name="agendamento['servico']">
+   
+        <select class="form-select" name="agendamento['servico']">
           <option value="Banho e Tosa">Banho e Tosa</option>
           <option value="Banho">Banho</option>
         </select>
