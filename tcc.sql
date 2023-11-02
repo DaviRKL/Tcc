@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 28/10/2023 às 21:16
+-- Tempo de geração: 02/11/2023 às 17:11
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -44,13 +44,12 @@ CREATE TABLE `agendamentos` (
 --
 
 INSERT INTO `agendamentos` (`id`, `id_tutor`, `id_pet`, `id_empresa`, `servico`, `data`, `horario`, `status`, `eventColor`) VALUES
-(6, 1, 1, '12.345.555/5555-55', 'Banha e Tobas', '2023-10-25', '10:30:00', NULL, 'blue'),
 (40, 1, 6, '23456469', 'Banho', '2023-09-05', '13:00:00', NULL, 'blue'),
 (44, 1, 1, '23456467', 'Banho e Tosa', '2023-09-05', '15:30:00', NULL, 'blue'),
 (45, 1, 6, '23456467', 'Banho e Tosa', '2023-09-06', '10:00:00', NULL, 'blue'),
-(46, 1, 1, '23456467', 'Banho e Tosa', '2023-09-07', '11:30:00', NULL, 'blue'),
-(51, 1, 1, '23456467', 'Banho e Tosa', '2023-09-28', '13:30:00', NULL, 'blue'),
-(53, 1, 1, '23456467', 'Banho e Tosa', '2023-09-28', '10:00:00', NULL, 'blue');
+(56, 1, 1, '12.222.222/2222-22', 'Banho e Tosa', '2023-11-15', '10:30:00', 'Inconcluido', '#ff0000'),
+(58, 1, 6, '12.345.555/5555-55', 'Banho e Tosa', '2023-11-30', '11:30:00', 'concluido', 'blue'),
+(60, 1, 12, '12.345.555/5555-55', 'Banho', '2023-11-08', '10:00:00', 'Inconcluido', '#ff0000');
 
 -- --------------------------------------------------------
 
@@ -174,7 +173,9 @@ CREATE TABLE `pets` (
 INSERT INTO `pets` (`id`, `id_tutor`, `nome`, `tipo`, `sexo`, `raca`, `datanasc`, `foto`) VALUES
 (1, 1, 'Cao chupando manga', 'Cachorro', 'Macho', 'bundog', '2023-07-14 ', 'cachorroagenda.jpg'),
 (6, 1, 'Happy', 'Cachorro', 'Macho', 'Macho', '2023-05-06 ', 'paw.jpg'),
-(7, 6, 'Honey', 'Cachorro', 'Femêa', 'bundog', '2023-05-06 ', 'ban.jpg');
+(7, 6, 'Honey', 'Cachorro', 'Femêa', 'bundog', '2023-05-06 ', 'ban.jpg'),
+(11, 7, 'Cachorrao', 'Gato', 'Femea', 'Exótico', '2023-10-28', 'pet.jpg'),
+(12, 1, 'se4i laaaaaaaaa', 'Cachorro', 'Macho', ' Basset Fulvo da Bretanha ', '2023-10-31', '');
 
 -- --------------------------------------------------------
 
@@ -263,7 +264,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `agendamentos`
 --
 ALTER TABLE `agendamentos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT de tabela `avaliacoes`
@@ -281,7 +282,7 @@ ALTER TABLE `carrouses`
 -- AUTO_INCREMENT de tabela `pets`
 --
 ALTER TABLE `pets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
