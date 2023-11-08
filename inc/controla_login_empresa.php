@@ -40,7 +40,7 @@ if(isset($_POST['email_empresa']) || isset($_POST['senha_empresa'])) {
 			if(!isset($_SESSION)) {
 				session_start();
 			}
-
+			$_SESSION['id'] = $Usuario_empresa['id'];
 			$_SESSION['id_empresa'] = $Usuario_empresa['fk_empresas_cnpj'];
 			$_SESSION['nome'] = $Usuario_empresa['nome'];
 			$logado="ok";

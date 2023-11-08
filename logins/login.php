@@ -2,7 +2,7 @@
     require_once ('../config.php'); 
         require_once DBAPI; 
     include(HEADER_TEMPLATE); 
-
+    include_once('controla_login.php');
     if (isset($_POST['submit'])) {
     $secret = "6LdSZdEmAAAAADcvsv17xA36Bg7cKEuWdpTxu35Tuu";
     $response = $_POST['g-recaptcha-response'];

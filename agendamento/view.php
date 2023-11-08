@@ -16,8 +16,7 @@ $pet_foto = $pet_info['foto'];
 
 <?php include(HEADER_TEMPLATE); ?>
 
-<div style="background-color: #00a4b4; border-radius: 50px; margin-top:30px">
-	<div style="padding: 20px;">
+	<div style="padding: 20px; margin-top:30px">
 		<div style="display: flex;flex-direction: row;justify-content: center; align-items: center;">
 			<h2>Agendamento <?php echo $agendamento['id']; ?></h2>
 		</div>
@@ -57,7 +56,6 @@ $pet_foto = $pet_info['foto'];
 			</div>
 		</div>
 	</div>
-</div>
 
 <?php 
 include('modal_concluir.php'); 

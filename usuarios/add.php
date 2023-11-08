@@ -43,8 +43,8 @@
   </div>
   <?php clear_messages();?>
 <?php endif; ?>
-<div style="background-color: #00a4b4; border-radius: 15px; margin-top:20px">
-  <div style="padding-top: 20px; display: flex;flex-direction: row;justify-content: center; align-items: center;margin-left: 120px;margin-right: 120px">
+
+  <div style="padding-top: 40px; display: flex;flex-direction: row;justify-content: center; align-items: center;margin-left: 120px;margin-right: 120px">
     <h2> Cadastre-se</h2>
   </div>
   <form action="add.php" method="post" enctype="multipart/form-data">
@@ -78,17 +78,14 @@
       <div class="form-group col-md-12" style="display: flex;flex-direction: row;justify-content: center; align-items: center;" >
         <a href="../empresas/add.php">Cadastre-se como uma empresa</a>
       </div>
-    </div>
-    <div id="actions" class="row">
-      <div class="col-md-6"style="padding-left: 20px; padding-bottom:20px;">
+      <div id="actions" class="row">
+      <div class="col-md-12"style="padding-left: 20px; padding-bottom:20px; padding-left: 650px;  ">
         <button type="submit" class="btn btn-secondary" href="<?php echo BASEURL; ?>index.php" style="width: 640px; padding-left: 20px;">Salvar</button>
       </div>
-      <div class="col-md-6">
-        <a href="<?php echo BASEURL; ?>index.php" class="btn btn-light" style="width: 620px">Cancelar</a>
-      </div>
+    </div>
     </div>
   </form>
-</div>
+
 <?php include(FOOTER_TEMPLATE);?>
 
 <script>

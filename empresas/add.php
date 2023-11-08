@@ -8,9 +8,9 @@ ob_start();
 <?php include(HEADER_TEMPLATE); ?>
 
 
-<div style="background-color: #00a4b4; border-radius: 15px; margin-top:35px">
+<div style=" margin-top:35px">
   <form action="add.php" enctype="multipart/form-data" method="post" style="padding: 20px">
-    <h2>Novo Pet Shop</h2>
+    <h2  style="padding-left: 800px">Novo Pet Shop</h2>
     <div class="row">
     <div class="form-group col-md-12" style="width:200px;">
 					<label for="CNPJ"> CNPJ</label>
@@ -50,9 +50,8 @@ ob_start();
       </div>
     </div>
     <div id="actions" class="row">
-      <div class="col-md-12">
-        <button type="submit" class="btn btn-secondary">Salvar</button>
-        <a href="<?php echo BASEURL; ?>" class="btn btn-light">Cancelar</a>
+      <div class="col-md-12" style="padding-left: 650px">
+        <button type="submit" class="btn btn-secondary" style="width: 640px;">Salvar</button>
       </div>
     </div>
   </form>

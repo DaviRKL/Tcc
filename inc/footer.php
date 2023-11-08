@@ -6,7 +6,7 @@
 		$d->format('Y');
 	?>
 	<div class="p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-		<p>&copy;<?php echo $d->format('Y');?> TDEV </p>
+		<p style="color: #fff;">&copy;<?php echo $d->format('Y');?> TDEV </p>
 	</div>
 </footer>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

@@ -124,9 +124,7 @@ font-family: 'Roboto Condensed', sans-serif;
     overflow-x: hidden;
 }
 
-.modal-content{
-    background-color: #00B2C2;
-    }
+
 a{
 
     text-decoration: none;
@@ -383,8 +381,21 @@ label{
 }
 
 
+input[type="text"],
+	input[type="email"],
+	input[type="password"],
+	input[type="file"]  {
+		background-color: #d1d1d1;
+	}
 
+	h2,label, p, a {
+		color: #07295F;
+	}
 .calendar{
     z-index: 0;
 }
+.dropdown-menu{
+    background-color: transparent;
+}
+
   

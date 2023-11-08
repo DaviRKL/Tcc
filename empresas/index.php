@@ -27,10 +27,17 @@
     #loga {
   padding-top: 25px;
 }
+
+input[type="text"],input[type="email"], input[type="password"]{
+  background-color : #d1d1d1; 
+}
+h2, label{
+		color: #07295F;
+	}
 </style>  
 
-<div style="background-color: #00a4b4; border-radius: 50px; margin-top:20px">
-    <div style="padding-bottom: 20px">
+
+    <div style="padding-bottom: 20px; padding-top: 20px">
         <form method="post" action="agenda.php" id="logaempresa">
             <?php if (!empty($_SESSION['message'])) : ?>
                 <div class="alert alert-<?php echo $_SESSION['type']; ?> alert-dismissible" role="alert">
@@ -62,11 +69,9 @@
                     <div class="col-md-12" style="display: flex;flex-direction: row;justify-content: center; align-items: center;">
 					<button type="submit" class="btn btn-secondary" style="width: 800px">Continuar</button>
 				</div>
-              
-   
             </div>      
     </div>
-</div>
+
 <script>
     
     function formatCNPJ(input) {
