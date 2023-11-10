@@ -76,7 +76,6 @@ include_once('controla_login_empresa.php');
 								<ul class="dropdown-menu">
 									<li><a class="dropdown-item" href="#"><i
 										class="fa-solid fa-dog"></i>  Meus Pets</a></li>
-									
 									<li>
 										<hr class="dropdown-divider">
 									</li>

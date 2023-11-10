@@ -13,7 +13,17 @@ $empresa = null;
  */
 function index() {
 	global $empresas;
+  if ((!empty($_POST['estado'])) & (!empty($_POST['cidade'])) & (!empty($_POST['bairro']))){
+    $empresas = filter("empresas", "estado like '%" . $_POST['estado'] . "%' and cidade like '%" . $_POST['cidade'] . "%' and bairro like '%" . $_POST['bairro'] . "%'");
+}
+else if ((!empty($_POST['estado'])) & (!empty($_POST['cidade']))){
+  $empresas = filter("empresas",  "estado like '%" . $_POST['estado'] . "%' and cidade like '%" . $_POST['cidade'] . "%'");
+}
+else if (!empty($_POST['estado'])){
+  $empresas = filter("empresas", "estado like '%" . $_POST['estado'] . "%'");
+} else {
   $empresas = find_all('empresas');
+  }
 }
 
 

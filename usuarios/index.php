@@ -1,6 +1,6 @@
 <?php
 ob_start();
-	include('../protecao/protectAdmin.php');
+	// include('../protecao/protectAdmin.php');
     require_once('functions.php');
     index();
     include(HEADER_TEMPLATE); 
@@ -25,7 +25,7 @@ border:4px solid #7914C7 ; width: 200px;
 			</div>
 		</div>
 	</header>
-		<form name = "filtro" method="post" action="index.php">
+		<form name = "filtro" method="post" action="./usuarios/index.php">
 			<div class="row">
 				<div class = "form-group col-md-4">
 					<div class ="input-group mb-3">

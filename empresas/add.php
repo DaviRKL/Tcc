@@ -20,9 +20,21 @@ ob_start();
         <label for="modelo">Nome da empresa</label>
         <input type="text" class="form-control" name="empresa['nome']">
       </div>
-      <div class="form-group col-md-2">
+      <div class="form-group col-md-4">
         <label for="marca">Telefone</label>
         <input type="text" class="form-control" oninput="formatTelefone(this)" maxlength="14"  name="empresa['Telefone']" required>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="marca">Estado</label>
+        <input type="text" class="form-control" name="empresa['estado']">
+      </div>
+      <div class="form-group col-md-2">
+        <label for="marca">Cidade</label>
+        <input type="text" class="form-control" name="empresa['cidade']">
+      </div>
+      <div class="form-group col-md-2">
+        <label for="marca">Bairro</label>
+        <input type="text" class="form-control" name="empresa['bairro']">
       </div>
       <div class="form-group col-md-2">
         <label for="marca">Endereço</label>
@@ -36,15 +48,15 @@ ob_start();
         <label for="datacad">Preço Tosa</label>
         <input type="text" class="form-control" oninput="formatDinheiro(this)" name="empresa['precoTosa]" maxlength="5">
       </div>
-      <div class="form-group col-md-3">
+      <div class="form-group col-md-4">
         <label for="datacad">Sobre o PetShop</label>
         <input type="text" style="width:500px;height:100px;" class="form-control" name="empresa['sobre']"  max="100" > 
       </div>
-      <div class="form-group col-md-7">
+      <div class="form-group col-md-4">
         <label for="foto">Foto</label>
         <input type="file" class="form-control" id="foto" name="foto">
       </div>
-      <div class="form-group col-md-2">
+      <div class="form-group col-md-1">
           <label for="pre">Pré-vizualização:</label>
           <img class="form-control shadow p-2 mb-2 bg-body rounded" id="imgPreview" src="imagens/SemImagem.png" alt="pic">
       </div>
