@@ -2,7 +2,10 @@
 if (!isset($_SESSION)) {
 	session_start();
 }
-
+if (!isset($_SESSION['id_empresa'])) {
+	$_SESSION['id_empresa'] = '';
+}
+include_once('controla_login.php');
 include_once('controla_login_empresa.php');
 ?>
 <!DOCTYPE html>
@@ -42,16 +45,16 @@ include_once('controla_login_empresa.php');
 					<img src="<?php echo BASEURL; ?>images/Logo.png" style="height: 50px" />
 				</a>
 			</div>
-			<?php if ((isset($_SESSION['id_empresa'])) || (isset($_SESSION['id']))): ?>
+			<?php if ((isset($_SESSION['id_empresa']) & $_SESSION['id_empresa'] != null) || (isset($_SESSION['id']))): ?>
 				<div class="col" style="margin-right: 10px">
-					<p style="margin-top: 9px;margin-left: 20px;"><i class="fa-solid fa-user"></i>
+					<p style="margin-top: 9px;margin-left: 20px; color: white"><i class="fa-solid fa-user"></i>
 						<?php echo $_SESSION['email']; ?>
 					</p>
 				</div>
 				<a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#logoutmodal"><i
 						class="fa-solid fa-right-from-bracket"></i> Sair</a>
 			<?php endif; ?>
-			<?php if ((!isset($_SESSION['id_empresa'])) || (!isset($_SESSION['id']))): ?>
+			<?php if ((!isset($_SESSION['id_empresa']) & $_SESSION['id_empresa'] == null) || (!isset($_SESSION['id']))): ?>
 				<a class="nav-link" data-bs-toggle="modal" data-bs-target="#entrarmodal">Entre</a>
 				<a class="nav-link" href="<?php echo BASEURL; ?>usuarios/add.php">Cadastre-se</a>
 			<?php endif; ?>
@@ -67,20 +70,20 @@ include_once('controla_login_empresa.php');
 							<a class="navbar-brand" href="<?php echo BASEURL; ?>" style="color: #FFF"><i
 									class="fa-solid fa-house-chimney" style="color: #FFF"></i> Home</a>
 						</li>
-						<?php if (!isset($_SESSION['id_empresa'])): ?>
+						<?php if ((!isset($_SESSION['id_empresa']) || $_SESSION['id_empresa'] == null)): ?>
 							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="<?php echo BASEURL; ?>pet" role="button" data-bs-toggle="dropdown"
-									aria-expanded="false">
-									<i
-										class="fa-solid fa-dog"></i> Pets</a>
+								<a class="nav-link dropdown-toggle" href="<?php echo BASEURL; ?>pet" role="button"
+									data-bs-toggle="dropdown" aria-expanded="false">
+									<i class="fa-solid fa-dog"></i> Pets</a>
 								<ul class="dropdown-menu">
-									<li><a class="dropdown-item" href="#"><i
-										class="fa-solid fa-dog"></i>  Meus Pets</a></li>
+									<li><a class="dropdown-item" href="<?php echo BASEURL; ?>pet"><i
+												class="fa-solid fa-dog"></i> Meus Pets</a></li>
 									<li>
 										<hr class="dropdown-divider">
 									</li>
-									<li><a class="dropdown-item" ref="<?php echo BASEURL; ?>pet/add.php"><i class="fa-solid fa-plus"></i> <i
-										class="fa-solid fa-dog"></i>  Novo Pet</a></li>
+									<li><a class="dropdown-item" href="<?php echo BASEURL; ?>pet/add.php"><i
+												class="fa-solid fa-plus"></i> <i class="fa-solid fa-dog"></i> Novo Pet</a>
+									</li>
 								</ul>
 							</li>
 							<li class="nav-item">
@@ -88,37 +91,39 @@ include_once('controla_login_empresa.php');
 										class="fa-solid fa-paw"></i> Pet Shops</a>
 							</li>
 							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-									aria-expanded="false">
-									<i
-										class="fa-regular fa-calendar-days"></i> Agendamentos
+								<a class="nav-link dropdown-toggle" href="<?php echo BASEURL; ?>agendamento" role="button"
+									data-bs-toggle="dropdown" aria-expanded="false">
+									<i class="fa-regular fa-calendar-days"></i> Agendamentos
 								</a>
 								<ul class="dropdown-menu">
-									<li><a class="dropdown-item" href="#"><i
-										class="fa-regular fa-calendar-days"></i> Meus agendamentos</a></li>
-									
+									<li><a class="dropdown-item" href="<?php echo BASEURL; ?>agendamento"><i
+												class="fa-regular fa-calendar-days"></i> Meus agendamentos</a></li>
+
 									<li>
 										<hr class="dropdown-divider">
 									</li>
-									<li><a class="dropdown-item" href="#"><i class="fa-solid fa-plus"></i> <i
-										class="fa-regular fa-calendar-days"></i> Agendar</a></li>
+									<li><a class="dropdown-item" href="<?php echo BASEURL; ?>agendamento/add.php"><i
+												class="fa-solid fa-plus"></i> <i class="fa-regular fa-calendar-days"></i>
+											Agendar</a></li>
 								</ul>
 							</li>
-							<?php endif; ?>
-							<?php if (isset($_SESSION['id_empresa'])): ?>
+						<?php endif; ?>
+						<?php if (isset($_SESSION['id_empresa']) & $_SESSION['id_empresa'] != null): ?>
 							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="<?php echo BASEURL; ?>empresas/agenda.php" role="button" data-bs-toggle="dropdown"
-									aria-expanded="false">
-									<i
-										class="fa-regular fa-calendar-days"></i>  Meu Petshop
+								<a class="nav-link dropdown-toggle" href="<?php echo BASEURL; ?>empresas/agenda.php"
+									role="button" data-bs-toggle="dropdown" aria-expanded="false">
+									<i class="fa-regular fa-calendar-days"></i> Meu Petshop
 								</a>
 								<ul class="dropdown-menu">
 									<li><a class="dropdown-item" href="<?php echo BASEURL; ?>empresas/agenda.php"><i
-										class="fa-regular fa-calendar-days"></i> Agendamentos marcados</a></li>
+												class="fa-regular fa-calendar-days"></i> Agendamentos marcados</a></li>
 									<li>
 										<hr class="dropdown-divider">
 									</li>
-									<li><a class="dropdown-item" href="<?php echo BASEURL; ?>empresas/addFuncionarios.php"><i class="fa-solid fa-plus"></i> <i class="fa-solid fa-user-plus"></i> Adicionar funcionário</a>
+									<li><a class="dropdown-item"
+											href="<?php echo BASEURL; ?>empresas/addFuncionarios.php"><i
+												class="fa-solid fa-plus"></i> <i class="fa-solid fa-user-plus"></i>
+											Adicionar funcionário</a>
 								</ul>
 							</li>
 						<?php endif; ?>
@@ -130,4 +135,4 @@ include_once('controla_login_empresa.php');
 </body>
 <main class="container">
 	<?php include('modal.php'); ?>
-	<?php include('modaluser.php'); ?>
+	<?php include('modalSair.php'); ?>

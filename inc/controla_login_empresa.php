@@ -1,10 +1,8 @@
 <?php
-$Usuario = 'root';
-$senha_empresa = '';
-$Database = 'tcc';
-$Host = 'localhost';
 
-$mysqli = new mysqli($Host, $Usuario, $senha_empresa, $Database);
+
+
+$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
 if($mysqli->error){
     die("Falha ao conectar ao banco de dados" . $mysqli->error);

@@ -3,7 +3,7 @@
 		  <div class="modal-dialog modal-dialog-centered ">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h4 class="modal-title" id="modalLabel">Sair</h4>
+						<h2 class="modal-title" id="modalLabel">Sair</h2>
 						<button type="button" class="btn btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
 					</div>
 					<div class="modal-body">

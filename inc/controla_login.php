@@ -1,16 +1,11 @@
 <?php
-$Usuario = 'root';
-$Senha = '';
-$Database = 'tcc';
-$Host = 'localhost';
 
-$mysqli = new mysqli($Host, $Usuario, $Senha, $Database);
+
+$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
 if($mysqli->error){
     die("Falha ao conectar ao banco de dados" . $mysqli->error);
 }
-
-
 
 if(isset($_POST['USER']) || isset($_POST['senha'])) {
 
@@ -39,21 +34,21 @@ if(isset($_POST['USER']) || isset($_POST['senha'])) {
 			if(!isset($_SESSION)) {
 				session_start();
 			}
-
+			
 			$_SESSION['id'] = $Usuario['id'];
 			$_SESSION['nome'] = $Usuario['nome'];
 			$logado="ok";
 			$_SESSION['email']= $Usuario['email'];
+			$_SESSION['id_empresa'] = $Usuario['fk_empresas_cnpj'];
 			header("Location: index.php");
 
-		} else {
+		}  else {
 			echo "Falha ao logar! Usuario ou senha incorretos";
                         			$_SESSION['message'] = "Falha ao logar! Usuario ou senha incorretos";
             $_SESSION['type'] = "danger";
 			$logado = "nao";
-			header("Location: logins/login.php");
+			header("Location:  index.php");
 		}
 	}
-
 }
 ?>
