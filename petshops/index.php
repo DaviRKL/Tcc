@@ -4,7 +4,7 @@ ob_start();
     index();
 	$tabela = 'avaliacoes';
 	$coluna = 'qtd_estrela';
-	include(HEADER_TEMPLATE);
+	include_once(HEADER_TEMPLATE);
 ?>
 <style>
 	td,th{

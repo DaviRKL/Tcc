@@ -3,7 +3,7 @@ ob_start();
 	// include('../protecao/protectAdmin.php');
     require_once('functions.php');
     index();
-    include(HEADER_TEMPLATE); 
+    include_once(HEADER_TEMPLATE); 
 ?>
 
 

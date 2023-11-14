@@ -1,7 +1,7 @@
 <?php
 require_once ('../config.php'); 
 require_once DBAPI; 
-include(HEADER_TEMPLATE); 
+include_once(HEADER_TEMPLATE); 
 
 if(!isset($_SESSION)) {
 	session_start();

@@ -2,7 +2,7 @@
 	require_once('functions.php'); 
 	filtro();
 	
-	include(HEADER_TEMPLATE);
+	include_once(HEADER_TEMPLATE);
 		function FormataData($data){
       $d = new DateTime ($data);
       return $d->format ("d-m-Y");  

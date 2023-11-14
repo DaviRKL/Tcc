@@ -3,7 +3,7 @@
         ob_start();
 	require_once('functions.php'); 
 	view($_GET['id']);
-	include(HEADER_TEMPLATE);
+	include_once(HEADER_TEMPLATE);
 ?>
 
 		<?php if (!empty($_SESSION['message'])) : ?>

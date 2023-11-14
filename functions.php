@@ -1,7 +1,7 @@
 <?php
 
 require_once('./config.php');
-require_once('./inc/header.php');
+
 require_once(DBAPI);
 
 
@@ -196,11 +196,11 @@ function calcularMedia($host, $usuario, $senha, $banco, $tabela, $coluna, $cnpj)
   } else {
       $media = 0; // Evita divisão por zero
   }
-  $mediaInteiro = intval($media);
+  $mediaFormatada = number_format($media, 1, ',', '');
   // Fechar a conexão com o banco de dados
   mysqli_close($conexao);
 
-  return $mediaInteiro;
+  return $mediaFormatada;
 }
 function edit() {
 

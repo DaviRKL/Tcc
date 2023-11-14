@@ -1,12 +1,17 @@
 <?php
 
-session_start(); // Iniciar a sessão
+session_start(); 
+// Iniciar a sessão
+
 require_once('functions.php'); 
 view($_GET['cnpj']);
 processa($_GET['cnpj']);
+
+
 $cnpj = $_GET['cnpj'];
+include_once(HEADER_TEMPLATE);
 ?>
-<?php include(HEADER_TEMPLATE); ?>
+
 <body>   
     <div class="container">
         <div class="row"  style="display: flex;flex-direction: row;justify-content: center; align-items: center;margin-left: 120px;margin-right: 120px">
@@ -65,4 +70,5 @@ $cnpj = $_GET['cnpj'];
     </div>
 </body>
 <?php include(FOOTER_TEMPLATE); 
-ob_end_flush();?>
+ob_end_flush();
+?>

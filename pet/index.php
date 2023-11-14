@@ -5,7 +5,7 @@ include('../protecao/protect.php');
     index();
 	
 	
-	include(HEADER_TEMPLATE);
+	include_once(HEADER_TEMPLATE);
 ?>
 <style>
 	td,th{

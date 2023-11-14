@@ -35,10 +35,9 @@ if (isset($_POST['submit'])) {
 							<?php echo $_SESSION['message']; ?>
 							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 						</div>
-						<?php clear_messages(); ?>
-					<?php endif; ?>
-					<div class="row"
-						style="display: flex;flex-direction: row;justify-content: center; align-items: center;margin-left: 120px;margin-right: 120px">
+						<?php clear_messages();?>
+					<?php endif;?>
+					<div class="row" style="display: flex;flex-direction: row;justify-content: center; align-items: center;margin-left: 120px;margin-right: 120px">
 						<div class="form-group col-md-12">
 							<label for="USER"> EMAIL</label>
 							<input type="email" class="form-control" name="USER" id="USER" required>
@@ -77,14 +76,3 @@ if (isset($_POST['submit'])) {
 		</div> <!-- /.modal -->
 	</div>
 </div>
-<!-- Modal de Delete-->
-
-
-
-
-
-
-
-
-
-<?php include(FOOTER_TEMPLATE); ?>

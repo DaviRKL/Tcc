@@ -5,7 +5,7 @@ include('../protecao/protect.php');
   add();
 ?>
 
-<?php include(HEADER_TEMPLATE); ?>
+<?php include_once(HEADER_TEMPLATE); ?>
 
 
 <div style="background-color: #00a4b4; border-radius: 15px; margin-top:35px">

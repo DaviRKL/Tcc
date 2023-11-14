@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@500&family=Montserrat:wght@400;500;600&display=swap");
+
+:root {
+  --largura-da-pagina: 1440px;
+  --padding-padrao: 0 50px;
+}
+main{
+  overflow-y: scroll;
+  height: calc(100% - 70px);
+  
+}
+body {
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  height: 100vh;
+}
+
+
+
+

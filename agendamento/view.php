@@ -14,7 +14,7 @@ $pet_foto = $pet_info['foto'];
 						
 ?>
 
-<?php include(HEADER_TEMPLATE); ?>
+<?php include_once(HEADER_TEMPLATE); ?>
 
 	<div style="padding: 20px; margin-top:30px">
 		<div style="display: flex;flex-direction: row;justify-content: center; align-items: center;">

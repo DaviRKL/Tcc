@@ -1,6 +1,6 @@
 
-	</main> <!-- /container -->
-<footer  id="footer">
+</main>
+<footer   class="footer" >
 	<?php 
 		$d = new DateTime("now");
 		$d->format('Y');

@@ -4,7 +4,7 @@ include('../protecao/protect_empresa.php');
 require_once('functions.php');
 
 
-include(HEADER_TEMPLATE);
+include_once(HEADER_TEMPLATE);
 ?>
 <?php
 // Inclua seu arquivo de configuração de banco de dados aqui

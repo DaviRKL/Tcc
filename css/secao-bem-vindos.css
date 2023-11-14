@@ -1,0 +1,31 @@
+.bem-vindo {
+    display: flex;
+    justify-content: center;
+    max-width: var(--largura-da-pagina);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 50px 100px 0;
+  }
+  .bem-vindo .person {
+    width: 100%;
+  }
+  
+  .bem-vindo .conteudo {
+    max-width: 530px;
+    min-width: 400px;
+  }
+  
+  .bem-vindo .conteudo .mensagem-bem-vindo {
+    margin-bottom: 10px;
+  }
+  
+  .bem-vindo .conteudo .titulo {
+    font-family: "Fredoka", sans-serif;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 400;
+    color: #07295f;
+    margin-bottom: 15px;
+  }
+  

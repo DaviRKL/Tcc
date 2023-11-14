@@ -4,7 +4,7 @@ ob_start();
 	view($_GET['id']);
 ?>
 
-<?php include(HEADER_TEMPLATE); ?>
+<?php include_once(HEADER_TEMPLATE); ?>
 
 <h2>Carro <?php echo $carro['id']; ?></h2>
 <hr>

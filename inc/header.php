@@ -9,130 +9,108 @@ include_once('controla_login.php');
 include_once('controla_login_empresa.php');
 ?>
 <!DOCTYPE html>
-<html>
-
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>PETS KKKKK</title>
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" href="<?php echo BASEURL; ?>images/paw.ico" type="image/x-icon">
-	<link rel="stylesheet" href="<?php echo BASEURL; ?>css/bootstrap/bootstrap.min.css">
+<html lang="en">
+  <head>
+  <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pets</title>
+    <link rel="icon" href="<?php echo BASEURL; ?>images/paw.ico" type="image/x-icon">
+	
+		<link rel="stylesheet" href="<?php echo BASEURL; ?>css/bootstrap.css">
+	<link rel="stylesheet" href="<?php echo BASEURL; ?>css/custom.css">
+	<link rel="stylesheet" href="<?php echo BASEURL; ?>css/reset.css" />
+    <link rel="stylesheet" href="<?php echo BASEURL; ?>css/header.css" />
+    <link rel="stylesheet" href="<?php echo BASEURL; ?>css/global-style.css" />
+    <link rel="stylesheet" href="<?php echo BASEURL; ?>css/secao-bem-vindos.css" />
+    <link rel="stylesheet" href="<?php echo BASEURL; ?>css/secao-empresas.css" />
+    <link rel="stylesheet" href="<?php echo BASEURL; ?>css/footer.css" />
+    <link rel="stylesheet" href="<?php echo BASEURL; ?>css/responsivo.css" />
+    <link rel="stylesheet" href="<?php echo BASEURL; ?>css/scrollbar.css">
+    <link rel="stylesheet" href="<?php echo BASEURL; ?>css/bootstrap/bootstrap.min.css">
 	<link rel="stylesheet" href="<?php echo BASEURL; ?>css/awesome/all.min.css">
 	<link rel="stylesheet" href="<?php echo BASEURL; ?>css/style.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
 		integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
 		crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link rel="stylesheet" href="<?php echo BASEURL; ?>css/bootstrap.css">
-	<link rel="stylesheet" href="<?php echo BASEURL; ?>css/custom.css">
+  </head>
+ 
 
 
-</head>
-
-<body>
-	<nav class="navbar bg-body-tertiary fixed-top">
-		<div class="container-fluid">
-			<div class=" col-6">
-				<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
-					data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation"
-					style="border: none;">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-			</div>
-			<div class=" col-4">
-				<a href="<?php echo BASEURL; ?>">
-					<img src="<?php echo BASEURL; ?>images/Logo.png" style="height: 50px" />
+  <body>
+    <header class="header">
+      <div class="header-div">
+        <img
+          class="icone-menu"
+          src="<?php echo BASEURL?>images/icons/IconMenu.png"
+          alt="Icone de Menu"
+        />
+        <a href="<?php echo BASEURL; ?>">
+          <img class="logo" src="<?php echo BASEURL?>images/Logo.png" alt="Logo da página" />
 				</a>
-			</div>
-			<?php if ((isset($_SESSION['id_empresa']) & $_SESSION['id_empresa'] != null) || (isset($_SESSION['id']))): ?>
-				<div class="col" style="margin-right: 10px">
-					<p style="margin-top: 9px;margin-left: 20px; color: white"><i class="fa-solid fa-user"></i>
-						<?php echo $_SESSION['email']; ?>
-					</p>
-				</div>
-				<a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#logoutmodal"><i
-						class="fa-solid fa-right-from-bracket"></i> Sair</a>
-			<?php endif; ?>
-			<?php if ((!isset($_SESSION['id_empresa']) & $_SESSION['id_empresa'] == null) || (!isset($_SESSION['id']))): ?>
-				<a class="nav-link" data-bs-toggle="modal" data-bs-target="#entrarmodal">Entre</a>
-				<a class="nav-link" href="<?php echo BASEURL; ?>usuarios/add.php">Cadastre-se</a>
-			<?php endif; ?>
-			<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
-				aria-labelledby="offcanvasNavbarLabel">
-				<div class="offcanvas-header">
-					<h5 class="offcanvas-title" id="offcanvasNavbarLabel">Petz</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-				</div>
-				<div class="offcanvas-body">
-					<ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-						<li class="nav-item">
-							<a class="navbar-brand" href="<?php echo BASEURL; ?>" style="color: #FFF"><i
-									class="fa-solid fa-house-chimney" style="color: #FFF"></i> Home</a>
-						</li>
-						<?php if ((!isset($_SESSION['id_empresa']) || $_SESSION['id_empresa'] == null)): ?>
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="<?php echo BASEURL; ?>pet" role="button"
-									data-bs-toggle="dropdown" aria-expanded="false">
-									<i class="fa-solid fa-dog"></i> Pets</a>
-								<ul class="dropdown-menu">
-									<li><a class="dropdown-item" href="<?php echo BASEURL; ?>pet"><i
-												class="fa-solid fa-dog"></i> Meus Pets</a></li>
-									<li>
-										<hr class="dropdown-divider">
-									</li>
-									<li><a class="dropdown-item" href="<?php echo BASEURL; ?>pet/add.php"><i
-												class="fa-solid fa-plus"></i> <i class="fa-solid fa-dog"></i> Novo Pet</a>
-									</li>
-								</ul>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="<?php echo BASEURL; ?>petshops" role="button"><i
-										class="fa-solid fa-paw"></i> Pet Shops</a>
-							</li>
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="<?php echo BASEURL; ?>agendamento" role="button"
-									data-bs-toggle="dropdown" aria-expanded="false">
-									<i class="fa-regular fa-calendar-days"></i> Agendamentos
-								</a>
-								<ul class="dropdown-menu">
-									<li><a class="dropdown-item" href="<?php echo BASEURL; ?>agendamento"><i
-												class="fa-regular fa-calendar-days"></i> Meus agendamentos</a></li>
+       
+        <nav class="navegacao">
+        <img
+              class="icone-osso"
+              src="<?php echo BASEURL?>images/icons/osso.png"
+              alt="Icone de osso"
+            />
+          <?php if ((!isset($_SESSION['id_empresa']) & $_SESSION['id_empresa'] == null) || (!isset($_SESSION['id']))): ?>
+            <a class="nav-link" data-bs-toggle="modal" data-bs-target="#entrarmodal">
+              <img
+                class="icone-usuario"
+                src="<?php echo BASEURL?>images/icons/conta.png"
+                alt="Icone de usuário"
+              />
+            </a>
+          <?php endif;?>
+          <?php if ((isset($_SESSION['id_empresa']) & $_SESSION['id_empresa'] != null) || (isset($_SESSION['id']))): ?>
+            <a class="nav-link" data-bs-toggle="modal" data-bs-target="#usuarioModal">
+              <img
+                class="icone-usuario"
+                src="<?php echo BASEURL?>images/icons/conta.png"
+                alt="Icone de usuário"
+              />
+            </a>
+          <?php endif;?>
+          
+        </nav>
+      </div>
+      <nav class="navegacao-menu">
+        <div class="icones-do-menu">
+          <img
+            class="icone-dog"
+            src="<?php echo BASEURL?>images/icons/dog.svg"
+            alt="Icone de cachorro"
+          />
+          <img
+            class="icone-fechar"
+            src="<?php echo BASEURL?>images/icons/xmark-solid.svg"
+            alt="Icone de fechar"
+          />
+        </div>
+        <ul class="menu-item">
+          <li class="item-do-menu">
+            <a href="<?php echo BASEURL;?>" class="link-nav">Home</a>
+          </li>
+          <li class="item-do-menu">
+            <a href="<?php echo BASEURL; ?>pet" class="link-nav">Pets</a>
+            <ul class="sub-menu">
+              <li><a href="<?php echo BASEURL; ?>pet">Meus Pets</a></li>
+              <li><a href="<?php echo BASEURL; ?>pet/add.php">Novo Pet</a></li>
+            </ul>
+          </li>
+          <li class="item-do-menu">
+            <a href="<?php echo BASEURL; ?>agendamento" class="link-nav">Agendamentos</a>
+            <ul class="sub-menu">
+              <li><a href="<?php echo BASEURL; ?>agendamento">Meus agendamentos</a></li>
+              <li><a href="<?php echo BASEURL; ?>agendamento/add.php">Agendar</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
 
-									<li>
-										<hr class="dropdown-divider">
-									</li>
-									<li><a class="dropdown-item" href="<?php echo BASEURL; ?>agendamento/add.php"><i
-												class="fa-solid fa-plus"></i> <i class="fa-regular fa-calendar-days"></i>
-											Agendar</a></li>
-								</ul>
-							</li>
-						<?php endif; ?>
-						<?php if (isset($_SESSION['id_empresa']) & $_SESSION['id_empresa'] != null): ?>
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="<?php echo BASEURL; ?>empresas/agenda.php"
-									role="button" data-bs-toggle="dropdown" aria-expanded="false">
-									<i class="fa-regular fa-calendar-days"></i> Meu Petshop
-								</a>
-								<ul class="dropdown-menu">
-									<li><a class="dropdown-item" href="<?php echo BASEURL; ?>empresas/agenda.php"><i
-												class="fa-regular fa-calendar-days"></i> Agendamentos marcados</a></li>
-									<li>
-										<hr class="dropdown-divider">
-									</li>
-									<li><a class="dropdown-item"
-											href="<?php echo BASEURL; ?>empresas/addFuncionarios.php"><i
-												class="fa-solid fa-plus"></i> <i class="fa-solid fa-user-plus"></i>
-											Adicionar funcionário</a>
-								</ul>
-							</li>
-						<?php endif; ?>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</nav>
-</body>
-<main class="container">
-	<?php include('modal.php'); ?>
-	<?php include('modalSair.php'); ?>
+    <script src="<?php echo BASEURL; ?>js/menu.js"></script>
+  </body>
+  <main>
+<?php include('modal.php'); include('modalSair.php'); include('modalUsuario.php');?>

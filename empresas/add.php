@@ -5,7 +5,7 @@ ob_start();
   add();
 ?>
 
-<?php include(HEADER_TEMPLATE); ?>
+<?php include_once(HEADER_TEMPLATE); ?>
 
 
 <div style=" margin-top:35px">

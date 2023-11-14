@@ -2,7 +2,7 @@
 require_once('../agendamento/functions.php');
 ob_start();
 	view($_GET['id']);
-	include(HEADER_TEMPLATE);
+	include_once(HEADER_TEMPLATE);
 ?>
 <div style="background-color: #00a4b4; border-radius: 50px; margin-top:30px">
 	<div style="padding: 20px;">

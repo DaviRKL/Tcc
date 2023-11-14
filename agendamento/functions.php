@@ -1,7 +1,7 @@
 <?php
 
 require_once('../config.php');
-require_once('../inc/header.php');
+
 
 require_once(DBAPI);
 

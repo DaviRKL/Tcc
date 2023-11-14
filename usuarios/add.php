@@ -2,7 +2,7 @@
   ob_start();
   require_once('functions.php'); 
   add();
-  include(HEADER_TEMPLATE);
+  include_once(HEADER_TEMPLATE);
   if (isset($_POST['submit'])) {
   $secret = "6LdSZdEmAAAAADcvsv17xA36Bg7cKEuWdpTxu35T";
   $response = $_POST['g-recaptcha-response'];

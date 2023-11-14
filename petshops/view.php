@@ -9,7 +9,7 @@ ob_start();
    		color: #242e8c;
 	}
 </style>
-<?php include(HEADER_TEMPLATE); ?>
+<?php include_once(HEADER_TEMPLATE); ?>
 <div class="container">
 	<div class="row">
 		<div style="background-color: #00a4b4; border-radius: 50px; margin-top:30px">
@@ -41,7 +41,9 @@ ob_start();
 				<div id="actions" class="row">
 					<div class="col-md-12">
 						<a href="<?php echo BASEURL; ?>agendamento/add.php?id=<?php echo $empresa['cnpj']; ?>" style="width: 100px;  background: rgb(0,163,180);background: linear-gradient(90deg, rgba(0,163,180,1) 0%, rgba(7,41,95,1) 76%); border: none;" class="btn btn-secondary">Agende já</a>
+						<?php if ( isset($_SESSION['id'])): ?>
 						<a href="add_coment.php?cnpj=<?php echo $empresa['cnpj']; ?>" class="btn btn-default"><i class="fa-regular fa-comment"></i> Avalie esta empresa</a>
+						<?php endif;?>
 						<a href="index.php" class="btn btn-default"><i class="fa-solid fa-rotate-left"></i> Voltar</a>
 					</div>
 				</div>

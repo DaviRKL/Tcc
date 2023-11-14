@@ -1,0 +1,121 @@
+.header {
+  background: linear-gradient(90deg, #00a3b4 3.36%, rgba(7, 41, 95) 62.36%);
+  width: 100%;
+  box-shadow: 0px 10px 50px -20px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.header .header-div {
+  margin: 0 auto;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--padding-padrao);
+}
+.header .logo {
+  width: 150px;
+}
+.header img {
+  width: 20px;
+}
+.header .icone-menu:hover,
+.header .navegacao .icone-osso,
+.header .navegacao .icone-usuario {
+  cursor: pointer;
+}
+.header .icone-menu:hover,
+.header .navegacao .icone-osso:hover,
+.header .navegacao .icone-usuario:hover {
+  outline: 8px solid rgba(0, 0, 0, 0.3);
+  border-radius: 50px;
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: outline ease-in-out 0.5s;
+}
+
+.header .navegacao {
+  display: flex;
+  gap: 20px;
+}
+
+/* Menu Escondido */
+
+.header .navegacao-menu {
+  margin-left: -100%;
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  background: var(
+    --Cima,
+    linear-gradient(180deg, #00a3b4 0%, #04567e 63.54%, #07295f 100%)
+  );
+  padding: 30px 15px;
+  z-index: 1;
+  color: white;
+  /* width: 250px; */
+  transition: all ease-in-out 0.5s;
+}
+.header .navegacao-menu .icones-do-menu {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+.header .navegacao-menu .icones-do-menu .icone-fechar {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  transition: outline ease-in-out 0.5s;
+}
+.header .navegacao-menu .icones-do-menu .icone-fechar:hover {
+  outline: 5px solid rgba(0, 0, 0, 0.3);
+  border-radius: 50px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.header .navegacao-menu .menu-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.header .navegacao-menu .link-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 10px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.header .navegacao-menu .link-nav.seta-icone::after{
+    content: url(../images/icons/seta-icone.svg);
+    transition: transform ease-in-out 0.5s;
+}
+.header .navegacao-menu .link-nav.seta-icone.girar-seta::after{
+    transform: rotate(90deg);
+}
+.header .navegacao-menu .link-nav:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.header .navegacao-menu .item-do-menu .sub-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: all ease-in-out 0.5s;
+}
+.header .navegacao-menu .item-do-menu .sub-menu.aberto{
+    margin: 5px 0;
+    max-height: 600px;
+}
+.header .navegacao-menu .item-do-menu .sub-menu li a {
+  padding: 10px 20px;
+  display: block;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.header .navegacao-menu .item-do-menu .sub-menu li a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: background-color ease-in-out 0.1s;
+}
+.header .navegacao-menu.mostrar-menu {
+  margin-left: 0px;
+}

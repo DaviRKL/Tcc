@@ -7,7 +7,7 @@ include('../protecao/protect.php');
   get_empresa();
 ?>
 
-<?php include(HEADER_TEMPLATE); ?>
+<?php include_once(HEADER_TEMPLATE); ?>
 
 
 <div style="background-color: #00a4b4; border-radius: 15px; margin-top:30px">
@@ -80,7 +80,7 @@ include('../protecao/protect.php');
     </div>
   <div id="actions" class="row">
 		<div class="col-lg-12">
-    <button type="submit" class="btn btn-secondary" value="Agendar" disabled>Salvar</button>
+    <button type="submit" class="btn btn-secondary" id="salvar" value="Agendar" disabled>Salvar</button>
 		  <a href="index.php" class="btn btn-light">Cancelar</a>
 		</div>
   </div>
@@ -93,21 +93,27 @@ ob_end_flush();?>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const horarioSelect = document.getElementById("horario");
-  const salvarButton = document.querySelector('button[type="submit"]');
+  const salvarButton = document.getElementById('salvar');
   const disponibilidadeSpan = document.getElementById("disponibilidade");
 
   horarioSelect.addEventListener("change", function () {
     const selectedDate = document.getElementById("data").value;
     const selectedHorario = this.value;
 
-    // Fazer a solicitação AJAX
+    console.log("Selected Date:", selectedDate);
+    console.log("Selected Horario:", selectedHorario);
+
     const xhr = new XMLHttpRequest();
     xhr.open("POST", "verificar_agendamentos.php", true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
     xhr.onload = function () {
+      console.log("XHR Status:", xhr.status);
+      
       if (xhr.status === 200) {
         const response = JSON.parse(xhr.responseText);
+        console.log("Server Response:", response);
+
         if (response) {
           salvarButton.disabled = true;
           disponibilidadeSpan.innerText = "Horário indisponível.";
@@ -116,6 +122,10 @@ document.addEventListener("DOMContentLoaded", function () {
           disponibilidadeSpan.innerText = "";
         }
       }
+    };
+
+    xhr.onerror = function () {
+      console.error("Error in XHR");
     };
 
     xhr.send(`data=${selectedDate}&horario=${selectedHorario}`);
