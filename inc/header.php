@@ -37,6 +37,24 @@ include_once('controla_login_empresa.php');
 
 
   <body>
+    <?php  if (((isset($_SESSION['id_empresa']) & $_SESSION['id_empresa'] != null) || (isset($_SESSION['id']))) ): ?> 
+      <script>
+         var nomeJS = '<?php echo $_SESSION['nome'] ?>';
+      window.onload = function() {
+      AlertaLog();
+     
+    };  
+    </script>
+    <?php endif;?>
+    <?php if ((!isset($_SESSION['id_empresa']) & $_SESSION['id_empresa'] == null) || (!isset($_SESSION['id']))): ?>
+      <script>
+        window.onload = function() {
+          ZeraMessage();
+     
+    };  
+       
+      </script>
+     <?php endif;?>
     <header class="header">
       <div class="header-div">
         <img
@@ -111,6 +129,24 @@ include_once('controla_login_empresa.php');
     </header>
 
     <script src="<?php echo BASEURL; ?>js/menu.js"></script>
-  </body>
+
   <main>
 <?php include('modal.php'); include('modalSair.php'); include('modalUsuario.php');?>
+
+
+  
+<script>
+ 
+  var funcaoJaChamada = localStorage.getItem('funcaoJaChamada');
+  function AlertaLog() {
+    if (!funcaoJaChamada) {
+      alert("Seja bem vindo ao DearPets " + nomeJS + "!");
+          funcaoJaChamada = true; // Define a variável como true após a execução
+          localStorage.setItem('funcaoJaChamada', funcaoJaChamada);
+        }
+  }
+function ZeraMessage() {
+        localStorage.removeItem('funcaoJaChamada');
+}
+
+</script>

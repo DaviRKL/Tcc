@@ -47,6 +47,13 @@
     background-color: #00a4b4;
    
 }
+.usuario-img{
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    margin-left: 35%;
+    margin-bottom: 10px;
+}
 
 
  
