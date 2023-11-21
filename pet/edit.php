@@ -10,21 +10,18 @@ include('../protecao/protect.php');
       return $d->format ("Y-m-d");  
   }  
   
-  function FormataData($data){
-      $da = new DateTime ($data);
-      return $da->format ("d-m-Y"); 
-      }
+
 ?>
 <style>
   .L, h2{
     color: #102447;
   }
 </style>
-<div style="padding-top: 20px">
+<div style="padding-top: 20px; padding-left:30px">
   <h2>Atualizar pet</h2>
   <form action="edit.php?  id=<?php echo $pet['id']; ?>" method="post" enctype="multipart/form-data">
     <div class="row">
-      <div class="form-group col-md-7">
+      <div class="form-group col-md-3">
         <label for="modelo" class="L">Nome do Pet</label>
         <input type="text" class="form-control" name="pet['nome']" value="<?php echo $pet['nome']; ?>">
       </div>

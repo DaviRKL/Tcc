@@ -36,7 +36,7 @@ include('../protecao/protect.php');
 			<?php if ($pets) : ?>
 				<?php foreach ($pets as $pet) : ?>
 					
-							<div class="col-md-4"style="padding: 20px">		
+							<div class="col-md-4"style="padding: 20px;  padding-right: 300px;">		
 								<div class="card" style="width: 20rem;">
 									<?php
 										if (!empty($pet['foto'])){

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 11/11/2023 às 03:34
+-- Tempo de geração: 17/11/2023 às 16:25
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -39,6 +39,18 @@ CREATE TABLE `agendamentos` (
   `eventColor` varchar(7) DEFAULT '#ff0000'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Despejando dados para a tabela `agendamentos`
+--
+
+INSERT INTO `agendamentos` (`id`, `id_tutor`, `id_pet`, `id_empresa`, `servico`, `data`, `horario`, `status`, `eventColor`) VALUES
+(61, 45, 13, '12.222.222/2222-22', 'banho e tobas', '2023-05-09', '10:00:00', 'Inconcluido', '#ff0000'),
+(62, 45, 13, '12.222.222/2222-22', 'banho e tobas', '2023-12-11', '10:00:00', 'Inconcluido', '#ff0000'),
+(63, 45, 13, '12.222.222/2222-22', 'banho e tobas', '2023-11-12', '10:00:00', 'Inconcluido', '#ff0000'),
+(64, 45, 13, '12.345.555/5555-55', 'Banho', '2023-11-13', '10:30:00', 'Inconcluido', '#ff0000'),
+(65, 45, 13, '12.222.222/2222-22', 'Banho e Tosa', '2023-11-22', '11:00:00', 'Inconcluido', '#ff0000'),
+(66, 45, 13, '12.345.668/8676-66', 'Banho e Tosa', '2023-11-14', '11:30:00', 'Inconcluido', '#ff0000');
+
 -- --------------------------------------------------------
 
 --
@@ -54,6 +66,30 @@ CREATE TABLE `avaliacoes` (
   `id_empresa` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `id_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Despejando dados para a tabela `avaliacoes`
+--
+
+INSERT INTO `avaliacoes` (`id`, `qtd_estrela`, `mensagem`, `created`, `modified`, `id_empresa`, `id_usuario`) VALUES
+(19, 4, 'ahfdhdfhd', '2023-11-12 10:44:26', NULL, '23456468', 6),
+(28, 4, '1312323sdfsdg', '2023-11-12 11:14:12', NULL, '12.345.555/5555-55', 6),
+(29, 4, 'LALALA', '2023-11-12 11:16:11', NULL, '12.345.555/5555-55', 6),
+(30, 4, 'LALALA', '2023-11-12 11:16:29', NULL, '12.345.555/5555-55', 6),
+(31, 4, 'LALALA', '2023-11-12 11:19:32', NULL, '12.345.555/5555-55', 6),
+(32, 4, 'sdgdsfg', '2023-11-12 11:19:36', NULL, '12.345.555/5555-55', 6),
+(33, 4, 'sdgdsfg', '2023-11-12 11:21:03', NULL, '12.345.555/5555-55', 6),
+(34, 3, 'q34234234', '2023-11-12 11:21:08', NULL, '12.345.555/5555-55', 6),
+(35, 3, 'q34234234', '2023-11-12 11:21:49', NULL, '12.345.555/5555-55', 6),
+(36, 3, '4r23423423', '2023-11-12 11:21:53', NULL, '12.345.555/5555-55', 6),
+(37, 3, '4r23423423', '2023-11-12 11:26:39', NULL, '12.345.555/5555-55', 6),
+(38, 4, 'aweqwqw', '2023-11-12 11:26:43', NULL, '12.345.555/5555-55', 6),
+(39, 4, 'aweqwqw', '2023-11-12 11:27:21', NULL, '12.345.555/5555-55', 6),
+(40, 4, 'qweq', '2023-11-12 11:27:25', NULL, '12.345.555/5555-55', 6),
+(41, 4, 'qweq', '2023-11-12 11:32:15', NULL, '12.345.555/5555-55', 6),
+(42, 4, 'LALALA', '2023-11-12 11:32:28', NULL, '12.345.555/5555-55', 6),
+(43, 4, 'LALALA', '2023-11-12 11:35:07', NULL, '12.345.555/5555-55', 6),
+(44, 4, 'LALALA', '2023-11-12 11:35:28', NULL, '12.345.555/5555-55', 6);
 
 -- --------------------------------------------------------
 
@@ -137,7 +173,9 @@ CREATE TABLE `pets` (
 --
 
 INSERT INTO `pets` (`id`, `id_tutor`, `nome`, `tipo`, `sexo`, `raca`, `datanasc`, `foto`) VALUES
-(7, 6, 'Honey', 'Cachorro', 'Femêa', 'bundog', '2023-05-06 ', 'ban.jpg');
+(7, 6, 'Honey', 'Cachorro', 'Femêa', 'bundog', '2023-05-06 ', 'ban.jpg'),
+(13, 45, 'Cao chupando manga', 'Cachorro', 'Macho', ' American Bully ', '2023-11-11', 'sim.jpg'),
+(14, 45, 'Cao chupando manga 2', 'Gato', 'Femea', 'Bobtail Americano', '2023-11-13', 'sim.jpg');
 
 -- --------------------------------------------------------
 
@@ -227,13 +265,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `agendamentos`
 --
 ALTER TABLE `agendamentos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT de tabela `avaliacoes`
 --
 ALTER TABLE `avaliacoes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT de tabela `carrouses`
@@ -245,7 +283,7 @@ ALTER TABLE `carrouses`
 -- AUTO_INCREMENT de tabela `pets`
 --
 ALTER TABLE `pets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`

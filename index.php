@@ -30,7 +30,7 @@ include_once(HEADER_TEMPLATE);
 
 <body>
 	
-<main>
+
       <section class="bem-vindo">
         <div class="conteudo">
           <p class="mensagem-bem-vindo">Seja bem vindo, aqui você conhece</p>

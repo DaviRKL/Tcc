@@ -1,7 +1,7 @@
 <?php
 
 require_once('../config.php');
-require_once('../inc/header.php');
+
 require_once(DBAPI);
 
 
@@ -138,7 +138,7 @@ try {
         } else {
 
           global $pet;
-          $pet = find("pets", $id);
+          $pet = find2("pets", $id);
         } 
       } else {
         header('location: index.php');

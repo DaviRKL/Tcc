@@ -57,21 +57,7 @@
 
 
  
-#footer {
-    position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background: rgb(0,163,180);
-  background: linear-gradient(90deg, rgba(0,163,180,1) 0%, rgba(7,41,95,1) 76%);
-  color: white;
-  text-align: center;
-  height:  55px;
-  z-index: 1;
-  -webkit-box-shadow: inset -5px 6px 13px -8px rgba(0,0,0,0.75);
--moz-box-shadow: inset -5px 6px 13px -8px rgba(0,0,0,0.75);
 
-}
 .dropdown-item{
     font-family: 'Roboto Condensed', sans-serif;
     color: white;

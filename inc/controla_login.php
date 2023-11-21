@@ -38,6 +38,7 @@ if(isset($_POST['USER']) || isset($_POST['senha'])) {
 			$_SESSION['id'] = $Usuario['id'];
 			$_SESSION['nome'] = $Usuario['nome'];
 			$_SESSION['foto'] = $Usuario['foto'];
+			$_SESSION['password'] = $Usuario['password'];
 			$logado="ok";
 			$_SESSION['email']= $Usuario['email'];
 			$_SESSION['id_empresa'] = $Usuario['fk_empresas_cnpj'];

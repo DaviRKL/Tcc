@@ -122,13 +122,12 @@
         }
     }
     function edit() {
-
       //$today = new DateTime("now");
     // $now = date_create('now', new DateTimeZone('America/Sao_Paulo'));
     try {
             if (isset($_GET['id'])) {
 
-              $id = $_GET['id'];
+              $id = $_SESSION['id'];
 
               if (isset($_POST['usuario'])) {
 
@@ -162,7 +161,7 @@
                 $usuario = find("usuarios", $id);
               } 
             } else {
-              header('location: index.php');
+              header('location: ../index.php');
             }
           } catch (Exception $e) {
             $_SESSION['message'] = "Aconteceu um erro: " . $e->getMessage();

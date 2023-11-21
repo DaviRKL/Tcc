@@ -32,6 +32,7 @@ include_once('controla_login_empresa.php');
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
 		integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
 		crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   </head>
  
 
@@ -133,8 +134,6 @@ include_once('controla_login_empresa.php');
   <main>
 <?php include('modal.php'); include('modalSair.php'); include('modalUsuario.php');?>
 
-
-  
 <script>
  
   var funcaoJaChamada = localStorage.getItem('funcaoJaChamada');
