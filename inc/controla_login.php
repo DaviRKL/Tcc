@@ -42,14 +42,17 @@ if(isset($_POST['USER']) || isset($_POST['senha'])) {
 			$logado="ok";
 			$_SESSION['email']= $Usuario['email'];
 			$_SESSION['id_empresa'] = $Usuario['fk_empresas_cnpj'];
-			header("Location: index.php");
+			header("Location: " . BASEURL);
 
 		}  else {
-			echo "Falha ao logar! Usuario ou senha incorretos";
-                        			$_SESSION['message'] = "Falha ao logar! Usuario ou senha incorretos";
-            $_SESSION['type'] = "danger";
-			$logado = "nao";
-			header("Location:  index.php");
+			$_SESSION['message'] = "Falha ao logar! Usuário ou senha incorretos";
+			$_SESSION['type'] = "danger";
+			$_SESSION['erro'] = "sim";
+			echo "<script>";
+			echo "alert('" . $_SESSION['message'] . "');";
+			echo "window.location.href = '" . BASEURL . "';";
+			echo "</script>";
+			exit();
 		}
 	}
 }

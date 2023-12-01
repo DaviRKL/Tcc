@@ -1,0 +1,137 @@
+
+.pets {
+  padding-left: 0px;
+}
+
+.pets {
+  max-width: var(--largura-da-pagina);
+  width: 100%;
+  padding: 10px 0px 0px;
+}
+
+.pets2 {
+  max-width: var(--largura-da-pagina);
+  width: 100%;
+  padding: 30px 100px 0px;
+}
+
+.pets2 .titulo {
+  font-family: 'Montserrat';
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  margin-top: 25px;
+  position: relative;
+  color: #07295f;
+  margin-bottom: 0px;
+}
+
+.pets2 .titulo::after {
+  bottom: -8px;
+  content: "";
+  position: absolute;
+  display: block;
+  width: 70px;
+  height: 3px;
+  background-image: linear-gradient(
+    90deg,
+    rgba(0, 163, 180, 1) 0%,
+    rgba(7, 41, 95, 1) 76%
+  );
+}
+
+.empresas #novo-pet {
+  margin-top: 10px;
+  padding: 7px 10px;
+  text-transform: uppercase;
+  color: #07295f;
+  font-weight: 500;
+  border: none;
+  background-color: #d9d9d9;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+.empresas #novo-pet:hover {
+  box-shadow: 0 0 5px 0 black;
+}
+
+.empresas .pets .pet {
+  margin-top: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 35px;
+}
+.empresas .pets .pet img {
+  width: 350px;
+  height: 320px;
+  object-fit: cover;
+}
+.empresas .pets .pet .nome-pet {
+  font-size: 25px;
+  font-weight: 400;
+  color: black;
+}
+
+/* Menus add.php */
+
+.formulario .texto1 {
+  font-family: 'Montserrat';
+  padding: 0px;
+  max-width: 110px;
+}
+
+.formulario .texto2 {
+  font-family: 'Montserrat';
+  padding: 0px;
+  max-width: 40px;
+}
+
+.formulario .texto3 {
+  font-family: 'Montserrat';
+  padding: 0px;
+  max-width: 40px;
+}
+
+.formulario .texto4 {
+  font-family: 'Montserrat';
+  padding: 0px;
+  max-width: 165px;
+}
+
+.formulario .texto5 {
+  font-family: 'Montserrat';
+  padding: 0px;
+  max-width: 35px;
+}
+
+.formulario .texto6 {
+  font-family: 'Montserrat';
+  padding: 0px;
+  max-width: 135px;
+}
+
+.formulario .texto7 {
+  font-family: 'Montserrat';
+  padding: 0px;
+  max-width: 95px;
+}
+
+.formulario .linhas {
+  max-width: var(--largura-da-pagina);
+  width: 100%;
+  padding: 0px 80px 10px;
+}
+
+.formulario .row #novopet {
+  margin-top: 25px;
+  padding: 7px 10px;
+  text-transform: uppercase;
+  color: #07295f;
+  font-weight: 500;
+  border: none;
+  background-color: #d9d9d9;
+  cursor: pointer;
+  align-self: flex-start;
+}

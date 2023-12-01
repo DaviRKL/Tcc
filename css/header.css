@@ -54,6 +54,7 @@
   color: white;
   /* width: 250px; */
   transition: all ease-in-out 0.5s;
+  z-index: 2;
 }
 .header .navegacao-menu .icones-do-menu {
   display: flex;
@@ -76,7 +77,7 @@
   flex-direction: column;
   gap: 5px;
 }
-.header .navegacao-menu .link-nav {
+.header .navegacao-menu .link-nav, .link-home {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -91,7 +92,7 @@
 .header .navegacao-menu .link-nav.seta-icone.girar-seta::after{
     transform: rotate(90deg);
 }
-.header .navegacao-menu .link-nav:hover {
+.header .navegacao-menu .link-nav:hover, .link-home:hover {
   background-color: rgba(255, 255, 255, 0.4);
 }
 .header .navegacao-menu .item-do-menu .sub-menu {

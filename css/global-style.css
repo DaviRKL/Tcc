@@ -7,7 +7,10 @@
 main{
   overflow-y: scroll;
   height: calc(100% - 70px);
+  width: 100%;
+  overflow-x: hidden;
 }
+
 body {
   font-family: "Montserrat", sans-serif;
   display: flex;
@@ -16,6 +19,79 @@ body {
   overflow: hidden;
   height: 100vh;
 }
+
+section {
+  width: 60%;
+  margin: 0 auto;
+ 
+}
+
+/* Responsivo */
+
+@media (max-width: 968px){
+  .bem-vindo {
+    flex-direction: column;
+  }
+  .bem-vindo .person {
+    width: 500px;
+  }
+}
+
+
+
+/* Reset */
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+li {
+  list-style: none;
+}
+a{
+  text-decoration: none;
+  color: unset;
+}
+
+
+
+/* ScrollBar */
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* ::-webkit-scrollbar-track {
+  background: #f1f1f1;
+} */
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+::-moz-scrollbar {
+  width: 10px;
+}
+
+/* ::-moz-scrollbar-track {
+  background: #f1f1f1;
+} */
+
+::-moz-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-moz-scrollbar-thumb:hover {
+  background: #555;
+}
+
 
 
 

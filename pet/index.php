@@ -1,78 +1,51 @@
 <?php
 ob_start();
 include('../protecao/protect.php');
-    require_once('functions.php');
-    index();
-	
-	
-	include_once(HEADER_TEMPLATE);
+require_once('functions.php');
+index();
+include_once(HEADER_TEMPLATE);
 ?>
-<style>
-	td,th{
-		color: #FFF;
-	}
-	#cars{ 
-	border:4px solid #7914C7 ; width: 200px; 
-	}
-	label{
-		align: left
-	}
+<section class="empresas" style="margin-bottom: 50px">
+	<h2 class="titulo">Meus Pets</h2>
+	<?php if (isset($_SESSION['id'])): ?>
+		<a href="add.php"><button type="button" id="novo-pet"><i class="fa fa-plus"></i> novo pet</button></a>
+	<?php endif; ?>
 
-
-</style>
-<div style="background-color: #00a4b4; border-radius: 50px; margin-top:30px">
-	<div style="padding: 20px">
-		<header style="margin-top:10px;">
-			<div style="display: flex;flex-direction: row;justify-content: center; align-items: center;margin-left: 120px">
-				<h2>MEUS PETS</h2>		
-				<?php if(isset($_SESSION['id'])):?> 
-					<a class="btn btn-secondary" href="add.php" style="margin-left:20px"><i class="fa fa-plus"></i> Novo pet</a>
-				<?php endif; ?>
-			</div> 
-		</header>
-	</div>
-	<div class="container text-center">
-  		<div class="row">
-			<?php if ($pets) : ?>
-				<?php foreach ($pets as $pet) : ?>
-					
-							<div class="col-md-4"style="padding: 20px;  padding-right: 300px;">		
-								<div class="card" style="width: 20rem;">
+	<ul class="pets">
+		<div class="container text-center">
+			<div class="row">
+				<?php if ($pets): ?>
+					<?php foreach ($pets as $pet): ?>
+						<div class="col-md-4" style='padding: 0; padding-bottom: 0px;'>
+							<a href="edit.php?id=<?php echo $pet['id']; ?>">
+								<li class="pet">
 									<?php
-										if (!empty($pet['foto'])){
-											echo  "<img src=\"imagens/" . $pet['foto'] . "\" class=\"card-img-top\" width=\"200px\"height=\"200px\">";
-										}else{
-											echo  "<img src=\"imagens/SemImagem.png\" class=\"card-img-top\" width=\"200px\"height=\"200px\">";
-										}
-										$id = base64_encode($pet['id']);
+									if (!empty($pet['foto'])) {
+										echo "<img src=\"imagens/" . $pet['foto'] . "\"  width=\"350px\"height=\"250px\" border-radius=\"70px\">";
+									} else {
+										echo "<img src=\"imagens/SemImagem.png\" class=\"card-img-top\" width=\"200px\"height=\"200px\">";
+									}
+									$id = base64_encode($pet['id']);
 									?>
-									<div class="card-body">
-										<h4 class="card-title"style=" display: flex;flex-direction: row;justify-content: center; align-items: center;"><?php echo $pet['nome']; ?></h5>
-									</div>
-									<ul class="list-group list-group-flush">
-										<li class="list-group-item">Tipo: <?php echo $pet['tipo']; ?></li>
-										<li class="list-group-item">Raça: <?php echo $pet['raca']; ?></li>
-										<li class="list-group-item">Sexo: <?php echo $pet['sexo']; ?></li>
-										<li class="list-group-item">Data de nascimento: <?php $d = new Datetime($pet['datanasc']); echo FormataData($pet['datanasc']);?></li>
-									</ul>
-									<div class="card-body"style=" display: flex;flex-direction: row;justify-content: center; align-items: center;" >
-										<?php if(isset($_SESSION['id'])):?> 
-											<a href="edit.php?id=<?php echo $pet['id']; ?>" class="btn btn-sm btn-secondary"><i class="fa-solid fa-user-pen"></i> Editar</a>
-											<a href="#" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#delete-pet-modal" data-pet="<?php echo $pet['id']; ?>"><i class="fa fa-trash"></i> Excluir</a>
-										<?php endif; ?>
-									</div>
-								</div>				
-							</div>		
-				<?php endforeach; ?>
-			<?php else : ?>
-				<p>Você ainda não possui Pets</p>	
-			<?php endif; ?>
-		</div>	
-	</div>	
-</div>
+									<br>
+									<h4>
+										<div style="font-size: 20px;" > <?php echo $pet['nome']; ?> </div>
+									</h4>
+								</li>
+							</a>
+						</div>
+					<?php endforeach; ?>
+				<?php else: ?>
+					<p>Você ainda não possui Pets</p>
+				<?php endif; ?>
+			</div>
+		</div>
+	</ul>
+</section>
 
-<?php 
-	include('modal.php'); 
-	include(FOOTER_TEMPLATE); 
-	ob_end_flush();
+
+<?php
+include('modal.php');
+include(FOOTER_TEMPLATE);
+ob_end_flush();
 ?>

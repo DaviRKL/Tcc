@@ -6,13 +6,14 @@ if (empty($_SESSION['foto'])) {
 } else {
 	$foto = $_SESSION['foto'];
 }
+
 ?>
 
 <div class="modal fade" id="usuarioModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
 	<div class="modal-dialog modal-dialog-centered ">
 		<div class="modal-content">
 			<div class="modal-header">
-				<div class="row" >
+				<div class="row">
 					<h2 style="margin-left:170px;">
 						<?php echo $_SESSION['nome']; ?>
 					</h2>
@@ -20,18 +21,20 @@ if (empty($_SESSION['foto'])) {
 					<p style="margin-bottom: -20px; margin-left:170px; ">Edite suas informações</p>
 				</div>
 				<div class="row">
-					
-<a href="#"  data-bs-toggle="modal" data-bs-target="#logoutmodal"><i class="fa-solid fa-right-from-bracket"></i></a>	
+
+					<a href="#" data-bs-toggle="modal" data-bs-target="#logoutmodal"><i
+							class="fa-solid fa-right-from-bracket"></i></a>
 				</div>
-				
-				
+
+
 			</div>
 			<div class="modal-body">
 				<div class="row">
 					<img class="usuario-img" id="imgPreviewUser"
 						src="<?php echo BASEURL ?>usuarios/fotos/<?php echo $foto ?>" alt="Foto do usuário">
 				</div>
-				<form action="<?php echo BASEURL ?>usuarios/edit.php?id=<?php echo $_SESSION['id']; ?>" method="post" enctype="multipart/form-data">
+				<form id="editForm" action="<?php echo BASEURL ?>usuarios/edit.php?id=<?php echo $_SESSION['id']; ?>"
+					method="post" enctype="multipart/form-data">
 					<div>
 						<div>
 							<div>
@@ -43,7 +46,7 @@ if (empty($_SESSION['foto'])) {
 						<div>
 							<div>
 								<label for="campo2">Email</label>
-								<input type="text" class="form-control" name="usuario['user']"
+								<input type="text" class="form-control" name="usuario['email']"
 									value="<?php echo $_SESSION['email']; ?>">
 							</div>
 						</div>
@@ -65,31 +68,12 @@ if (empty($_SESSION['foto'])) {
 						</div>
 					</div>
 					<div id="actions" class="row">
-						
-							<button type="submit" class="btn btn-secondary">Salvar</button>
-						
+						<button type="submit" class="btn btn-secondary">Salvar</button>
 					</div>
-
 				</form>
-				
 			</div>
 		</div> <!-- /.modal -->
 	</div>
 </div>
 <?php include('modalSair.php'); ?>
-<script>
-
-	$(document).ready(() => {
-		$("#fotoUser").change(function () {
-			const file = this.files[0];
-			if (file) {
-				let reader = new FileReader();
-				reader.onload = function (event) {
-					$("#imgPreviewUser").attr("src", event.target.result);
-				};
-				reader.readAsDataURL(file);
-
-			}
-		});
-	});
-</script>
+<script src="<?php echo BASEURL ?>js/Preview/PreviewfotoUser.js"></script>

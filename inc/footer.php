@@ -1,7 +1,7 @@
 
 </main>
 
-<footer class="footer" >
+<footer id="footer" >
 	<?php 
 		$d = new DateTime("now");
 		$d->format('Y');
@@ -17,5 +17,7 @@
     <script src="<?php echo BASEURL; ?>js/main.js"></script>
 	<script src="https://www.google.com/recaptcha/api.js"></script>
 	<script src='<?php echo BASEURL; ?>js/fullcalendar/index.global.min.js'></script>
+	
+	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 </body>
 </html>

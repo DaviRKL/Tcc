@@ -7,11 +7,8 @@ include('../protecao/protect.php');
 $sqlconsulta =  "select * from agendamentos where id = $id";
 	
 	// executando instrução SQL
-	$host = "localhost"; 			
-	$user = "root"; 
-	$pass = ""; 
-	$db = "tcc";
-$conexao = mysqlI_connect($host, $user, $pass, $db);
+
+$conexao = mysqlI_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 	$resultado = @mysqli_query($conexao, $sqlconsulta);
 			$dados=mysqli_fetch_array($resultado);
 			

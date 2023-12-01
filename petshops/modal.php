@@ -1,4 +1,3 @@
-<!-- Modal de Delete-->
 <div class="modal fade" id="delete-pet-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
 		  <div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -17,5 +16,4 @@
 			  </div>
 			</div>
 		  </div>
-		</div> <!-- /.modal -->
-<!-- Modal de Delete-->
+		</div> 

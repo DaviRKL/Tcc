@@ -15,5 +15,4 @@
 					</div>
 				</div>
 		  	</div>
-</div> <!-- /.modal -->
-<!-- Modal de Delete-->
+</div> 

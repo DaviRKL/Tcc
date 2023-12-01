@@ -1,0 +1,99 @@
+.cadastro .titulo {
+    font-family: 'Fredoka';
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+   
+    position: relative;
+    color: #07295f;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    align-items: center;
+  }
+  
+  .cadastro .titulo::after {
+    bottom: -8px;
+    content: "";
+    position: absolute;
+    display: block;
+    width: 70px;
+    height: 3px;
+    background-image: linear-gradient(
+      90deg,
+      rgba(0, 163, 180, 1) 0%,
+      rgba(7, 41, 95, 1) 76%
+    );
+  }
+
+  .cadastro {
+    max-width: var(--largura-da-pagina);
+    width: 100%;
+    padding: 50px 100px 0px;
+  }
+
+  .erro {
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    margin-top: 25px;
+  }
+
+  /* Cadastro de empresas */
+
+  .formulario .linhas .campo-empresa {
+    padding: 0px;
+    max-width: 150px;
+  }
+
+  .formulario .linhas .campo-cnpj {
+    padding: 0px;
+    max-width: 45px;
+  }
+
+  .formulario .linhas .campo-telefone {
+    padding: 0px;
+    max-width: 70px;
+  }
+  
+  .formulario .linhas .campo-endereco {
+    padding: 0px;
+    max-width: 80px;
+  }
+  
+  .formulario .linhas .campo-estado {
+    padding: 0px;
+    max-width: 60px;
+  }
+  
+  .formulario .linhas .campo-bairro {
+    padding: 0px;
+    max-width: 50px;
+  }
+  
+  .formulario .linhas .campo-precobanho {
+    padding: 0px;
+    max-width: 130px;
+  }
+  
+  .formulario .linhas .campo-precotoca {
+    padding: 0px;
+    max-width: 90px;
+  }
+  
+  .formulario .linhas .campo-sobre {
+    padding: 0px;
+    max-width: 140px;
+  }
+  
+  .formulario .linhas .campo-foto {
+    padding: 0px;
+    max-width: 40px;
+  }
+  
+  .formulario .linhas .campo-previzu {
+    padding: 0px;
+    max-width: 135px;
+  }

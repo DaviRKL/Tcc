@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 17/11/2023 às 16:25
+-- Tempo de geração: 30/11/2023 às 22:18
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -49,7 +49,9 @@ INSERT INTO `agendamentos` (`id`, `id_tutor`, `id_pet`, `id_empresa`, `servico`,
 (63, 45, 13, '12.222.222/2222-22', 'banho e tobas', '2023-11-12', '10:00:00', 'Inconcluido', '#ff0000'),
 (64, 45, 13, '12.345.555/5555-55', 'Banho', '2023-11-13', '10:30:00', 'Inconcluido', '#ff0000'),
 (65, 45, 13, '12.222.222/2222-22', 'Banho e Tosa', '2023-11-22', '11:00:00', 'Inconcluido', '#ff0000'),
-(66, 45, 13, '12.345.668/8676-66', 'Banho e Tosa', '2023-11-14', '11:30:00', 'Inconcluido', '#ff0000');
+(66, 45, 13, '12.345.668/8676-66', 'Banho e Tosa', '2023-11-14', '11:30:00', 'Inconcluido', '#ff0000'),
+(67, 45, 13, '12.345.555/5555-55', 'Banho e Tosa', '2023-11-30', '12:00:00', 'concluido', 'blue'),
+(68, 45, 14, '12.345.555/5555-55', 'Banho', '2023-11-30', '11:30:00', 'concluido', 'blue');
 
 -- --------------------------------------------------------
 
@@ -89,7 +91,9 @@ INSERT INTO `avaliacoes` (`id`, `qtd_estrela`, `mensagem`, `created`, `modified`
 (41, 4, 'qweq', '2023-11-12 11:32:15', NULL, '12.345.555/5555-55', 6),
 (42, 4, 'LALALA', '2023-11-12 11:32:28', NULL, '12.345.555/5555-55', 6),
 (43, 4, 'LALALA', '2023-11-12 11:35:07', NULL, '12.345.555/5555-55', 6),
-(44, 4, 'LALALA', '2023-11-12 11:35:28', NULL, '12.345.555/5555-55', 6);
+(44, 4, 'LALALA', '2023-11-12 11:35:28', NULL, '12.345.555/5555-55', 6),
+(45, 3, 'SIm', '2023-11-30 15:10:13', NULL, '12.222.222/2222-22', 45),
+(46, 2, 'asa', '2023-11-30 15:13:28', NULL, '12.345.668/8676-66', 45);
 
 -- --------------------------------------------------------
 
@@ -138,12 +142,12 @@ CREATE TABLE `empresas` (
 --
 
 INSERT INTO `empresas` (`cnpj`, `nome`, `endereço`, `telefone`, `precoBanho`, `precoTosa`, `foto`, `sobre`, `cidade`, `bairro`, `estado`) VALUES
-('12.222.222/2222-22', 'CAlma CNPJOTO', 'Rua 4', '(12) 3424-3534', '0', '0', 'Captura de tela 2022-07-22 113751.png', 'HAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', NULL, NULL, NULL),
+('12.222.222/2222-22', 'AgroPet', 'Rua 4', '(12) 3424-3534', '0', '0', 'petfeliz.jpg', 'HAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', NULL, NULL, NULL),
 ('12.345.555/5555-55', 'Super Pets', 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', '', '0', '0', 'cachorroagenda.jpg', 'AHAHAHHAHAHAHAHHAAHHAHHAH', 'Campinas', 'Nao sei', 'São Paulo'),
 ('12.345.668/8676-66', 'Gigas Shop', 'Rua 4', '(12) 3424-3534', 'R$23', 'R$435', 'Ban.jpg', 'qwerqwerqr2q3', 'Sorocaba', 'Campolim', 'São Paulo'),
-('12.480.235/7459-03', 'Cidades ', 'pokebola', '(12) 3124-3534', 'R$123', 'R$123', '', '42342452345re´gi0o9~hkudfhgedf´ger', 'Sorocaba', 'Sei la', 'São Paulo'),
-('23456467', 'TESTAndo', 'isso ai', '23453454', '22', '24', 'banban.jpg', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna. Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci. Aenean aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaanecloremaaaaaaaaaaaaaaaaaaaaaaaa.', NULL, NULL, NULL),
-('23456468', 'Gigas Shop', 'KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKAAAAAAA', '244324', '5', '19', 'zoi.jpg', NULL, NULL, NULL, NULL),
+('12.480.235/7459-03', 'SoroPets', 'pokebola', '(12) 3124-3534', 'R$123', 'R$123', 'carrinhopet.jpeg', '42342452345re´gi0o9~hkudfhgedf´ger', 'Sorocaba', 'Sei la', 'São Paulo'),
+('23456467', 'PetVille', 'isso ai', '23453454', '22', '24', 'banban.jpg', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna. Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci. Aenean aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaanecloremaaaaaaaaaaaaaaaaaaaaaaaa.', NULL, NULL, NULL),
+('23456468', 'Gigas Shop', 'KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKAAAAAAA', '244324', '5', '19', 'petxopi.jpg', NULL, NULL, NULL, NULL),
 ('23456470', 'PAW Patrol', 'KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK', '', '0', '0', 'paw.jpg', 'SIM isso meesmo', NULL, NULL, NULL),
 ('23456471', 'Gigas Shop', 'pokebola', '244324', '122', '21312', 'ban.jpg', 'KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKMMMMMMMMMMMMMMMMMMMMM', NULL, NULL, NULL),
 ('23456472', 'Adoro Banho', 'pokebola', '244324', '540', '2345', 'woof.jpg', 'HAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', NULL, NULL, NULL),
@@ -175,7 +179,14 @@ CREATE TABLE `pets` (
 INSERT INTO `pets` (`id`, `id_tutor`, `nome`, `tipo`, `sexo`, `raca`, `datanasc`, `foto`) VALUES
 (7, 6, 'Honey', 'Cachorro', 'Femêa', 'bundog', '2023-05-06 ', 'ban.jpg'),
 (13, 45, 'Cao chupando manga', 'Cachorro', 'Macho', ' American Bully ', '2023-11-11', 'sim.jpg'),
-(14, 45, 'Cao chupando manga 2', 'Gato', 'Femea', 'Bobtail Americano', '2023-11-13', 'sim.jpg');
+(14, 45, 'Cao chupando manga 2', 'Gato', 'Femea', 'Bobtail Americano', '2023-11-13', 'sim.jpg'),
+(15, 6, 'asdasdas', 'Gato', 'Femea', 'Bobtail Americano', '2023-11-17', ''),
+(16, 6, 'Cao chupando manga', 'Cachorro', 'Macho', ' Afghan Hound ', '2023-11-30', ''),
+(17, 6, 'Cao chupando manga', 'Cachorro', 'Macho', ' Afghan Hound ', '', ''),
+(18, 45, 'cac', '', 'Macho', '', '', ''),
+(19, 45, 'q', '', 'Macho', '', '', ''),
+(20, 45, 'a', '', 'Macho', '', '', ''),
+(21, 45, 'g23t34t34', '', 'Macho', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -197,7 +208,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nome`, `email`, `password`, `foto`, `fk_empresas_cnpj`) VALUES
-(6, 'Eu mesmo', 'ahaha@gmail.com', '12345', 'sandro.jpg', '12.345.555/5555-55'),
+(6, 'PatoHAHAHA', 'ahaha@gmail.com', '12345', 'sandro.jpg', '12.345.555/5555-55'),
 (45, 'BOris Johnson', 'naosei@gmail.com', '12345', '', NULL),
 (46, 'Joberson', 'naosei@gmail.com', '123232', '', NULL),
 (47, 'ghgdfhg', 'naosei@gmail.com', '123', '', NULL),
@@ -265,13 +276,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `agendamentos`
 --
 ALTER TABLE `agendamentos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT de tabela `avaliacoes`
 --
 ALTER TABLE `avaliacoes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT de tabela `carrouses`
@@ -283,13 +294,13 @@ ALTER TABLE `carrouses`
 -- AUTO_INCREMENT de tabela `pets`
 --
 ALTER TABLE `pets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- Restrições para tabelas despejadas

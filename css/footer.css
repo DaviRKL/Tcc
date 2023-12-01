@@ -1,9 +1,14 @@
-.footer {
-    height: 60px;
-    background: linear-gradient(90deg, #00a3b4 3.36%, rgba(7, 41, 95) 62.36%);
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-  }
+#footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: rgb(0,163,180);
+  background: linear-gradient(90deg, rgba(0,163,180,1) 0%, rgba(7,41,95,1) 76%);
+  color: white;
+  height:  45px;
+  z-index: 1;
+}

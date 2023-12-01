@@ -59,7 +59,7 @@ border:4px solid #7914C7 ; width: 200px;
 				<tr>
 					<td><?php echo $usuario['id']; ?></td>
 					<td><?php echo $usuario['nome']; ?></td>
-					<td><?php echo $usuario['user']; ?></td>
+					<td><?php echo $usuario['email']; ?></td>
 					<td><?php
 							if (!empty($usuario['foto'])){
 								echo  "<img src=\"fotos/" . $usuario['foto'] . "\" class=\"shadow p-1 mb-1 bg-body rounded\" width=\"200px\" height=\"200px\">";

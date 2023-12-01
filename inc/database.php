@@ -263,10 +263,7 @@
 	function update_cnpj_usuario($table = null, $id = 0, $cnpj = null) {
 
 		$database = open_database();
-		
-	
-		$sql  = "UPDATE  $table SET fk_empresas_cnpj = '$cnpj' WHERE id=" . $id . ";";
-  
+		$sql  = "UPDATE $table SET fk_empresas_cnpj = '$cnpj' WHERE id=" . $id . ";";
 		try {
 		  $database->query($sql);
   
@@ -407,6 +404,6 @@ function filter( $table = null, $p = null ) {
 	  }
 	  function FormataHora($data){
 		$da = new DateTime ($data);
-		return $da->format ("h:i");  
+		return $da->format ("H:i");  
 	  }
   

@@ -18,22 +18,6 @@ if (isset($_POST['submit'])) {
   }
 }
 ?>
-
-<style>
-  #footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: #00a4b8;
-    color: white;
-    text-align: center;
-    height: 55px;
-    -webkit-box-shadow: inset -5px 6px 13px -8px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: inset -5px 6px 13px -8px rgba(0, 0, 0, 0.75);
-    box-shadow: inset -5px 6px 13px -8px rgba(0, 0, 0, 0.75);
-  }
-</style>
 <?php if (!empty($_SESSION['message'])): ?>
   <div class=" alert alert-<?php echo $_SESSION['type']; ?> alert-dismissible" role="alert">
     <?php echo $_SESSION['message']; ?>
@@ -41,60 +25,50 @@ if (isset($_POST['submit'])) {
   </div>
   <?php clear_messages(); ?>
 <?php endif; ?>
-<div style="padding-top: 20px; display: flex;flex-direction: row;justify-content: center; align-items: center; margin-top:20px">
-  <div class="row">
-    <div class="col-md-12"  style="padding-left: 420px;">
-      <h2  style="padding-left: 400px;"> Cadastre um Funcionário</h2>
-    </div>
-    <form action="addFuncionarios.php" method="post" enctype="multipart/form-data">
-      <div class="form-group col-md-12" style="padding-left: 400px; padding-right:400px;">
-        <label for="name">Nome</label>
-        <input type="text" class="form-control" name="usuario[nome]">
-      </div>
-      <div class="form-group col-md-12" style="padding-left: 400px; padding-right:400px;">
-        <label for="campo2">Email</label>
-        <input type="email" class="form-control" name="usuario[email]">
-      </div>
-      <div class="form-group col-md-12" style="padding-left: 400px; padding-right:400px;">
-        <label for="campo3">Senha</label>
-        <input type="password" class="form-control" name="usuario['password']">
-      </div>
-      <div class="form-group col-md-12" style="padding-left: 400px; padding-right:400px;">
-        <label for="campo1">Foto</label>
-        <input type="file" class="form-control" id="foto" name="foto">
-      </div>
-      <div class="form-group col-md-12" style="padding-left: 400px; padding-right:400px;">
-        <label for="pre">Pré-vizualização:</label>
-        <img class="form-control shadow p-2 mb-2 bg-body rounded" id="imgPreview" src="imagens/semImagem.png" alt="pic"
-          style="height:  150px;">
-      </div>
-      <div class="form-group col-md-12"
-        style="display: flex;flex-direction: row;justify-content: center; align-items: center;margin-top: 20px;">
-        <div class="g-recaptcha" data-sitekey="6LdSZdEmAAAAAPzie5WGn96a_YHQ_cpoIZgq0iCz"></div>
-      </div>
-      <div id="actions" class="row">
-        <div class="col-md-6" style=" padding-bottom:20px; padding-left:650px;">
-          <button type="submit" class="btn btn-secondary" href="<?php echo BASEURL; ?>index.php"
-            style="width: 640px;">Salvar</button>
+<section class="empresas">
+        <h2 class="titulo">Cadastrar novo funcionário</h2>
+      </section>
+
+      <section class="formulario">
+        <div class="linhas">
+          <form action="add.php" enctype="multipart/form-data" method="post" style="padding: 20px">
+            <div class="row">
+              <div class="form-group col-md-6">
+                <label class="campo1" for="modelo">Nome do funcionário</label>
+                <input type="text" class="form-control" name="usuario['nome']">
+              </div>
+
+              <div class="form-group col-md-6">
+                <label class="campo2" for="modelo">Email</label>
+                <input type="text" class="form-control" name="usuario['nome']">
+              </div>
+
+              <div class="form-group col-md-3">
+                <label class= "campo3" for="campo3">Senha</label>
+                <input type="password" class="form-control" name="usuario['password']">
+              </div>
+              
+              <div class="form-group col-md-7">
+                <label class="campo4" for="foto">Foto</label>
+                <input type="file" class="form-control" id="foto" name="foto">
+              </div>
+
+              <div class="form-group col-md-2">
+                <label class="campo5" for="pre">Pré-vizualização:</label>
+                <img class="form-control shadow p-2 mb-2 bg-body rounded" id="imgPreview" src="imagens/SemImagem.png"
+                  alt="pic">
+              </div>
+
+            </div>
+            <div id="actions" class="row">
+              <div class="col-md-12">
+                <button type="submit" class="btn btn-secondary">Salvar</button>
+                <a href="index.php" class="btn btn-light">Cancelar</a>
+              </div>
+            </div>
         </div>
-      </div>
-      </form>
-  </div>
-</div>
-<?php include(FOOTER_TEMPLATE); ?>
+        </form>
+      </section>
+<?php include(FOOTER_TEMPLATE);?>
+ <script src="<?php echo BASEURL?>js/Preview/Previewfoto.js"></script>
 
-<script>
-  $(document).ready(() => {
-    $("#foto").change(function () {
-      const file = this.files[0];
-      if (file) {
-        let reader = new FileReader();
-        reader.onload = function (event) {
-          $("#imgPreview").attr("src", event.target.result);
-        };
-        reader.readAsDataURL(file);
-
-      }
-    });
-  });
-</script>

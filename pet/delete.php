@@ -2,16 +2,10 @@
 ob_start();
 include('../protecao/protect.php');
   require_once('functions.php'); 
+  include('../conexao.php'); 
   $nome = $_GET['id'];
 $sqlconsulta =  "select * from pets where id = $nome";
-	
-	// executando instrução SQL
-	$host = "localhost"; 			
-	$user = "root"; 
-	$pass = ""; 
-	$db = "tcc";
-$conexao = mysqlI_connect($host, $user, $pass, $db);
-	$resultado = @mysqli_query($conexao, $sqlconsulta);
+	$resultado = @mysqli_query($conn, $sqlconsulta);
 			$dados=mysqli_fetch_array($resultado);
 			
 

@@ -108,19 +108,56 @@
                 $usuario['foto'] = $nomearquivo;
                 $_SESSION['message'] = "Você se cadastrou com sucesso agora faça o Login";
                 $_SESSION['type'] = "success";
-                $cnpj = $_SESSION['id_empresa'];
-                $usuario['fk_empresas_cnpj'] = $cnpj;
-                if(!isset($_SESSION['id_empresa'])){
-                  $usuario['fk_empresas_cnpj'] = $_SESSION['id_empresa'];
-                }
                 save('usuarios', $usuario);
-                header('Location: '.BASEURL.'logins/login.php');
+                header('Location: '.BASEURL);
             } catch (Exception $e) {
                 $_SESSION['message'] = "Aconteceu um erro: " . $e->getMessage();
                 $_SESSION['type'] = "danger";
             }
         }
     }
+    function addEmpresa() {
+
+      if (!empty($_POST['usuario'])) {
+          try {
+              $usuario = $_POST['usuario'];
+
+              if (!empty($_FILES["foto"]["name"])){
+                //Upload da foto
+                  $pasta_destino = "fotos/";
+                  $arquivo_destino = $pasta_destino . basename($_FILES["foto"]["name"]);
+                  $nomearquivo = basename($_FILES["foto"]['name']);
+                  $resolucao_arquivo = getimagesize($_FILES["foto"]["tmp_name"]);
+                  $tamanho_arquivo = $_FILES["foto"]["size"];
+                  $nome_temp = $_FILES["foto"]["tmp_name"];
+                  $tipo_arquivo = strtolower(pathinfo($arquivo_destino, PATHINFO_EXTENSION));
+
+                  upload($pasta_destino, $arquivo_destino, $tipo_arquivo, $nome_temp, $tamanho_arquivo);
+
+                  $usuario['foto'] = $nomearquivo;
+              }
+
+              if (!empty($usuario['password'])){
+                  $senha = criptografia($usuario['password']);
+                  $usuario['password'] = $senha;
+              }
+
+              $usuario['foto'] = $nomearquivo;
+              $_SESSION['message'] = "Você se cadastrou com sucesso agora faça o Login";
+              $_SESSION['type'] = "success";
+              $cnpj = $_SESSION['id_empresa'];
+              $usuario['fk_empresas_cnpj'] = $cnpj;
+              if(!isset($_SESSION['id_empresa'])){
+                $usuario['fk_empresas_cnpj'] = $_SESSION['id_empresa'];
+              }
+              save('usuarios', $usuario);
+              header('Location: '.BASEURL);
+          } catch (Exception $e) {
+              $_SESSION['message'] = "Aconteceu um erro: " . $e->getMessage();
+              $_SESSION['type'] = "danger";
+          }
+      }
+  }
     function edit() {
       //$today = new DateTime("now");
     // $now = date_create('now', new DateTimeZone('America/Sao_Paulo'));
@@ -129,7 +166,7 @@
 
               $id = $_SESSION['id'];
 
-              if (isset($_POST['usuario'])) {
+              if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['usuario'])) {
 
                 $usuario = $_POST['usuario'];
    
@@ -154,11 +191,16 @@
               }
 
                 update('usuarios', $id, $usuario);
-                header('location: index.php');
+                $usuario_atualizado = find2("usuarios", $id);
+                $_SESSION['nome'] = $usuario_atualizado['nome'];
+                $_SESSION['email'] = $usuario_atualizado['email'];	
+                $_SESSION['foto'] = $usuario_atualizado['foto'];
+                $_SESSION['password'] = $usuario_atualizado['password'];
+                header('location: '. BASEURL .  'index.php');
               } else {
 
                 global $usuario;
-                $usuario = find("usuarios", $id);
+                $usuario = find2("usuarios", $id);
               } 
             } else {
               header('location: ../index.php');

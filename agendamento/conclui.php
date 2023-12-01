@@ -1,17 +1,12 @@
 <?php 
 ob_start();
 include('../protecao/protect.php');
-  require_once('functions.php'); 
+  require_once('functions.php');
+  require_once('../conexao.php');  
   $id = $_GET['id'];
 $sqlconsulta =  "select * from agendamentos where id = $id";
-	
-	// executando instrução SQL
-	$host = "localhost"; 			
-	$user = "root"; 
-	$pass = ""; 
-	$db = "tcc";
-$conexao = mysqlI_connect($host, $user, $pass, $db);
-	$resultado = @mysqli_query($conexao, $sqlconsulta);
+
+	$resultado = @mysqli_query($conn, $sqlconsulta);
 			$dados=mysqli_fetch_array($resultado);
 			
 
@@ -19,7 +14,7 @@ $conexao = mysqlI_connect($host, $user, $pass, $db);
     $agendamento['status'] = 'concluido';
     $agendamento['eventColor'] = 'blue';
     update('agendamentos', $id, $agendamento);
-    header('location: ../empresas/agenda.php');
+    header('location: ../empresas/index.php');
   } else {
     die("ERRO: ID não definido.");
   }

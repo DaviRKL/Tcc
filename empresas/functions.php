@@ -104,9 +104,13 @@ function add() {
           $empresa['foto'] = $nomearquivo;
           
           save('empresas', $empresa);
-           $id = $_SESSION['id'];
-           $cnpj= $empresa['cnpj'];
+          $id = $_SESSION['id'];
+          $cnpj = $empresa["cnpj"];
+          $_SESSION['id_empresa'] = $cnpj;
           update_cnpj_usuario('usuarios', $id, $cnpj);
+          $usuario_atualizado = find2("usuarios", $id);
+          var_dump($usuario_atualizado);
+         
           header('Location: index.php');
       } catch (Exception $e) {
           $_SESSION['message'] = "Aconteceu um erro: " . $e->getMessage();
@@ -148,7 +152,7 @@ function addfuncionario() {
             $usuario['fk_empresas_cnpj'] = $_SESSION['id_empresa'];
           }
           save('usuarios', $usuario);
-          header('Location: '.BASEURL.'empresas/agenda.php');
+          header('Location: '.BASEURL.'empresas/index.php');
       } catch (Exception $e) {
           $_SESSION['message'] = "Aconteceu um erro: " . $e->getMessage();
           $_SESSION['type'] = "danger";

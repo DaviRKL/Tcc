@@ -1,0 +1,137 @@
+h5 {
+  color: black;
+}
+
+.agendamentos {
+  padding-left: 0px;
+}
+
+.agendamentos {
+  max-width: var(--largura-da-pagina);
+  width: 100%;
+  padding: 10px 0px 0px;
+}
+
+.agendamentos {
+  max-width: var(--largura-da-pagina);
+  width: 100%;
+  padding: 30px 100px 0px;
+}
+
+.agendamentos .titulo {
+  font-family: 'Montserrat';
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  margin-top: 25px;
+  position: relative;
+  color: #07295f;
+  margin-bottom: 0px;
+}
+
+.agendamentos .titulo::after {
+  bottom: -8px;
+  content: "";
+  position: absolute;
+  display: block;
+  width: 70px;
+  height: 3px;
+  background-image: linear-gradient(
+    90deg,
+    rgba(0, 163, 180, 1) 0%,
+    rgba(7, 41, 95, 1) 76%
+  );
+}
+
+.agendamentos #novo-pet {
+  margin-top: 25px;
+  padding: 7px 10px;
+  text-transform: uppercase;
+  color: #07295f;
+  font-weight: 800;
+  border: none;
+  background-color: #d9d9d9;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+.agendamentos #novo-pet:hover {
+  box-shadow: 0 0 5px 0 black;
+}
+
+.agendamentos .pets .pet {
+  margin-top: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 35px;
+}
+
+/* Novo Agendamento */
+
+.agendamentos .formulario .observacao {
+  font-family: 'Montserrat';
+  padding-top: 20px;
+  margin-bottom: 0;
+  color: black;
+}
+
+.agendamentos .formulario .texto {
+  font-family: 'Montserrat';
+  max-width: 130px;
+}
+
+.agendamentos .formulario .texto1 {
+  font-family: 'Montserrat';
+  max-width: 125px;
+}
+
+.agendamentos .formulario .texto2 {
+  font-family: 'Montserrat';
+  max-width: 170px;
+}
+
+.agendamentos .formulario .texto3 {
+  font-family: 'Montserrat';
+  max-width: 40px;
+}
+
+.agendamentos .formulario .texto4 {
+  font-family: 'Montserrat';
+  max-width: 60px;
+}
+
+/* Controle das Empresas - Adicionar Funcionário */
+
+.formulario .campo1 {
+  font-family: 'Montserrat';
+  padding: 0px;
+  max-width: 175px;
+}
+
+.formulario .campo2 {
+  font-family: 'Montserrat';
+  max-width: 50px;
+}
+
+.formulario .campo3 {
+  font-family: 'Montserrat';
+  max-width: 50px;
+}
+
+.formulario .campo4 {
+  font-family: 'Montserrat';
+  max-width: 40px;
+}
+
+.formulario .campo5 {
+  font-family: 'Montserrat';
+  max-width: 140px;
+}
+
+/* Agenda */
+
+.calendar {
+  z-index: -1;
+  
+}
