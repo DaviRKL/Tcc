@@ -18,7 +18,7 @@ $empresa_name = get_empresa_name($id_empresa);
 <section class="empresas">
   <h2 class="titulo">Agendamentos Marcados de <?php echo $empresa_name?></h2>
   <?php if (isset($_SESSION['id'])): ?>
-    <a href="./addFuncionarios.php"><button type="button" id="novo-pet"><i class="fa fa-plus"></i>novo funcionário</button></a>
+    <a href="./addFuncionarios.php"><button type="button" id="novo-pet"><i class="fa fa-plus"></i> novo funcionário</button></a>
   <?php endif; ?>
 </section>
 

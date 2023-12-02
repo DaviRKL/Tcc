@@ -30,7 +30,7 @@ index();
 					<div class="card">
 						<div class="card-body">
 							<h4 class="card-title"
-								style="display: flex;flex-direction: row;justify-content: center; align-items: center; padding-top:35px; font-size: 20px">
+								style="display: flex;flex-direction: row;justify-content: center; align-items: center; padding-top:10px; font-size: 20px; color: #07295F;">
 								Pet:
 								<?php echo $pet_name; ?>
 							</h4>

@@ -59,9 +59,171 @@
   font-size: 14px;
 }
 
+
 /* Empresa-Selecionada */
 
-.card {
-  background-color: red;
+.empresa-selecionada .lalala {
+  display: grid;
+  display: flex;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 50px;
 }
 
+.empresa-selecionada .empresa-foto {
+  box-shadow: 5px 5px 0px #526A8F;
+}
+
+.empresa-nome {
+  font-size: 28px;
+  font-weight: 500;
+  width: 600px;
+  letter-spacing: 0.3px;
+  color: black;
+  margin-bottom: 0px;
+  padding-left: 30px;
+}
+
+.empresa-selecionada .endereco {
+  font-size: 14px;
+  width: 600px;
+  letter-spacing: 0.3px;
+  color: black;
+  padding-top: 37px;
+  padding-left: 30px;
+}
+
+.empresa-selecionada .empresa-star {
+  padding-left: 30px;
+  padding-top: 0px;
+  display: flex;
+  display: grid;
+  grid-template-columns: 0fr 0fr;
+}
+
+.empresa-selecionada .empresa-star .nota-empresa {
+  padding-left: 5px;
+  padding-top: 2px;
+}
+
+.empresa-selecionada .endereco {
+  padding-left: 30px;
+  padding-top: 0px;
+  display: flex;
+  display: grid;
+  grid-template-columns: 0fr 0fr;
+  padding-top: 0px;
+}
+
+.empresa-selecionada .endereco .endereco-icone img {
+  margin-left: -3px;
+  margin-right: 2px;
+  margin-top: 5px;
+  width: 30px;
+}
+
+.empresa-selecionada .endereco .endereco-escrito .rua {
+  margin-bottom: 0px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  position: relative;
+  color: #00A3B4;
+}
+
+.empresa-selecionada .endereco .endereco-escrito .endereco-banco {
+  width: 800px;
+}
+
+.empresa-selecionada .botao {
+  padding-left: 30px;
+  padding-top: 0px;
+  display: flex;
+  gap: 10px;
+  padding-top: 75px;
+}
+
+.empresa-selecionada .empresa-telefone {
+    padding-left: 30px;
+    padding-top: 0px;
+    display: flex;
+    display: grid;
+    grid-template-columns: 0fr 0fr;
+    padding-top: 0px;
+}
+
+.empresa-selecionada .empresa-telefone .telefone img {
+  margin-left: 0px;
+  margin-top: 4px;
+  width: 25px;
+  margin-right: 2px;
+}
+
+.empresa-selecionada .empresa-telefone .telefone-info {
+  margin-left: 0px;
+  margin-top: 4px;
+  width: 800px;
+}
+
+
+/* Empresa-Selecionada - Parte Inferior */
+
+.parte-inferior .empresa-info-abaixo .sobre-empresa .titulo-sobre {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  margin-top: 25px;
+  padding-bottom: 0px;
+  color: #07295f;
+}
+
+.parte-inferior .empresa-info-abaixo .sobre-empresa .sobre-info {
+  max-width: 800px;
+  margin-top: -3px;
+  color: black;
+}
+
+.parte-inferior .empresa-info-abaixo .sobre-empresa .avaliacao-titulo {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  margin-top: 30px;
+  padding-bottom: 0px;
+  color: #07295f;
+  padding-bottom: 20px;
+}
+
+/* Empresa-Selecionada - Avaliação */
+
+.sistema-avaliacao .avaliacao-box .titulo-avaliacao {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  margin-top: 25px;
+  padding-top: 50px;
+  position: relative;
+  color: #07295f;
+}
+
+.sistema-avaliacao .avaliacao-box .titulo-avaliacao::after {
+  bottom: -8px;
+  content: "";
+  position: absolute;
+  display: block;
+  width: 70px;
+  height: 3px;
+  background-image: linear-gradient(
+    90deg,
+    rgba(0, 163, 180, 1) 0%,
+    rgba(7, 41, 95, 1) 76%
+  );
+}
+
+.sistema-avaliacao .avaliacao-box .estrelas{
+ padding-bottom: 15px;
+}
+
+.sistema-avaliacao .avaliacao-box .botao{
+  padding-top: 10px;
+ }

@@ -3,16 +3,18 @@ ob_start();
 require_once('functions.php');
 view($_GET['cnpj']);
 $cnpj = $_GET['cnpj'];
+$tabela = 'avaliacoes';
+$coluna = 'qtd_estrela';
 ?>
 <?php include_once(HEADER_TEMPLATE); ?>
 <section class="meus-pets center">
 
 </section>
 
-<div class="container">
-	<div class="row">
-		<div class="empresa-selecionada">
-		
+<div class="container" style="padding-bottom:20px">
+	<div class="empresa-selecionada">
+		<div class="lalala">
+			<div class="empresa-foto">
 				<?php
 				if (!empty($empresa['foto'])) {
 					echo "<img src=\"imagens/" . $empresa['foto'] . "\"  width=\"300px\"  height=\"300px\">";
@@ -20,48 +22,87 @@ $cnpj = $_GET['cnpj'];
 					echo "<img src=\"imagens/SemImagem.png\" class\"card-img-top\" width=\"300px\"  height=\"300px\">";
 				}
 				?>
-			
-
-			<div class="col-4">
-				<h2 style=" color: #242e8c;">empresa
-					<?php echo $empresa['nome']; ?>
-				</h2>
 			</div>
 
-			<dl class="dl-horizontal">
-				<dt>Endereço:</dt>
-				<dd>
-					<?php echo $empresa['endereço']; ?>
-				</dd>
+			<div class="empresa-info-lateral">
+				<div class="col-4">
+					<h2 class="empresa-nome">
+						<?php echo $empresa['nome']; ?>
+					</h2>
+				</div>
 
-				<dt>Sobre a empresa:</dt>
-				<dd>
-					<?php echo $empresa['sobre']; ?>
-				</dd>
+				<div class="empresa-star">
+					<div class="estrela">
+						<img src="<?php echo BASEURL ?>images/icons/star.svg" alt="" />
+					</div>
+					<?php
+					$cnpj = $empresa['cnpj'];
+					$media = calcularMedia(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME, $tabela, $coluna, $cnpj);
+					?>
+					<p class="nota-empresa"><?php echo $media?></p>
+				</div>
 
-			</dl>
+				<div class="empresa-telefone">
+					<div class="telefone">
+						<img src="<?php echo BASEURL ?>images/icons/telefone.svg" alt="" />
+					</div>
 
-			<div id="actions" class="row">
-				<div class="col-md-12">
+					<p class="telefone-info">
+						<?php echo $empresa['telefone']; ?>
+					</p>
+				</div>
+
+				<dl class="endereco">
+					<div class="endereco-icone">
+						<img src="<?php echo BASEURL ?>images/icons/localizacao.svg" alt="" />
+					</div>
+
+					<div class="endereco-escrito">
+						<p class="rua">Endereço:</p>
+						<dd class="endereco-banco">
+							<?php echo $empresa['endereço']; ?>
+						</dd>
+					</div>
+				</dl>
+
+				<div id="actions" class="botao">
 					<a href="<?php echo BASEURL; ?>agendamento/add.php?id=<?php echo $empresa['cnpj']; ?>"
-						style="width: 150px;  background: rgb(0,163,180);background: linear-gradient(90deg, rgba(0,163,180,1) 0%, rgba(7,41,95,1) 76%); border: none;"
+						style="background: rgb(0,163,180); background: linear-gradient(90deg, rgba(0,163,180,1) 0%, rgba(7,41,95,1) 76%); width: 210px; border: none;border-radius: 15px;"
 						class="btn btn-secondary">Agende já</a>
 					<?php if (isset($_SESSION['id'])): ?>
-						<a href="add_coment.php?cnpj=<?php echo $empresa['cnpj']; ?>" class="btn btn-default"><i
-								class="fa-regular fa-comment"></i> Avalie esta empresa</a>
+
+						<a href="add_coment.php?cnpj=<?php echo $empresa['cnpj']; ?>"
+							style="background: rgb(0,163,180);
+								background: linear-gradient(90deg, rgba(0,163,180,1) 0%, rgba(7,41,95,1) 76%);border: none; width: 230px; border-radius: 15px;" class="btn btn-default">Avalie essa
+							empresa</a>
 					<?php endif; ?>
-					<a href="<?php echo BASEURL ?>index.php" class="btn btn-default"><i
-							class="fa-solid fa-rotate-left"></i> Voltar</a>
 				</div>
+
 			</div>
-			<h1>Avaliações dos Usuários</h1>
+
+		</div>
+	</div>
+
+	<div class="parte-inferior">
+		<div class="empresa-info-abaixo">
+			<div class="sobre-empresa">
+				<p class="titulo-sobre">Sobre</p>
+				<p class="sobre-info">
+					<?php echo $empresa['sobre']; ?>
+				</p>
+
+
+
+				<h1 class="avaliacao-titulo">Avaliações</h1>
+			</div>
+
 			<?php
 
 			// Recuperar as avaliações do banco de dados
 			$query_avaliacoes = "SELECT id, qtd_estrela, mensagem, id_usuario , created
-										FROM avaliacoes
-										WHERE id_empresa = '$cnpj' 
-										ORDER BY created DESC";
+												FROM avaliacoes
+												WHERE id_empresa = '$cnpj' 
+												ORDER BY created DESC";
 			// Preparar a QUERY
 			$conn = new pdo("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD);
 			$result_avaliacoes = $conn->prepare($query_avaliacoes);
@@ -101,6 +142,5 @@ $cnpj = $_GET['cnpj'];
 		</div>
 	</div>
 </div>
-
 <?php include(FOOTER_TEMPLATE);
 ob_end_flush(); ?>

@@ -6,7 +6,7 @@
 
 
 
-.btn-light, .btn-default, select {
+.btn-light, .btn-default, input, select {
     font-family: 'Montserrat';
     color: #FFF;
     background-color:#20324F;
@@ -32,10 +32,6 @@
 .btn-dark:hover {
     color: #FFF;
     background-color: #8396A8;
-}
- #actions, h2{
-    font-family: 'Montserrat';
-    margin-top: 10px;
 }
 
 .espaco-topo{
@@ -146,7 +142,7 @@ label{
     }
 }
 #calendar {
-    max-height: 900px;
+   
     max-width: 1000px;
     margin: 0 auto;
     margin-top: 10px;
@@ -243,7 +239,7 @@ input[type="text"],
 	input[type="email"],
 	input[type="password"],
 	input[type="file"]  {
-		background-color: #D9D9D9;
+		background-color: #d1d1d1;
 	}
 
 	h2,label, p, a, h4{

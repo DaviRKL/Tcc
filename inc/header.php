@@ -16,17 +16,16 @@ include_once('controla_login.php');
   <head>
   <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pets</title>
+    <title>DearPetz</title>
     <link rel="icon" href="<?php echo BASEURL; ?>images/LogoIcone.ico" type="image/x-icon">
 	<link rel="stylesheet" href="<?php echo BASEURL; ?>css/custom.css">
 	<link rel="stylesheet" href="<?php echo BASEURL; ?>css/reset.css" />
     <link rel="stylesheet" href="<?php echo BASEURL; ?>css/header.css" />
     <link rel="stylesheet" href="<?php echo BASEURL; ?>css/global-style.css" />
     <link rel="stylesheet" href="<?php echo BASEURL; ?>css/secao-bem-vindos.css" />
-    <link rel="stylesheet" href="<?php echo BASEURL; ?>css/secao-empresas.css" />
+  
     <link rel="stylesheet" href="<?php echo BASEURL; ?>css/footer.css" />
     <link rel="stylesheet" href="<?php echo BASEURL; ?>css/responsivo.css" />
-
     <link rel="stylesheet" href="<?php echo BASEURL; ?>css/bootstrap/bootstrap.min.css">
 	<link rel="stylesheet" href="<?php echo BASEURL; ?>css/awesome/all.min.css">
 	<link rel="stylesheet" href="<?php echo BASEURL; ?>css/style.css">
@@ -35,7 +34,7 @@ include_once('controla_login.php');
   <link rel="stylesheet" href="<?php echo BASEURL; ?>css/cadastro.css">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
+    <link rel="stylesheet" href="<?php echo BASEURL; ?>css/secao-empresas.css" />
   </head>
  
 

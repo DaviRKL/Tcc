@@ -42,7 +42,7 @@
 
               <div class="form-group col-md-6">
                 <label class="campo2" for="modelo">Email</label>
-                <input type="text" class="form-control" name="usuario['email']" required>
+                <input type="text" class="form-control" name="usuario['nome']" required>
               </div>
 
               <div class="form-group col-md-3">
@@ -62,11 +62,15 @@
               </div>
             </div>
 
-          <div class="form-group col-md-12" style="padding-top: 10px; display: flex;flex-direction: row;justify-content: center; align-items: center;" >
-            <div class="g-recaptcha" data-sitekey="6LdSZdEmAAAAAPzie5WGn96a_YHQ_cpoIZgq0iCz"></div>
+          <div class="form-group col-md-12" style="display: flex;flex-direction: row;justify-content: center; align-items: center;margin-top: 20px;" >
+            <p>Ou</p>
           </div>
           
-          <div id="actions" class="row">
+          <div class="form-group col-md-12" style="display: flex;flex-direction: row;justify-content: center; align-items: center;" >
+            <a href="../empresas/add.php">Cadastre-se como uma empresa</a>
+          </div>
+
+          <div id="actions" class="row" style="padding-bottom: 50px;">
             <div class="col-md-12"style="display: flex;flex-direction: row;justify-content: center; align-items: center; padding-top: 15px">
               <button type="submit" class="btn btn-secondary" style="width: 300px; border-radius: 15px; background: var(--Gradiente, linear-gradient(90deg, #00A3B4 3.36%, rgba(7, 41, 95, 0.96) 62.36%)); ">Salvar</button>
             </div>

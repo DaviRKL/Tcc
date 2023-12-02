@@ -34,13 +34,13 @@ if (isset($_POST['submit'])) {
           <form action="add.php" enctype="multipart/form-data" method="post" style="padding: 20px">
             <div class="row">
               <div class="form-group col-md-6">
-                <label class="campo1" for="modelo">Nome do funcionário</label>
+                <label class="campo-funcionario" for="modelo">Nome do funcionário</label>
                 <input type="text" class="form-control" name="usuario['nome']">
               </div>
 
               <div class="form-group col-md-6">
                 <label class="campo2" for="modelo">Email</label>
-                <input type="text" class="form-control" name="usuario['nome']">
+                <input type="text" class="form-control" name="usuario['email']">
               </div>
 
               <div class="form-group col-md-3">
@@ -61,7 +61,7 @@ if (isset($_POST['submit'])) {
 
             </div>
             <div id="actions" class="row">
-              <div class="col-md-12">
+              <div class="col-md-12" style="padding-bottom: 50px;">
                 <button type="submit" class="btn btn-secondary">Salvar</button>
                 <a href="index.php" class="btn btn-light">Cancelar</a>
               </div>

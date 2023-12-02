@@ -57,8 +57,8 @@ if (isset($_POST['submit'])) {
 							<p>Ou</p>
 						</div>
 						<div class="form-group col-md-12"
-							style="display: flex;flex-direction: row;justify-content: center; align-items: center;margin-left: 120px;margin-right: 120px">
-							<a href="<?php echo BASEURL; ?>usuarios/add.php">Cadastre-se na DearPets!</a>
+							style="display: flex;flex-direction: row;justify-content: center; align-items: center;margin-left: 120px;margin-right: 120px; padding-bottom: 10px">
+							<a href="<?php echo BASEURL; ?>usuarios/add.php">Cadastre-se na DearPetz!</a>
 						</div>
 						<div id="actions" class="row">
 							<div class="col-md-12" style="display: flex;flex-direction: row;justify-content: center; align-items: center;">

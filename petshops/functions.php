@@ -143,12 +143,12 @@ function processa($id_empresa = null){
       header("Location:" . BASEURL);
   } 
 }
-function calcularMedia($conn,  $host, $usuario, $senha, $banco, $tabela, $coluna, $cnpj) {
+function calcularMedia($host, $usuario, $senha, $banco, $tabela, $coluna, $cnpj) {
   // Conectar ao banco de dados
-
+  $conexao = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
   // Verificar a conexão
-  if (!$conn) {
+  if (!$conexao) {
       die("Erro na conexão com o banco de dados: " . mysqli_connect_error());
   }
 
@@ -156,10 +156,10 @@ function calcularMedia($conn,  $host, $usuario, $senha, $banco, $tabela, $coluna
   $consulta = "SELECT qtd_estrela FROM avaliacoes WHERE id_empresa = '$cnpj'";
 
   // Executar a consulta
-  $resultado = mysqli_query($conn, $consulta);
+  $resultado = mysqli_query($conexao, $consulta);
 
   if (!$resultado) {
-      die("Erro na consulta: " . mysqli_error($conn));
+      die("Erro na consulta: " . mysqli_error($conexao));
   }
 
   // Inicializar variáveis para calcular a média
@@ -178,11 +178,11 @@ function calcularMedia($conn,  $host, $usuario, $senha, $banco, $tabela, $coluna
   } else {
       $media = 0; // Evita divisão por zero
   }
-  $mediaInteiro = intval($media);
+  $mediaFormatada = number_format($media, 1, ',', '');
   // Fechar a conexão com o banco de dados
-  mysqli_close($conn);
+  mysqli_close($conexao);
 
-  return $mediaInteiro;
+  return $mediaFormatada;
 }
 function edit() {
 
