@@ -20,10 +20,8 @@ body {
   height: 100vh;
 }
 
-section {
-  width: 60%;
+section:not(.pets2) {
   margin: 0 auto;
- 
 }
 
 /* Responsivo */

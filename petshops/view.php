@@ -14,12 +14,12 @@ $coluna = 'qtd_estrela';
 <div class="container" style="padding-bottom:20px">
 	<div class="empresa-selecionada">
 		<div class="lalala">
-			<div class="empresa-foto">
+			<div class="pet-foto">
 				<?php
 				if (!empty($empresa['foto'])) {
 					echo "<img src=\"imagens/" . $empresa['foto'] . "\"  width=\"300px\"  height=\"300px\">";
 				} else {
-					echo "<img src=\"imagens/SemImagem.png\" class\"card-img-top\" width=\"300px\"  height=\"300px\">";
+					echo "<img src=\"imagens/cachorro-triste-capa (1).jpg\" width=\"300px\"  height=\"300px\">";
 				}
 				?>
 			</div>
@@ -111,34 +111,42 @@ $coluna = 'qtd_estrela';
 			$result_avaliacoes->execute();
 
 			// Percorrer a lista de registros recuperada do banco de dados
-			while ($row_avaliacao = $result_avaliacoes->fetch(PDO::FETCH_ASSOC)) {
-				//var_dump($row_avaliacao);
-			
-				// Extrair o array para imprimir pelo nome do elemento do array
-				extract($row_avaliacao);
-				$id = $row_avaliacao['id_usuario'];
-				$name = get_tutor_name($id);
-				echo "<p>Usuário: $name</p>";
-
-				// Criar o for para percorrer as 5 estrelas
-				for ($i = 1; $i <= 5; $i++) {
-
-					// Acessa o IF quando a quantidade de estrelas selecionadas é menor a quantidade de estrela percorrida e imprime a estrela preenchida
-					if ($i <= $qtd_estrela) {
-						echo '<i class="estrela-preenchida fa-solid fa-star"></i>';
-					} else {
-						echo '<i class="estrela-vazia fa-solid fa-star"></i>';
+			if($result_avaliacoes->rowCount() > 0):{
+				while ($row_avaliacao = $result_avaliacoes->fetch(PDO::FETCH_ASSOC)) {
+					//var_dump($row_avaliacao);
+				
+					// Extrair o array para imprimir pelo nome do elemento do array
+					extract($row_avaliacao);
+					$id = $row_avaliacao['id_usuario'];
+					$name = get_tutor_name($id);
+					echo "<p>Usuário: $name</p>";
+	
+					// Criar o for para percorrer as 5 estrelas
+					for ($i = 1; $i <= 5; $i++) {
+	
+						// Acessa o IF quando a quantidade de estrelas selecionadas é menor a quantidade de estrela percorrida e imprime a estrela preenchida
+						if ($i <= $qtd_estrela) {
+							echo '<i class="estrela-preenchida fa-solid fa-star"></i>';
+						} else {
+							echo '<i class="estrela-vazia fa-solid fa-star"></i>';
+						}
 					}
-				}
-
-				echo "<p> $mensagem</p>";
-				$d = new Datetime($created);
-				?>
-				<p>Comentado em:
-					<?php echo FormataData($created); ?>
-				</p>
-				<hr>
-			<?php } ?>
+	
+					echo "<p> $mensagem</p>";
+					$d = new Datetime($created);
+					?>
+					<p>Comentado em:
+						<?php echo FormataData($created); ?>
+					</p>
+					<hr>
+				<?php } 
+				
+			}else:{
+				echo "<p>Ainda não há avaliações para este Petshop =(</p>";
+			}
+		endif;?>
+			
+			
 		</div>
 	</div>
 </div>

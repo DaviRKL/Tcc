@@ -8,13 +8,23 @@
   width: 100%;
   padding: 10px 0px 0px;
 }
+.pet-foto{
+  box-shadow: 5px 5px 0px #526A8F;
+}
 
 .pets2 {
   max-width: var(--largura-da-pagina);
   width: 100%;
-  padding: 30px 100px 0px;
+  padding-top: 30px;
+  margin-left:30px;
 }
-
+.foto-pet::after {
+  background-image: linear-gradient(
+    90deg,
+    rgba(0, 163, 180, 1) 0%,
+    rgba(7, 41, 95, 1) 76%
+  );
+}
 .pets2 .titulo {
   font-family: 'Montserrat';
   font-size: 18px;
@@ -25,6 +35,7 @@
   position: relative;
   color: #07295f;
   margin-bottom: 0px;
+  margin-left: 0 auto;
 }
 
 .pets2 .titulo::after {
@@ -39,6 +50,7 @@
     rgba(0, 163, 180, 1) 0%,
     rgba(7, 41, 95, 1) 76%
   );
+  margin-left: 0 auto;
 }
 
 .empresas #novo-pet {

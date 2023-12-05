@@ -238,7 +238,7 @@ label{
 input[type="text"],
 	input[type="email"],
 	input[type="password"],
-	input[type="file"]  {
+	input[type="file"],  .form-select {
 		background-color: #d1d1d1;
 	}
 
@@ -251,5 +251,8 @@ input[type="text"],
 .dropdown-menu{
     background-color: transparent;
 }
+.formulario .linhas{
+    margin: 0 auto;
+  }
 
   

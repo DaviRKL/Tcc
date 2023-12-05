@@ -45,7 +45,7 @@ include_once('controla_login.php');
          var nomeJS = '<?php echo $_SESSION['nome'] ?>';
       window.onload = function() {
       AlertaLog();
-     
+
     };  
     </script>
      <?php elseif ((!isset($_SESSION['id_empresa']) & $_SESSION['id_empresa'] == null) || (!isset($_SESSION['id']))): ?>

@@ -18,20 +18,25 @@ include_once(HEADER_TEMPLATE);
 					<?php foreach ($pets as $pet): ?>
 						<div class="col-md-4" style='padding: 0; padding-bottom: 0px;'>
 							<a href="edit.php?id=<?php echo $pet['id']; ?>">
+
 								<li class="pet">
 									<?php
 									if (!empty($pet['foto'])) {
-										echo "<img src=\"imagens/" . $pet['foto'] . "\"  width=\"350px\"height=\"250px\" border-radius=\"70px\">";
+										echo "<img src=\"imagens/" . $pet['foto'] . "\"class=\"pet-foto\" width=\"350px\"height=\"250px\" border-radius=\"70px\">";
 									} else {
-										echo "<img src=\"imagens/SemImagem.png\" class=\"card-img-top\" width=\"200px\"height=\"200px\">";
+										echo "<img src=\"imagens/cachorro-triste-capa (1)-svg (1).svg\" class=\"pet-foto\" width=\"200px\"height=\"200px\">";
 									}
 									$id = base64_encode($pet['id']);
 									?>
+
 									<br>
 									<h4>
-										<div style="font-size: 20px;" > <?php echo $pet['nome']; ?> </div>
+										<div style="font-size: 20px; margin-top:-20px;">
+											<?php echo $pet['nome']; ?>
+										</div>
 									</h4>
 								</li>
+
 							</a>
 						</div>
 					<?php endforeach; ?>

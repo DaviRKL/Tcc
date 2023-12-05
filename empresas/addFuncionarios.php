@@ -31,21 +31,21 @@ if (isset($_POST['submit'])) {
 
       <section class="formulario">
         <div class="linhas">
-          <form action="add.php" enctype="multipart/form-data" method="post" style="padding: 20px">
+          <form action="addFuncionarios.php" enctype="multipart/form-data" method="post" style="padding: 20px">
             <div class="row">
               <div class="form-group col-md-6">
                 <label class="campo-funcionario" for="modelo">Nome do funcionário</label>
-                <input type="text" class="form-control" name="usuario['nome']">
+                <input type="text" class="form-control" name="usuario['nome']" required>
               </div>
 
               <div class="form-group col-md-6">
                 <label class="campo2" for="modelo">Email</label>
-                <input type="text" class="form-control" name="usuario['email']">
+                <input type="text" class="form-control" name="usuario['email']"required>
               </div>
 
               <div class="form-group col-md-3">
                 <label class= "campo3" for="campo3">Senha</label>
-                <input type="password" class="form-control" name="usuario['password']">
+                <input type="password" class="form-control" name="usuario['password']"required>
               </div>
               
               <div class="form-group col-md-7">

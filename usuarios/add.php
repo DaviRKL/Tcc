@@ -18,7 +18,7 @@
   }
   }
 ?>
-  
+ 
 <?php if (!empty($_SESSION['message'])) : ?>
   <div class =" alert alert-<?php echo $_SESSION['type']; ?> alert-dismissible" role="alert"> 
       <?php echo $_SESSION['message']; ?>
@@ -42,7 +42,7 @@
 
               <div class="form-group col-md-6">
                 <label class="campo2" for="modelo">Email</label>
-                <input type="text" class="form-control" name="usuario['nome']" required>
+                <input type="text" class="form-control" name="usuario['email']" required>
               </div>
 
               <div class="form-group col-md-3">
@@ -61,14 +61,6 @@
                   alt="pic">
               </div>
             </div>
-
-          <div class="form-group col-md-12" style="display: flex;flex-direction: row;justify-content: center; align-items: center;margin-top: 20px;" >
-            <p>Ou</p>
-          </div>
-          
-          <div class="form-group col-md-12" style="display: flex;flex-direction: row;justify-content: center; align-items: center;" >
-            <a href="../empresas/add.php">Cadastre-se como uma empresa</a>
-          </div>
 
           <div id="actions" class="row" style="padding-bottom: 50px;">
             <div class="col-md-12"style="display: flex;flex-direction: row;justify-content: center; align-items: center; padding-top: 15px">

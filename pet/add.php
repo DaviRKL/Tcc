@@ -18,11 +18,11 @@ add();
     </section>
     <form action="add.php" enctype="multipart/form-data" method="post" style="padding: 20px">
       <div class="row">
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-4">
           <label class="texto1" for="modelo">Nome do pet</label>
           <input type="text" class="form-control" name="pet['nome']">
         </div>
-        <div class="form-group col-md-2">
+        <div class="form-group col-md-3">
           <label class="texto7" for="marca">Tipo do pet</label>
           <input class="form-check-input" type="radio" id="dog" name="pet['tipo']" value="Cachorro"
             onclick="atualizarRacas()"> Cachorro</input>

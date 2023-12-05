@@ -92,12 +92,11 @@ include_once(HEADER_TEMPLATE);
 
 					<a href="./petshops/view.php?cnpj=<?php echo $empresa['cnpj']; ?>">
 						<li class="empresa-info">
-
 							<?php
 							if (!empty($empresa['foto'])) {
 								echo "<img src=\"./petshops/imagens/" . $empresa['foto'] . "\" class=\"empresa-img\">";
 							} else {
-								echo "<img src=\"./petshops/imagens/SemImagem.png\" class=\"empresa-img\">";
+								echo "<img src=\"./petshops/imagens/triste-capa.svg\" class=\"empresa-img\">";
 							}
 							$cnpj = base64_encode($empresa['cnpj']);
 							?>

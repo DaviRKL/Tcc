@@ -67,7 +67,7 @@ get_empresa();
             </select>
             <span id="disponibilidade"></span>
           </div>
-          <div id="actions" class="row">
+          <div id="actions" class="row" style="margin-top: 10px">
             <div class="col-lg-12">
               <button type="submit" class="btn btn-secondary" id="salvar" value="Agendar" disabled>Salvar</button>
               <a href="index.php" class="btn btn-light">Cancelar</a>

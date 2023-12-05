@@ -12,13 +12,15 @@ include('../protecao/protect.php');
   
 
 ?>
- <section class="pets2">
-      <h2 class="titulo">Meus pets</h2>
-    </section>
+ 
 
     <section class="formulario">
+   
       <div class="linhas">
         <form action="edit.php?  id=<?php echo $pet['id']; ?>" method="post" enctype="multipart/form-data" style="padding: 20px">
+        <section class="pets2" style="margin-left: -1px; margin-bottom: 20px;">
+      <h2 class="titulo">Editar Pet</h2>
+    </section>
           <div class="row">
             <div class="form-group col-md-6">
               <label class="texto1" for="modelo">Nome do pet</label>

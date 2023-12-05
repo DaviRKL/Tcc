@@ -105,44 +105,55 @@ function add() {
       }
   }
 }
-function processa($id_empresa = null){
+function processa($id_empresa = null) {
   if (!empty($_POST['estrela'])) {
-      $id_empresa = $_GET['cnpj'];
-      $id_usuario = $_SESSION['id'];
       
-      // Receber os dados do formulário
-      $estrela = filter_input(INPUT_POST, 'estrela', FILTER_DEFAULT);
-      $mensagem = filter_input(INPUT_POST, 'mensagem', FILTER_DEFAULT);
+      $id_empresa = isset($_GET['cnpj']) ? $_GET['cnpj'] : null;
 
-      // Criar a conexão com o banco de dados usando MySQLi
-      $conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-
-      // Verificar a conexão
-      if ($conn->connect_error) {
-          die("Connection failed: " . $conn->connect_error);
-      }
-      $created = date("Y-m-d H:i:s");
-
-      // Criar a QUERY para cadastrar no banco de dados
-      $query_avaliacao = "INSERT INTO avaliacoes (qtd_estrela, mensagem, created, id_empresa, id_usuario) VALUES ('$estrela', '$mensagem', '$created', '$id_empresa', '$id_usuario')";
       
-      // Executar a declaração
-      $result = $conn->query($query_avaliacao);
-      
-      // Verificar se a execução foi bem-sucedida
-      if ($result) {
-          // Criar a mensagem de sucesso
-          $_SESSION['msg'] = "<p style='color: green;'>Avaliação cadastrada com sucesso.</p>";
+      if ($id_empresa) {
+          $id_usuario = $_SESSION['id'];
+
+          
+          $estrela = filter_input(INPUT_POST, 'estrela', FILTER_DEFAULT);
+          $mensagem = filter_input(INPUT_POST, 'mensagem', FILTER_DEFAULT);
+
+          
+          $conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+
+          
+          if ($conn->connect_error) {
+              die("Connection failed: " . $conn->connect_error);
+          }
+          $created = date("Y-m-d H:i:s");
+
+          
+          $query_avaliacao = "INSERT INTO avaliacoes (qtd_estrela, mensagem, created, id_empresa, id_usuario) VALUES ('$estrela', '$mensagem', '$created', '$id_empresa', '$id_usuario')";
+
+          
+          $result = $conn->query($query_avaliacao);
+
+          
+          if ($result) {
+              
+              $_SESSION['msg'] = "<p style='color: green;'>Avaliação cadastrada com sucesso.</p>";
+          } else {
+              
+              $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Avaliação não cadastrada.</p>";
+          }
+
+          
+          $redirect_url = BASEURL . "petshops/view.php?cnpj=" . urlencode($id_empresa);
+          header("Location:" . $redirect_url);
+          exit(); 
       } else {
-          // Criar a mensagem de erro
-          $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Avaliação não cadastrada.</p>";
+         
+          $_SESSION['msg'] = "<p style='color: #f00;'>Erro: CNPJ não fornecido.</p>";
+          header("Location:" . BASEURL);
       }
-
-  
-      // Redirecionar o usuário para a página inicial
-      header("Location:" . BASEURL);
-  } 
+  }
 }
+
 function calcularMedia($host, $usuario, $senha, $banco, $tabela, $coluna, $cnpj) {
   // Conectar ao banco de dados
   $conexao = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);

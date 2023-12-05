@@ -3,16 +3,16 @@ require_once('../config.php');
 require_once DBAPI;
 
 
-if (!isset($_SESSION)) {
+if (empty($_SESSION)) {
 	session_start();
 }
 
-?><script src='<?php echo BASEURL; ?>js/popper.min.js'></script>
-    <script src='<?php echo BASEURL; ?>js/bootstrap/bootstrap.min.js'></script>
-    <script src='<?php echo BASEURL; ?>js/main.js'></script><?php
 if (!isset($_SESSION['id'])) {
 	include_once(HEADER_TEMPLATE);
 
+	?><script src='<?php echo BASEURL; ?>js/popper.min.js'></script>
+    <script src='<?php echo BASEURL; ?>js/bootstrap/bootstrap.min.js'></script>
+    <script src='<?php echo BASEURL; ?>js/main.js'></script><?php
 
 	die("
 	<div style='font-family: Montserrat; letter-spacing: 0.3px; text-transform: uppercase; padding-top: 30px;display: flex; flex-direction: row; justify-content: center; align-items: center;'>

@@ -105,9 +105,10 @@
                     $usuario['password'] = $senha;
                 }
 
-                $usuario['foto'] = $nomearquivo;
+                
                 $_SESSION['message'] = "Você se cadastrou com sucesso agora faça o Login";
-                $_SESSION['type'] = "success";
+                echo "<script>";
+			          echo "alert('" . $_SESSION['message'] . "');";
                 save('usuarios', $usuario);
                 header('Location: '.BASEURL);
             } catch (Exception $e) {
@@ -116,6 +117,7 @@
             }
         }
     }
+			
     function addEmpresa() {
 
       if (!empty($_POST['usuario'])) {

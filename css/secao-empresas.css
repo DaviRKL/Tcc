@@ -48,6 +48,9 @@
   border-radius: 15px;
   object-fit: cover;
 }
+span.nome-empresa{
+  font-size: 20px;
+}
 .empresas .container-empresas .empresa-info .data,
 .empresas .container-empresas .empresa-info .info-nota {
   display: flex;
@@ -71,6 +74,8 @@
 
 .empresa-selecionada .empresa-foto {
   box-shadow: 5px 5px 0px #526A8F;
+  width: 300px;
+  height: 300px;
 }
 
 .empresa-nome {
@@ -181,13 +186,19 @@
   margin-top: -3px;
   color: black;
 }
-
+.endereco-banco,  .sobre-info{
+  overflow: hidden; /* Oculta o conteúdo que ultrapassar a largura */
+      word-wrap: break-word; /* Quebra as palavras longas */
+}
+.endereco-escrito {
+  width: 857px;  overflow: hidden;
+}
 .parte-inferior .empresa-info-abaixo .sobre-empresa .avaliacao-titulo {
   font-size: 18px;
   font-weight: 500;
   letter-spacing: 0.3px;
   text-transform: uppercase;
-  margin-top: 30px;
+  margin-top: 10px;
   padding-bottom: 0px;
   color: #07295f;
   padding-bottom: 20px;
@@ -206,7 +217,7 @@
   color: #07295f;
 }
 
-.sistema-avaliacao .avaliacao-box .titulo-avaliacao::after {
+.sistema-avaliacao .avaliacao-box, .titulo-avaliacao::after {
   bottom: -8px;
   content: "";
   position: absolute;
