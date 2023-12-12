@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Tempo de geração: 30/11/2023 às 22:18
--- Versão do servidor: 10.4.28-MariaDB
--- Versão do PHP: 8.2.4
+-- Host: localhost:3306
+-- Tempo de geração: 12/12/2023 às 21:03
+-- Versão do servidor: 10.5.20-MariaDB
+-- Versão do PHP: 7.3.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -26,6 +26,9 @@ SET time_zone = "+00:00";
 --
 -- Estrutura para tabela `agendamentos`
 --
+DROP DATABASE if exists tcc; 
+CREATE DATABASE tcc;
+USE tcc;
 
 CREATE TABLE `agendamentos` (
   `id` int(11) NOT NULL,
@@ -44,14 +47,10 @@ CREATE TABLE `agendamentos` (
 --
 
 INSERT INTO `agendamentos` (`id`, `id_tutor`, `id_pet`, `id_empresa`, `servico`, `data`, `horario`, `status`, `eventColor`) VALUES
-(61, 45, 13, '12.222.222/2222-22', 'banho e tobas', '2023-05-09', '10:00:00', 'Inconcluido', '#ff0000'),
-(62, 45, 13, '12.222.222/2222-22', 'banho e tobas', '2023-12-11', '10:00:00', 'Inconcluido', '#ff0000'),
-(63, 45, 13, '12.222.222/2222-22', 'banho e tobas', '2023-11-12', '10:00:00', 'Inconcluido', '#ff0000'),
-(64, 45, 13, '12.345.555/5555-55', 'Banho', '2023-11-13', '10:30:00', 'Inconcluido', '#ff0000'),
-(65, 45, 13, '12.222.222/2222-22', 'Banho e Tosa', '2023-11-22', '11:00:00', 'Inconcluido', '#ff0000'),
-(66, 45, 13, '12.345.668/8676-66', 'Banho e Tosa', '2023-11-14', '11:30:00', 'Inconcluido', '#ff0000'),
-(67, 45, 13, '12.345.555/5555-55', 'Banho e Tosa', '2023-11-30', '12:00:00', 'concluido', 'blue'),
-(68, 45, 14, '12.345.555/5555-55', 'Banho', '2023-11-30', '11:30:00', 'concluido', 'blue');
+(85, 67, 27, '24.756.474/5345-23', 'Banho e Tosa', '2023-12-06', '11:00:00', 'concluido', 'blue'),
+(86, 66, 32, '24.756.474/5345-23', 'Banho', '2023-12-16', '11:00:00', 'concluido', 'blue'),
+(87, 66, 32, '24.756.474/5345-23', 'Banho', '2023-12-06', '09:30:00', 'concluido', 'blue'),
+(88, 67, 27, '24.756.474/5345-23', 'Banho', '2023-12-15', '12:30:00', 'Inconcluido', '#ff0000');
 
 -- --------------------------------------------------------
 
@@ -74,48 +73,8 @@ CREATE TABLE `avaliacoes` (
 --
 
 INSERT INTO `avaliacoes` (`id`, `qtd_estrela`, `mensagem`, `created`, `modified`, `id_empresa`, `id_usuario`) VALUES
-(19, 4, 'ahfdhdfhd', '2023-11-12 10:44:26', NULL, '23456468', 6),
-(28, 4, '1312323sdfsdg', '2023-11-12 11:14:12', NULL, '12.345.555/5555-55', 6),
-(29, 4, 'LALALA', '2023-11-12 11:16:11', NULL, '12.345.555/5555-55', 6),
-(30, 4, 'LALALA', '2023-11-12 11:16:29', NULL, '12.345.555/5555-55', 6),
-(31, 4, 'LALALA', '2023-11-12 11:19:32', NULL, '12.345.555/5555-55', 6),
-(32, 4, 'sdgdsfg', '2023-11-12 11:19:36', NULL, '12.345.555/5555-55', 6),
-(33, 4, 'sdgdsfg', '2023-11-12 11:21:03', NULL, '12.345.555/5555-55', 6),
-(34, 3, 'q34234234', '2023-11-12 11:21:08', NULL, '12.345.555/5555-55', 6),
-(35, 3, 'q34234234', '2023-11-12 11:21:49', NULL, '12.345.555/5555-55', 6),
-(36, 3, '4r23423423', '2023-11-12 11:21:53', NULL, '12.345.555/5555-55', 6),
-(37, 3, '4r23423423', '2023-11-12 11:26:39', NULL, '12.345.555/5555-55', 6),
-(38, 4, 'aweqwqw', '2023-11-12 11:26:43', NULL, '12.345.555/5555-55', 6),
-(39, 4, 'aweqwqw', '2023-11-12 11:27:21', NULL, '12.345.555/5555-55', 6),
-(40, 4, 'qweq', '2023-11-12 11:27:25', NULL, '12.345.555/5555-55', 6),
-(41, 4, 'qweq', '2023-11-12 11:32:15', NULL, '12.345.555/5555-55', 6),
-(42, 4, 'LALALA', '2023-11-12 11:32:28', NULL, '12.345.555/5555-55', 6),
-(43, 4, 'LALALA', '2023-11-12 11:35:07', NULL, '12.345.555/5555-55', 6),
-(44, 4, 'LALALA', '2023-11-12 11:35:28', NULL, '12.345.555/5555-55', 6),
-(45, 3, 'SIm', '2023-11-30 15:10:13', NULL, '12.222.222/2222-22', 45),
-(46, 2, 'asa', '2023-11-30 15:13:28', NULL, '12.345.668/8676-66', 45);
-
--- --------------------------------------------------------
-
---
--- Estrutura para tabela `carrouses`
---
-
-CREATE TABLE `carrouses` (
-  `id` int(11) NOT NULL,
-  `imagen_carousel` varchar(220) NOT NULL,
-  `nome` varchar(220) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
---
--- Despejando dados para a tabela `carrouses`
---
-
-INSERT INTO `carrouses` (`id`, `imagen_carousel`, `nome`) VALUES
-(1, 'slide1.jpg', 'Curso um'),
-(2, 'slide3.jpg', 'Curso dois'),
-(3, 'slide1.jpg', 'Artigo um'),
-(4, 'slide3.jpg', 'Artigo dois');
+(50, 4, 'Muito bom', '2023-12-04 14:04:37', NULL, '12.123.123/1231-23', 66),
+(51, 4, 'Os funcionários são muito atenciosos', '2023-12-04 20:03:09', NULL, '12.123.123/1231-23', 67);
 
 -- --------------------------------------------------------
 
@@ -142,18 +101,21 @@ CREATE TABLE `empresas` (
 --
 
 INSERT INTO `empresas` (`cnpj`, `nome`, `endereço`, `telefone`, `precoBanho`, `precoTosa`, `foto`, `sobre`, `cidade`, `bairro`, `estado`) VALUES
-('12.222.222/2222-22', 'AgroPet', 'Rua 4', '(12) 3424-3534', '0', '0', 'petfeliz.jpg', 'HAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', NULL, NULL, NULL),
-('12.345.555/5555-55', 'Super Pets', 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', '', '0', '0', 'cachorroagenda.jpg', 'AHAHAHHAHAHAHAHHAAHHAHHAH', 'Campinas', 'Nao sei', 'São Paulo'),
-('12.345.668/8676-66', 'Gigas Shop', 'Rua 4', '(12) 3424-3534', 'R$23', 'R$435', 'Ban.jpg', 'qwerqwerqr2q3', 'Sorocaba', 'Campolim', 'São Paulo'),
-('12.480.235/7459-03', 'SoroPets', 'pokebola', '(12) 3124-3534', 'R$123', 'R$123', 'carrinhopet.jpeg', '42342452345re´gi0o9~hkudfhgedf´ger', 'Sorocaba', 'Sei la', 'São Paulo'),
-('23456467', 'PetVille', 'isso ai', '23453454', '22', '24', 'banban.jpg', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna. Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci. Aenean aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaanecloremaaaaaaaaaaaaaaaaaaaaaaaa.', NULL, NULL, NULL),
-('23456468', 'Gigas Shop', 'KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKAAAAAAA', '244324', '5', '19', 'petxopi.jpg', NULL, NULL, NULL, NULL),
-('23456470', 'PAW Patrol', 'KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK', '', '0', '0', 'paw.jpg', 'SIM isso meesmo', NULL, NULL, NULL),
-('23456471', 'Gigas Shop', 'pokebola', '244324', '122', '21312', 'ban.jpg', 'KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKMMMMMMMMMMMMMMMMMMMMM', NULL, NULL, NULL),
-('23456472', 'Adoro Banho', 'pokebola', '244324', '540', '2345', 'woof.jpg', 'HAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', NULL, NULL, NULL),
-('23456473', 'Na0 de banho', 'pokebola', '214334', '1234', '3531', 'petxopi.jpg', 'KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKMMMMMMMMMMMMMMMMMMMMM', NULL, NULL, NULL),
-('23456474', 'Mais um ', 'KAKAKA', '123123', '231421', '214748', 'desafios-administracao-petshop.jpg', 'ISSO AI', NULL, NULL, NULL),
-('23456475', 'LALALALA1', 'Pao', '3123123123', '213', '412', 'cachorro.jpg', 'HA HA HA', NULL, NULL, NULL);
+('12.123.123/1231-23', 'AgroPet', 'Rua José Fontoura Costa, 140', '(15) 9924-3534', 'R$100', 'R$120', 'sim.jpg', 'Deixe seu Pet sob nossos cuidados, e ele voltará bonito e cheiroso como nunca antes', 'Sorocaba', 'Campolim', 'São Paulo'),
+('12.345.678/9012-34', 'Patas Felizes', 'Avenida das Patinhas, 678', '(51) 6789-0123', 'R$40', 'R$60', 'petbanho.jpg', 'Aqui suas patas felizes são a nossa prioridade. Cuide conosco!', 'Porto Alegre', 'Moinhos de Vento', 'Rio Grande do Sul'),
+('23.456.789/0123-45', 'Pet Amigo', 'Rua dos Amigos, 789', '(41) 5678-9012', 'R$70', 'R$90', 'petamigo.jpg', 'Amamos animais tanto quanto você. Cuide bem do seu pet no Pet Amigo', 'Curitiba', 'Batel', 'Paraná'),
+('24.756.474/5345-23', 'Pet Legal', 'Rua 4 de Março', '(15) 9945-8656', 'R$23', 'R$70', 'petlegal.jpg', 'Nos somos muito legai e vamos deixar seu pet legal ', 'Sorocaba', 'Cajuru do Sul', 'São Paulo'),
+('32.109.876/0001-17', 'Pet Felicidade', 'Rua da Felicidade, 234', '(15) 4321-0987', 'R$75', 'R$95', 'petbrinquedo.jpg', 'Proporcione momentos de pura felicidade ao seu pet. Venha nos visitar!', 'Sorocaba', 'Jardim Santa Rosália', 'São Paulo'),
+('34.567.567/5678-56', 'Pet Charme', 'Avenida das Flores, 78', '(11) 9876-5432', 'R$80', 'R$100', 'petshop2.jpg', 'Proporcionamos o melhor para o seu pet. Venha nos visitar!', 'Sorocaba', 'Vila Helena', 'São Paulo'),
+('43.210.987/0001-16', 'Pet Vip Sorocaba', 'Av. VIP, 987', '(15) 7654-3210', 'R$95', 'R$115', 'petsorriso.jpg', 'Tratamento VIP para o seu pet. Garanta o conforto que ele merece!', 'Sorocaba', 'Vila Progresso', 'São Paulo'),
+('45.678.901/2345-67', 'PetsFelizes', 'Rua das Alegrias, 567', '(22) 8765-4321', 'R$60', 'R$80', 'petespuma.jpg', 'Seu pet merece o melhor cuidado. Traga-o para PetsFelizes!', 'Sorocaba', 'Jardim Simus', 'Rio de Janeiro'),
+('54.321.098/0001-15', 'Happy Neko', 'Avenida Felicidade, 890', '(51) 6789-0123', 'R$45', 'R$65', 'happyneko.jpg', 'Aqui, suas patas serão as mais felizes. Cuide do seu pet conosco!', 'Porto Alegre', 'Moinhos de Vento', 'Rio Grande do Sul'),
+('65.432.109/0001-14', 'Charme Pet', 'Av. do Charme, 567', '(19) 3456-7890', 'R$85', 'R$105', 'petcharme.jpg', 'Seu pet merece o charme que só encontrará aqui. Venha nos conhecer!', 'Campinas', 'Cambuí', 'São Paulo'),
+('67.890.123/4567-89', 'Amor aos Bichos', 'Alameda dos Bichinhos, 456', '(19) 3456-7890', 'R$90', 'R$110', 'amorgato.jpg', 'Dedicação e amor para deixar seu pet radiante. Venha nos conhecer!', 'Campinas', 'Cambuí', 'São Paulo'),
+('76.543.210/0001-13', 'Bicho Chic', 'Rua da Elegância, 123', '(15) 2345-6789', 'R$80', 'R$100', 'petchique.jpg', 'No Bicho Chic, seu pet terá o tratamento mais sofisticado. Venha conferir!', 'Sorocaba', 'Wanel Ville', 'São Paulo'),
+('87.654.321/0001-12', 'Pet Encanto', 'Av. da Alegria, 789', '(15) 8765-4321', 'R$90', 'R$110', 'petencanto.jpg', 'Proporcionamos momentos encantadores para o seu pet. Visite-nos agora!', 'Sorocaba', 'Jardim Europa', 'São Paulo'),
+('89.012.345/6789-01', 'Cão e Gato Mimos', 'Av. dos Mimados, 123', '(31) 1234-5678', 'R$80', 'R$100', 'cagato.jpg', 'Aqui seu pet é tratado com muito carinho e atenção', 'Belo Horizonte', 'Savassi', 'Minas Gerais'),
+('98.765.432/0001-11', 'Pet Amigo Sorocaba', 'Rua das Amizades, 456', '(15) 1234-5678', 'R$75', 'R$95', '', 'Cuidamos do seu pet como se fosse nosso melhor amigo. Venha nos visitar!', 'Sorocaba', 'Vila Helena', 'São Paulo');
 
 -- --------------------------------------------------------
 
@@ -177,16 +139,11 @@ CREATE TABLE `pets` (
 --
 
 INSERT INTO `pets` (`id`, `id_tutor`, `nome`, `tipo`, `sexo`, `raca`, `datanasc`, `foto`) VALUES
-(7, 6, 'Honey', 'Cachorro', 'Femêa', 'bundog', '2023-05-06 ', 'ban.jpg'),
-(13, 45, 'Cao chupando manga', 'Cachorro', 'Macho', ' American Bully ', '2023-11-11', 'sim.jpg'),
-(14, 45, 'Cao chupando manga 2', 'Gato', 'Femea', 'Bobtail Americano', '2023-11-13', 'sim.jpg'),
-(15, 6, 'asdasdas', 'Gato', 'Femea', 'Bobtail Americano', '2023-11-17', ''),
-(16, 6, 'Cao chupando manga', 'Cachorro', 'Macho', ' Afghan Hound ', '2023-11-30', ''),
-(17, 6, 'Cao chupando manga', 'Cachorro', 'Macho', ' Afghan Hound ', '', ''),
-(18, 45, 'cac', '', 'Macho', '', '', ''),
-(19, 45, 'q', '', 'Macho', '', '', ''),
-(20, 45, 'a', '', 'Macho', '', '', ''),
-(21, 45, 'g23t34t34', '', 'Macho', '', '', '');
+(25, 67, 'Bob', 'Cachorro', 'Macho', ' Basenji ', '2023-11-28', 'petespuma.jpg'),
+(26, 67, 'Tico', 'Cachorro', 'Macho', ' Akita Americano ', '2023-11-28', 'cachorro-triste-capa.png'),
+(27, 67, 'Teco', 'Gato', 'Macho', 'Angorá', '2023-11-30', 'petcharme.jpg'),
+(31, 67, 'Bito', 'Gato', 'Macho', 'Birmanês', '2023-11-27', 'gatinho.jpg'),
+(32, 66, 'Tobias', 'Cachorro', 'Macho', ' Beagle ', '2019-09-26', 'tobias.jpg');
 
 -- --------------------------------------------------------
 
@@ -199,7 +156,7 @@ CREATE TABLE `usuarios` (
   `nome` varchar(50) NOT NULL,
   `email` varchar(30) NOT NULL,
   `password` varchar(30) NOT NULL,
-  `foto` varchar(30) DEFAULT NULL,
+  `foto` varchar(255) DEFAULT NULL,
   `fk_empresas_cnpj` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -208,17 +165,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nome`, `email`, `password`, `foto`, `fk_empresas_cnpj`) VALUES
-(6, 'PatoHAHAHA', 'ahaha@gmail.com', '12345', 'sandro.jpg', '12.345.555/5555-55'),
-(45, 'BOris Johnson', 'naosei@gmail.com', '12345', '', NULL),
-(46, 'Joberson', 'naosei@gmail.com', '123232', '', NULL),
-(47, 'ghgdfhg', 'naosei@gmail.com', '123', '', NULL),
-(48, 'Zoro', 'naosei@gmail.com', '1231234123', '', NULL),
-(53, 'ghgdfhg', 'naosei@gmail.com', 'paofea', '', '12.345.555/5555-55'),
-(54, 'Zoro', 'naosei@gmail.com', '12321312', '', '12.345.555/5555-55'),
-(55, 'teste senha', 'naosei@gmail.com', '12123123', 'bdlogo.jpg', NULL),
-(56, 'Joberson', '', '123123123', 'banco.jpg', NULL),
-(57, 'Zoro', 'naosei@gmail.com', 'asdrfasfdas', '', NULL),
-(58, 'ghgdfhg', 'naosei@gmail.com', '12343423', 'desenvolvimento-web-linguagens', '12.345.555/5555-55');
+(66, 'Thomas', 'Thomas12@gmail.com', '12345', 'Thomas.jpg', NULL),
+(67, 'Carlinhos', 'Carlinhos12@gmail.com', '12345', 'carlinhos.jpg', NULL),
+(68, 'Empresario', 'Empresario@gmail.com', '12345', 'terno.jpg', '24.756.474/5345-23');
 
 --
 -- Índices para tabelas despejadas
@@ -240,12 +189,6 @@ ALTER TABLE `avaliacoes`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_empresa` (`id_empresa`,`id_usuario`),
   ADD KEY `id_usuario` (`id_usuario`);
-
---
--- Índices de tabela `carrouses`
---
-ALTER TABLE `carrouses`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Índices de tabela `empresas`
@@ -276,31 +219,25 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `agendamentos`
 --
 ALTER TABLE `agendamentos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 
 --
 -- AUTO_INCREMENT de tabela `avaliacoes`
 --
 ALTER TABLE `avaliacoes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
-
---
--- AUTO_INCREMENT de tabela `carrouses`
---
-ALTER TABLE `carrouses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT de tabela `pets`
 --
 ALTER TABLE `pets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- Restrições para tabelas despejadas
